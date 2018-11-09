@@ -32,12 +32,9 @@ def write_json_data(data, json_file):
 
 def backup_mongo_collection(collection):
     """
-    Creates json backup of defined mongodb collection in
-    /static/data/json/backups/ with timestamp.
+    Creates json backup of defined collection in /static/data/json/backups/
     Object _id is ommitted from backup.
-    Requires /static/data/json/backups/ to exist.
     """
-    collection = collection.find()
     backup_json = []
     for doc in collection:
         backup_json.append(doc)
@@ -56,7 +53,6 @@ def list_attr_values(attr, collection):
     Returns sorted list of all possible values of a defined attiribute in 
     all docs in defined collection.
     """
-    collection = collection.find()
     values = []
     for doc in collection:
         if attr in doc and doc[attr] != "" \
@@ -69,7 +65,6 @@ def list_attr_collection(collection):
     """
     Returns sorted list of all attributes in all docs in defined collection.
     """
-    collection = collection.find()
     attr_ls = []
     for doc in collection:
         for attr in doc:
@@ -80,12 +75,11 @@ def list_attr_collection(collection):
 
 def list_attr_dict(attr, collection):
     """
-    Returns list of dictionaries, each dictionary correspounds to a attribute 
-    value in collection. Dictionary contains attribute value, number of docs 
-    with attribute value in collection and sum of MEC_MW attribute for docs with
-    attribute value.
+    Returns sorted list of dictionaries, each dictionary correspounds to a 
+    attribute value in collection. Dictionary contains attribute value, 
+    number of docs with attribute value in collection and sum of MEC_MW 
+    attribute for docs with attribute value.
     """
-    collection = collection.find()
     values = ['NA']
     ls_attr_dict = [{'Name': 'NA', 'Count': 0, 'MEC_Sum': 0}]
     for doc in collection:
@@ -96,7 +90,8 @@ def list_attr_dict(attr, collection):
                     attr_dict['MEC_Sum'] += doc['MEC_MW']
                     break
         elif doc[attr] not in values:
-                attr_dict = {'Name': doc[attr], 'Count': 1, 'MEC_Sum': doc['MEC_MW']}
+                attr_dict = {'Name': doc[attr], 'Count': 1, 'MEC_Sum': \
+                             doc['MEC_MW']}
                 ls_attr_dict.append(attr_dict)
                 values.append(doc[attr])
         else: 
@@ -107,13 +102,31 @@ def list_attr_dict(attr, collection):
                         break
     for attr_dict in ls_attr_dict:
         attr_dict['MEC_Sum'] = round(attr_dict['MEC_Sum'], 2)
-    for attr_dict in ls_attr_dict: # when combined with above, not all MEC_Sum's rounded ??
+    # when below is combined with above, not all MEC_Sum's rounded ??
+    for attr_dict in ls_attr_dict: 
         if attr_dict['Name'] == 'NA' and attr_dict['Count'] == 0:
            ls_attr_dict.remove(attr_dict)
            values.remove('NA')
 
-    ls_attr_dict_sorted = [x for y,x in sorted(zip(values, ls_attr_dict), key=lambda pair: pair[0])]
+    ls_attr_dict_sorted = [x for y,x in sorted(zip(values, ls_attr_dict), \
+        key=lambda pair: pair[0])]
     return ls_attr_dict_sorted 
+
+def sort_collection(attr, reverse, collection):
+    collection_ls = []
+    attr_value_ls = []
+    for doc in collection:
+        attr_value_ls.append(doc[attr])
+        collection_ls.append(doc)
+    collection_sorted = [x for y,x in sorted(zip(attr_value_ls, collection_ls) \
+        ,key=lambda pair: pair[0], reverse=reverse)]
+    return collection_sorted 
+
+def get_total(attr, collection):
+    total = 0
+    for doc in collection:
+        total += doc[attr]
+    return round(total, 2)
 
 # TEMPLATE RENDERING FUNCTIONS ###############################################
 
@@ -129,8 +142,7 @@ def assets():
 def trends():
         print()
 
-print(list_attr_dict('Type', mongo.db.all_assets))
-
+print(sort_collection('Name', False, mongo.db.all_assets.find()))
 """
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
