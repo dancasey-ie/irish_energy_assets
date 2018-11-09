@@ -140,6 +140,19 @@ def search_collection(keyword, collection):
                     break          
         return flt_collection
 
+def filter_collection(attr, values, collection):
+    flt_collection = []
+    for doc in collection:
+        if attr in doc:
+            for value in values:
+                if doc[attr] == value or \
+                    (doc[attr] == '' and 'NA' in values):
+                    flt_collection.append(doc)
+        elif 'NA' in values:
+            flt_collection.append(doc)
+
+    return flt_collection
+
 # TEMPLATE RENDERING FUNCTIONS ###############################################
 
 @app.route('/')
@@ -183,7 +196,6 @@ def edit_asset():
 @app.route('/add_asset')
 def add_asset():
         print()
-
 
 
 if __name__ == '__main__':
