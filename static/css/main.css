@@ -71,7 +71,7 @@
     color: #c4c4c4;
 }
 
-/* ------------------------------------------------------About Styling*/
+/* ------------------------------------------------------Index Styling*/
 .about_container {
     background-color: #303130;
     border-color: #c4c4c4;
@@ -89,4 +89,94 @@
     border: 1px solid #c4c4c4;
     border-radius: 10px;
     color: black;
+}
+
+/* ------------------------------------------------------Asset Styling*/
+.asset_table {
+    border: 2px solid #c4c4c4;
+    border-radius: 10px;
+    background-color: #303130;
+}
+
+.table_row_container {
+    border-top: 2px solid #c4c4c4;
+}
+
+.table_row {
+}
+
+.row_attr {
+}
+
+.table_heading {
+    text-align: center;
+}
+
+.asset_details_collapse {
+    background-color: #555;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 1px solid #c4c4c4;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+.left-nav {
+    background-color: #303130;
+    border-color: #c4c4c4;
+    border-style: solid;
+    border-width: 1px;
+    padding: 30px;
+    border-radius: 10px;
+    margin: 0px
+}
+
+.sort-by-selecter {
+    width: 250px;
+}
+
+.search-input {
+    width: 250px;
+}
+
+.filter_collapse {
+    padding: 10px;
+    background-color: #555;
+    margin: 0px;
+    border: 1px solid #c4c4c4;
+    border-radius: 10px
+}
+
+.filter_header {
+    color: #c4c4c4;
+}
+
+.mec-range-field {
+    margin-left: 20px;
+}
+
+.mec_range_input {
+    width: 70px;
+    margin-right: 20px;
+    padding-left: 10px;
+}
+
+
+.edit_icon {
+    color: #f702ce;
+    padding: 5px;
+}
+
+    .edit_icon:hover {
+        color: #b35573;
+    }
+
+
+.asset-entry-form {
+    max-width: 300px;
+}
+
+
+.pie_image {
+    background-color: #303130;
 }
