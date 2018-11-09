@@ -6,6 +6,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
+
 with open('db_details.txt', 'r') as f:
     db_details = f.readlines()
     app.config["MONGO_DBNAME"] = db_details[0]
@@ -305,7 +306,6 @@ def update_asset(asset_id):
 def delete_asset(asset_id):
     mongo.db.all_assets.remove({'_id': ObjectId(asset_id)})
     return redirect(url_for("assets"))
-
 
 
 if __name__ == '__main__':
