@@ -128,6 +128,7 @@ def get_total(attr, collection):
         total += doc[attr]
     return round(total, 2)
 
+
 # TEMPLATE RENDERING FUNCTIONS ###############################################
 
 @app.route('/')
@@ -136,16 +137,46 @@ def index():
 
 @app.route('/assets')
 def assets():
-    print()
+    attributes = list_attr_collection(mongo.db.all_assets.find())
+    all_assets = mongo.db.all_assets.find()
+    statuses = list_attr_dict('Status', mongo.db.all_assets.find())
+    system_operators = list_attr_dict('SystemOperator', mongo.db.all_assets.find())
+    types = list_attr_dict('Type', mongo.db.all_assets.find())
+    nodes = list_attr_dict('Node', mongo.db.all_assets.find())
+    counties = list_attr_dict('County', mongo.db.all_assets.find())
+    assets = sort_collection('Name', False, mongo.db.all_assets.find())
+    mec_total = get_total('MEC_MW', assets)
 
+    return render_template("assets.html", 
+                           assets=assets,
+                           attributes=attributes,
+                           doc_count=len(assets),
+                           mec_total=mec_total,
+                           statuses=statuses,
+                           system_operators=system_operators,
+                           types=types,
+                           nodes=nodes,
+                           counties=counties)
+
+@app.route('/filtered_assets', methods=['POST'])
+def filtered_assets():
+    print()
 @app.route('/trends')
 def trends():
         print()
 
-print(sort_collection('Name', False, mongo.db.all_assets.find()))
-"""
+@app.route('/edit_asset')
+def edit_asset():
+        print()
+
+@app.route('/add_asset')
+def add_asset():
+        print()
+
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=os.environ.get('PORT'),
             debug=True)
-"""
+
