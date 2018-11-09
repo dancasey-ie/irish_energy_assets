@@ -128,6 +128,17 @@ def get_total(attr, collection):
         total += doc[attr]
     return round(total, 2)
 
+def search_collection(keyword, collection):
+    if keyword == "" or keyword == " ":
+        return collection
+    else:
+        flt_collection = []
+        for doc in collection:
+            for attr in doc:
+                if attr != '_id' and keyword in str(doc[attr]).lower():
+                    flt_collection.append(doc)
+                    break          
+        return flt_collection
 
 # TEMPLATE RENDERING FUNCTIONS ###############################################
 
