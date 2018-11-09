@@ -37,9 +37,9 @@ def backup_mongo_collection(collection):
     Object _id is ommitted from backup.
     Requires /static/data/json/backups/ to exist.
     """
-    collection_json = collection.find()
+    collection = collection.find()
     backup_json = []
-    for doc in collection_json:
+    for doc in collection:
         backup_json.append(doc)
     timestr = time.strftime("%Y%m%d-%H%M%S")
     for doc in backup_json:
@@ -65,6 +65,18 @@ def list_attr_values(attr, collection):
     values.sort()
     return values
 
+def list_attr_collection(collection):
+    """
+    Returns sorted list of all attributes in all docs in defined collection.
+    """
+    collection = collection.find()
+    attr_ls = []
+    for doc in collection:
+        for attr in doc:
+            if attr not in attr_ls:
+                attr_ls.append(attr)
+    attr_ls.sort()
+    return attr_ls
 
 # TEMPLATE RENDERING FUNCTIONS ###############################################
 
@@ -80,7 +92,7 @@ def assets():
 def trends():
         print()
 
-
+print(list_attr_collection(mongo.db.all_assets))
 """
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
