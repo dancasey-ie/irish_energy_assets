@@ -154,26 +154,9 @@
             <p>Showing {{doc_count}} assets</p>
             <p>Total MEC of {{mec_total}}MW</p>
         </div>
-        <!--
-    <div class="col-xs-4 col-xs-offset-4">
-        <form class="sort_form col-sm-10 col-sm-offset-1" method="POST" action="{{ url_for('filtered_assets')}}">
-            <div class="form-group row">
-                <label for="doc_sort" class="col-sm-4 col-form-label">Sort by:</label>
-                <div class="col-sm-8">
-                    <select class="form-control" name="doc_sort" id="doc_sort">
-                        <option>Name (A - Z)</option>
-                        <option>Name (Z - A)</option>
-                        <option>Type (A - Z)</option>
-                        <option>Type (Z - A)</option>
-                        <option>MEC (Low - High)</option>
-                        <option>Type (High - Low)</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn">Sort</button>
-            </div>
-        </form>
-    </div>
-        -->
+        <div class="col-xs-4 pull-right">
+            <a class="btn btn-primary" href="{{url_for('new_asset')}}" role="button">New Asset</a>
+        </div>
     </div>
     <div class="row table_heading">
         <div class="col-xs-4 col_header">Name</div>

@@ -3,6 +3,7 @@ import json
 import time
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
 
 app = Flask(__name__)
 with open('db_details.txt', 'r') as f:
@@ -255,10 +256,30 @@ def trends():
 def edit_asset():
         print()
 
-@app.route('/add_asset')
-def add_asset():
-        print()
+@app.route('/new_asset')
+def new_asset():
+    return render_template('add_asset.html')
 
+@app.route('/add_asset', methods=['POST'])
+def add_asset():
+    asset_db = mongo.db.all_assets.find()
+    asset_doc = {"Name": request.form['Name'],
+                 "Type":  request.form['Type'],
+                 "MEC_MW":  request.form['MEC_MW'],
+                 "GenRef":  request.form['GenRef'],
+                 "Company":  request.form['Company'],
+                 "Node":  request.form['Node'],
+                 "NodeAddress":  request.form['NodeAddress'],
+                 "NodeVoltage":  request.form['NodeVoltage'],
+                 "SystemOperator":  request.form['SystemOperator'],
+                 "AssetAddress":  request.form['AssetAddress'],
+                 "Status":  request.form['Status'],
+                 "New_Entry": 'Yes'
+                 }
+    mongo.db.all_assets.insert_one(asset_doc)
+    
+    return render_template("assets.html", 
+                           all_assets=mongo.db.all_assets.find())
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
