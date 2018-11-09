@@ -1,0 +1,145 @@
+CHP:,Combined Heat and Power
+AD Biogas:,Anaerobic digestion (AD) biogas (excludes biogas from landfill sites)
+CCGT:,Combined Cycle Gas Turbine
+OCGT:,Open Cycle Gas Turbine
+DO:,Distillate Oil
+HFO:,Heavy Fuel Oil
+LFG:,Land Fill Gas
+MEC:,Maximum Export Capacity
+On Hold:,"Project has been placed on hold, typically at the customers request"
+Connected:,Generators with electrical connection to the network which are permitted to export
+Energised:,Generators with electrical connection to the network which are NOT permitted to export
+Contracted:,"Generators that have signed a connection agreement with the System Operator and are committed toexporting MW's to the distribution and/or transmission system at a future date."
+"",
+Generator Reference,Project,Type,MEC (MW),Feeding 110kV Station,Offer Type,Status,Estimated Connection Date
+DG565,Dublin Waste to Energy Facility,CHP,72,Ringsend,Non GPA,Energised,04/07/2016
+DG230,Meath Waste to Energy Facility,Biomass,17,Drybridge,Non GPA,Connected,16/02/2011
+DG948,"Dairygold, Mitchelstown (2)",Nat. Gas,8.55,Barrymore,Pre-Gate,Connected,Date unavailable at this time
+ZG1029,Guinness,Nat. Gas,8.075,Inchicore,Pre-Gate,Connected,Date unavailable at this time
+ZG1024,"Glanbia, Ballyraggett",Nat. Gas,7.5,PORTLAOISE 110KV,Pre-Gate,Connected,Date unavailable at this time
+DG577,Wyeth Askeaton,Nat. Gas,6.5,Rathkeale,Pre-Gate,Connected,Date unavailable at this time
+ZG1012,Carbery Milk Products,Biogas,6,Dunmanway,Pre-Gate,Connected,Date unavailable at this time
+ZG1059,Dunsink,LFG,5,Finglas,Pre-Gate,Connected,Date unavailable at this time
+DG810,Drehid LFG Utilisation,LFG,4.999,Blake,Non GPA,Connected,25/10/2013
+ZG1060,Balleally,LFG,4.88,Glasmore,Pre-Gate,Connected,Date unavailable at this time
+ZG1027,Golden Vale,Nat. Gas,4.465,Charleville,Pre-Gate,Connected,Date unavailable at this time
+DG958,Clady,Hydro,4.3,Binbane,Pre-Gate,Connected,Date unavailable at this time
+DG935,Arthurstown LFG (1),LFG,4.26,Kilteel,Non GPA,Connected,Date unavailable at this time
+ZG1017,Dairygold Mallow,Nat. Gas,4.18,Mallow,Pre-Gate,Connected,Date unavailable at this time
+DG935b,Arthurstown LFG (3),LFG,4.1,Kilteel,Non GPA,Connected,Date unavailable at this time
+DG417,Leixlip Hydro,Hydro,4,Griffinrath,Pre-Gate,Connected,Date unavailable at this time
+DG1048,Pfizer Grange Castle DSU,Diesel,4,Grange castle,Non GPA,Energised,01/01/2017
+DG1099,Bailieboro CHP II,Biogas,3.9,Meath Hill,Non GPA,Connected,21/05/2018
+ZG1022,GE Super Abrasives (1),Diesel,3.75,Kilmore,Pre-Gate,Connected,Date unavailable at this time
+DG313,Knockharley Landfill Phase 2,LFG,3.525,Drybridge,Non GPA,Connected,29/06/2012
+DG537,Ballynagran Phase 2,LFG,3.5,Ballybeg,Non GPA,Connected,12/1/2015
+DG988,Meath Waste to Energy Facility (2),Biomass,3.5,Drybridge,Non GPA,Connected,10/10/2013
+DG915,Gortadroma Landfill Gas,LFG,3.2,Rathkeale,Non GPA,Connected,01/12/2008
+DG564,Adambridge Manufacturers Ltd.,Biomass,3,Knockearagh,Non GPA,Connected,01/05/2010
+ZG1023,GE Super Abrasives (2),Diesel,2.75,Kilmore,Pre-Gate,Connected,Date unavailable at this time
+DG930,Grainger's Sawmills CHP,Biomass,2.7,Bandon,Pre-Gate,Connected,Date unavailable at this time
+DG943,Brownstone LFG (1),LFG,2.55,Newbridge,Non GPA,Connected,Date unavailable at this time
+DG976,Rockygrange Hydroel,Hydro,2.19,Sligo,Pre-Gate,Connected,Date unavailable at this time
+ZG1062,Anarget Hydro,Hydro,2.1,Cathaleens Fall,Pre-Gate,Connected,Date unavailable at this time
+DG761,F.M.C. FMC,Nat. Gas,2,Castleview,Pre-Gate,Connected,Date unavailable at this time
+ZG1061,Ballyogan,LFG,1.9,Carrickmines,Pre-Gate,Connected,Date unavailable at this time
+ZG1031,Klinge,Diesel,1.74,Oughtragh,Pre-Gate,Connected,Date unavailable at this time
+DG169,Eras Eco AD (prev Knocknagappagh WF),Biogas,1.7,Dungarvan,Gate 2,Connected,10/08/2018
+DG566,Keelings CHP,Nat. Gas,1.7,Glasmore,Non GPA,Connected,13/05/2011
+DG872,Kilbush Nurseries CHP,Nat. Gas,1.6,Glasmore,Non GPA,Connected,31/12/2013
+ZG1030,Harp Ireland,Diesel,1.5,Dundalk,Pre-Gate,Connected,Date unavailable at this time
+ZG1034,Mater Hospital,CHP,1.5,Finglas,Pre-Gate,Connected,Date unavailable at this time
+DG314,Knockharley Phase 1,LFG,1.425,Drybridge,Non GPA,Connected,28/02/2011
+DG867,Whiteriver Landfill Site,LFG,1.274,Drybridge,Non GPA,Energised,06/03/2014
+DG929,Silliot Hill LFG,LFG,1.255,Newbridge,Non GPA,Connected,Date unavailable at this time
+DG943a,Brownstone LFG (1),LFG,1.25,Newbridge,Non GPA,Connected,Date unavailable at this time
+DG935a,Arthurstown LFG (2),LFG,1.25,Kilteel,Non GPA,Connected,13/01/2005
+DG980,Trewell (Cottoners),Hydro,1.2,Oughtragh,Pre-Gate,Connected,Date unavailable at this time
+DG563,Gorteen Lower,Biogas,1.065,ATHY,Non GPA,Energised,10/06/2015
+DG811,Aughrim Energy,Biomass,1,Arklow,Non GPA,Connected,01/01/2014
+DG968,Friarstown Landfill,LFG,1,Cookstown,Non GPA,Connected,Date unavailable at this time
+DG760,Millipore,Nat. Gas,1,Midleton,Pre-Gate,Connected,Date unavailable at this time
+DG567,University College Dublin,Nat. Gas,1,Blackrock,Pre-Gate,Connected,04/08/1999
+DG179,Bailie Foods,Nat. Gas,1,Meath Hill,Non GPA,Connected,18/01/2010
+DG898,Ormonde Organics AD,"Biogas /AD",1,Butlerstown,Non GPA,Energised,12/11/2013
+ZG1014,Civic Offices,Nat. Gas,0.922,Ringsend,Pre-Gate,Connected,Date unavailable at this time
+DG975,Owenbeg Natural Power,Hydro,0.8,Ballylickey,Pre-Gate,Connected,Date unavailable at this time
+DG967,ESB Valoren Project (Curramore mini Hydro),Hydro,0.768,Ballylickey,Pre-Gate,Connected,Date unavailable at this time
+ZG1016,"Cork University Hospital Southern HealthBoard",Nat. Gas,0.766,Kilbarry,Pre-Gate,Connected,Date unavailable at this time
+DG536,Ballynagran Phase 1,LFG,0.75,Ballybeg,Non GPA,Connected,07/01/2011
+DG178,Mahon Hydro Scheme (2),Hydro,0.7,Dungarvan,Non GPA,Connected,18/01/2008
+DG756,Corranure LFG,LFG,0.7,Shankill,Non GPA,Connected,01/03/2013
+DG966,Lough Eske,Hydro,0.66,Cathaleens Fall,Pre-Gate,Connected,Date unavailable at this time
+DG534,Connaught Regional Residual Landfill,LFG,0.66,Athlone,Non GPA,Connected,30/10/2010
+DG972,Lowerymore Hydro,Hydro,0.6,Cathaleens Fall,Pre-Gate,Connected,14/11/2001
+DG977,Ashgrove Mill,Hydro,0.6,Knockearagh,Pre-Gate,Connected,Date unavailable at this time
+DG416,Collooney Manufacturing,Hydro,0.5,Sligo,Pre-Gate,Connected,Date unavailable at this time
+DG753,Limerick Blow Moulding,CHP,0.499,Ardnacrusha,Non GPA,Connected,01/03/2011
+DG1024,KRLF Landfill Gas Utilisation,LFG,0.499,Trabeg,Non GPA,Connected,10/11/2015
+ZG1047,Slaheny River Hydro,Hydro,0.485,Ballylickey,Pre-Gate,Connected,27/02/2002
+ZG1006,Barnesbridge Hydro,Hydro,0.48,Cathaleens Fall,Pre-Gate,Connected,14/11/2001
+DG547,McDonnell Farms Biogas (1),Biogas,0.44,Rathkeale,Non GPA,Connected,26/10/2010
+ZG1039,Nadirkmore Hydro,Hydro,0.41,Castlebar,Pre-Gate,Connected,Date unavailable at this time
+ZG1026,Glenlough Generation,Hydro,0.41,Ballylickey,Pre-Gate,Connected,Date unavailable at this time
+DG1041,Rhode System Support Facility,"FlywheelEnergy",0.401,Blake,Non GPA,Energised,30/12/2015
+ZG1043,Parteen Weir,Hydro,0.4,Ardnacrusha,Pre-Gate,Connected,Date unavailable at this time
+ZG1045,Robert Perry,Hydro,0.4,Dallow,Pre-Gate,Connected,Date unavailable at this time
+ZG1053,Strongstream Electric,Hydro,0.38,Carlow,Pre-Gate,Connected,01/07/1991
+DG991,Derrinumera LFG,LFG,0.38,Carrowbeg,Non GPA,Connected,24/10/2014
+ZG1009,Borlin Valley Hydro,Hydro,0.365,Ballylickey,Pre-Gate,Energised,27/02/2002
+ZG1058,Adeery Hydro Scheme,Hydro,0.35,Binbane,Non GPA,Connected,Date unavailable at this time
+DG300,Elm Park Development 5,Nat. Gas,0.334,Blackrock,Non GPA,Connected,Date unavailable at this time
+ZG1020,Doorian Hydro,Hydro,0.32,Binbane,Pre-Gate,Connected,21/11/2000
+DG814,Bailie Foods Nat. Gas CHP (2),Nat. Gas,0.31,Meath Hill,Non GPA,Connected,17/12/2010
+DG1007,Corranure LFG (2),LFG,0.3,Shankill,Non GPA,Connected,06/05/2014
+ZG1052,Southern CIS (Aerobord Ltd),Hydro,0.29,Rathkeale,Pre-Gate,Connected,Date unavailable at this time
+DG788,"Stewarts Hospital (Nat. Gas CHP, 280 kW)",Nat. Gas,0.28,Finglas,Non GPA,Energised,01/09/2010
+ZG1033,Lee Road Hydro,Hydro,0.265,Trabeg,Pre-Gate,Connected,Date unavailable at this time
+DG478,North Kerry Landfill Site,LFG,0.25,Trien,Non GPA,Connected,Date unavailable at this time
+DG298,Elm Park Development 3,Nat. Gas,0.22,Blackrock,Non GPA,Connected,Date unavailable at this time
+ZG1010,Boyne Hydro LTD,Hydro,0.2,Navan,Pre-Gate,Connected,Date unavailable at this time
+ZG1035,Newtown Hse Hydro,Hydro,0.2,Thurles,Pre-Gate,Connected,Date unavailable at this time
+DG553,Aghadullagh Mill,Hydro,0.2,Cathaleens Fall,Non GPA,Connected,31/12/2010
+DG858,Tesco Cabra,CHP,0.2,Cabra,Non GPA,Energised,15/11/2011
+DG917,BEOFS,Biogas,0.18,Kilkenny,Pre-Gate,Connected,Date unavailable at this time
+ZG1037,Millstream Hydro,Hydro,0.18,Trien,Pre-Gate,Connected,Date unavailable at this time
+DG935c,Arthurstown LFG (4),LFG,0.17,Kilteel,Non GPA,Connected,Date unavailable at this time
+DG868,Mahon River Hydro,Hydro,0.163,Dungarvan,Non GPA,Energised,Date unavailable at this time
+DG776,Royal Hotel Bray,CHP,0.16,Fassaroe,Non GPA,Connected,Date unavailable at this time
+DG1733,Hogg Enterprises,,0.142,Crane,Non GPA,Connected,Date unavailable at this time
+DG834,Cahir Turbines,Hydro,0.14,Cahir,Pre-Gate,Connected,Date unavailable at this time
+DG305,Bruree Hydro,Hydro,0.132,Charleville,Non GPA,Connected,Date unavailable at this time
+ZG1051,Stewart Hydro Ltd,Hydro,0.132,Carrick on Shannon,Pre-Gate,Connected,Date unavailable at this time
+DG847,Coola Mills,Hydro,0.11,Thornsberry,Non GPA,Energised,Date unavailable at this time
+ZG1002,Avonmore Foods PLC,Hydro,0.11,Carlow,Pre-Gate,Connected,Date unavailable at this time
+ZG1038,Hills Mills,Hydro,0.104,Grange castle,Pre-Gate,Connected,Date unavailable at this time
+ZG1025,Glebe Mills,Hydro,0.1,Carrick on Shannon,Pre-Gate,Connected,Date unavailable at this time
+DG280,Vartry Waterworks,Hydro,0.1,Arklow,Non GPA,Connected,28/11/2007
+DG751,Portgate CHP,Biomass,0.1,Barnahealy,Non GPA,Connected,30/04/2010
+DG325,Ballyshannon Farms,"Biogas /AD",0.1,Wexford,Non GPA,Connected,20/12/2011
+ZG1050,Springvale,Hydro,0.1,Dalton,Pre-Gate,Connected,Date unavailable at this time
+DG281,Erry Mill,Hydro,0.095,Thornsberry,Non GPA,Connected,Date unavailable at this time
+DG757,Synthetic Packaging,Hydro,0.09,Thornsberry,Non GPA,Connected,01/08/2010
+ZG1049,Slane Trad Co,Hydro,0.09,Drybridge,Pre-Gate,Connected,Date unavailable at this time
+DG791,Kantoher Biomass CHP,Biomass,0.09,Rathkeale,Non GPA,Connected,13/05/2011
+ZG1007,Benedict Behal,Hydro,0.083,Waterford,Pre-Gate,Connected,Date unavailable at this time
+ZG1040,Castle Grace Hydro,Hydro,0.08,Cahir,Pre-Gate,Connected,Date unavailable at this time
+ZG1005,Bandon Weir Coolfadda,Hydro,0.079,Bandon,Pre-Gate,Connected,Date unavailable at this time
+ZG1046,Shackleton & Sons,Hydro,0.075,Grange castle,Pre-Gate,Connected,Date unavailable at this time
+ZG1008,Bleach Green Elec,Hydro,0.075,Kilkenny,Pre-Gate,Connected,Date unavailable at this time
+DG884,McDonnell Farms Biogas (2),Biogas,0.05999,Rathkeale,Non GPA,Connected,17/10/2012
+ZG1013,Celbridge Mills,Hydro,0.055,Griffinrath,Pre-Gate,Connected,Date unavailable at this time
+ZG1011,Caffery's Ltd,Hydro,0.055,Mullingar,Pre-Gate,Connected,Date unavailable at this time
+ZG1042,ORourke Bros,Hydro,0.05,Dundalk,Pre-Gate,Connected,Date unavailable at this time
+ZG1041,Ormonde Mills,Hydro,0.05,Kilkenny,Pre-Gate,Connected,Date unavailable at this time
+ZG1056,UCC Photovoltaic,Solar,0.05,Cow cross,Pre-Gate,Connected,Date unavailable at this time
+ZG1044,RC Windham,Hydro,0.05,Dundalk,Pre-Gate,Connected,Date unavailable at this time
+DG835,INCH HYDRO,Hydro,0.042,Kilkenny,Pre-Gate,Connected,Date unavailable at this time
+DG661,Stradbally,Hydro,0.03,PORTLAOISE 110KV,Non GPA,Connected,01/03/2011
+DG548,Nicholas Mosse,Hydro,0.029,Kilkenny,Pre-Gate,Connected,Date unavailable at this time
+ZG1021,E Flahavan & Sons Ltd.,Hydro,0.025,Dungarvan,Non GPA,Connected,04/12/2006
+DG876,Ballyartella Woolen Mills,Hydro,0.024,NENAGH,Non GPA,Connected,Date unavailable at this time
+DG833,Kilmacow Mill - Behal,Hydro,0.023,Waterford,Pre-Gate,Connected,Date unavailable at this time
+DG901,Drummond Mills Athgarvan Grain Co,Hydro,0.02,Newbridge,Non GPA,Energised,Date unavailable at this time
+ZG1032,Kylemore Abbey,Hydro,0.019,Screeb,Pre-Gate,Connected,Date unavailable at this time
+Total,256.1,,,,,,
