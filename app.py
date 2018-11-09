@@ -88,18 +88,18 @@ def list_attr_dict(attr, collection):
             for attr_dict in ls_attr_dict:
                 if attr_dict['Name'] == 'NA':
                     attr_dict['Count'] += 1
-                    attr_dict['MEC_Sum'] += doc['MEC_MW']
+                    attr_dict['MEC_Sum'] += float(doc['MEC_MW'])
                     break
         elif doc[attr] not in values:
                 attr_dict = {'Name': doc[attr], 'Count': 1, 'MEC_Sum': \
-                             doc['MEC_MW']}
+                             float(doc['MEC_MW'])}
                 ls_attr_dict.append(attr_dict)
                 values.append(doc[attr])
         else: 
                 for attr_dict in ls_attr_dict:
                     if attr_dict['Name'] == doc[attr]:
                         attr_dict['Count'] += 1
-                        attr_dict['MEC_Sum'] += doc['MEC_MW']
+                        attr_dict['MEC_Sum'] += float(doc['MEC_MW'])
                         break
     for attr_dict in ls_attr_dict:
         attr_dict['MEC_Sum'] = round(attr_dict['MEC_Sum'], 2)
@@ -126,7 +126,7 @@ def sort_collection(attr, reverse, collection):
 def get_total(attr, collection):
     total = 0
     for doc in collection:
-        total += doc[attr]
+        total += float(doc[attr])
     return round(total, 2)
 
 def search_collection(keyword, collection):
@@ -252,10 +252,6 @@ def filtered_assets():
 def trends():
     return render_template('trends.html')
 
-@app.route('/edit_asset')
-def edit_asset():
-        print()
-
 @app.route('/new_asset')
 def new_asset():
     return render_template('add_asset.html')
@@ -278,8 +274,39 @@ def add_asset():
                  }
     mongo.db.all_assets.insert_one(asset_doc)
     
-    return render_template("assets.html", 
-                           all_assets=mongo.db.all_assets.find())
+    return redirect(url_for('assets'))
+
+@app.route('/edit_asset/<asset_id>')
+def edit_asset(asset_id):
+        return render_template('edit_asset.html',
+                               asset=mongo.db.all_assets. \
+                                   find_one({'_id': ObjectId(asset_id)}))
+
+@app.route('/update_asset/<asset_id>', methods=['POST'])
+def update_asset(asset_id):
+    mongo.db.all_assets.update(
+                {'_id': ObjectId(asset_id)},
+                {"Name": request.form['Name'],
+                 "Type":  request.form['Type'],
+                 "MEC_MW":  request.form['MEC_MW'],
+                 "GenRef":  request.form['GenRef'],
+                 "Company":  request.form['Company'],
+                 "Node":  request.form['Node'],
+                 "NodeAddress":  request.form['NodeAddress'],
+                 "NodeVoltage":  request.form['NodeVoltage'],
+                 "SystemOperator":  request.form['SystemOperator'],
+                 "AssetAddress":  request.form['AssetAddress'],
+                 "Status":  request.form['Status'],
+                 "Edited_Entry": 'Yes'})
+                 
+    return redirect(url_for('assets'))
+    
+@app.route('/delete_asset/<asset_id>')  
+def delete_asset(asset_id):
+    mongo.db.all_assets.remove({'_id': ObjectId(asset_id)})
+    return redirect(url_for("assets"))
+
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
