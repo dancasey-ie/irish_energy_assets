@@ -249,7 +249,7 @@ def filtered_assets():
 
 @app.route('/trends')
 def trends():
-        print()
+    return render_template('trends.html')
 
 @app.route('/edit_asset')
 def edit_asset():
