@@ -1,0 +1,116 @@
+{% extends 'base.html'%} {% block content %}
+
+<div class="container col-xs-10 col-xs-offset-1 about_container">
+    <div class="about_group about_site">
+        <div class="row about_header">
+            <a data-toggle="collapse" href="#collapse_about_site" role="button" aria-expanded="false" aria-controls="#collapse_about_site">
+                <div class="pull-left">
+                    <h4>Whats this site about?</h4>
+                </div>
+                <div class="pull-right">
+                    <h4><i class="fas fa-chevron-circle-down"></i></h4>
+                </div>
+                <div class="clearfix"></div>
+            </a>
+        </div>
+        <div class="collapse about_collapse in" id="collapse_about_site">
+            <p>
+                This site is a means to explore Irelands electrical generation assets across both the transmission and distribution networks.
+            </p>
+            <p>
+                As the electrical grid migrates to a more distributed system there is an ever growing need to keep track of the assets on the network.
+                For system operators it is important to be aware of what types of generaters are where, what is the generation share of the different types
+                and what eqiupment on the network is reaching capacity.
+            </p>
+        </div>
+    </div>
+
+    <div class="about_group about_network">
+        <div class="row about_header">
+            <a data-toggle="collapse" href="#collapse_about_network" role="button" aria-expanded="false" aria-controls="#collapse_about_network">
+                <div class="pull-left">
+                    <h4>How is the electrical grid organised?</h4>
+                </div>
+                <div class="pull-right">
+                    <h4><i class="fas fa-chevron-circle-down"></i></h4>
+                </div>
+                <div class="clearfix"></div>
+            </a>
+        </div>
+        <div class="collapse about_collapse in" id="collapse_about_network">
+
+            <p>
+                The infrastructure of wires and cables around Ireland is divided into the distribution network and the transmission network.
+                Traditionally, the transmission network sends electricity from generating stations to main nodes in the country.
+                The electricity passes into the distribution network at these nodes.
+                The distribution network then sends electricity supply to customers' premises.
+                As more and more smaller generators are connected to the grid (i.e. home PV, single wind turbines etc), the distribution network is moving away from purelly delivering energy from
+                transmission nodes to the consumer and begining to feed energy back into the grid.
+            </p>
+            <p>
+                EirGrid is the acting TSO (Transmission System Operator) responsible for operating and planning the development of the transmission system.
+                ESB Networks is the acting DSO (Distribution Systmem Operator)  responsible for the operation, maintenance and development of the electricity distribution network in Ireland.
+                It is also responsible for maintaining and developing the transmission network.
+            </p>
+
+        </div>
+    </div>
+
+    <div class="about_group about_data">
+        <div class="row about_header">
+            <a data-toggle="collapse" href="#collapse_about_data" role="button" aria-expanded="false" aria-controls="#collapse_about_data">
+                <div class="pull-left">
+                    <h4>Where did the data come from?</h4>
+                </div>
+                <div class="pull-right">
+                    <h4><i class="fas fa-chevron-circle-down"></i></h4>
+                </div>
+                <div class="clearfix"></div>
+            </a>
+        </div>
+        <div class="collapse about_collapse in" id="collapse_about_data">
+            <p>
+                The data shown on this site is a combination of publically available data released by
+                <a href="https://www.esbnetworks.ie/new-connections/generator-connections/generator-connection-statistics" target="_blank">ESB Networks</a> and
+                <a href="http://www.eirgridgroup.com/customer-and-industry/general-customer-information/connected-and-contracted-generators/" target="_blank">Eirgrid</a>,
+                as well as addtional data included for a more functional uses of the site.
+            </p>
+            <p>
+                As some data has been included that is not official data from the system operators, the data on this site should only be used for reference purposes.
+            </p>
+        </div>
+    </div>
+
+    <div class="about_group how_to_guide">
+        <div class="row about_header">
+            <a data-toggle="collapse" href="#collapse_how_to_guide" role="button" aria-expanded="false" aria-controls="#collapse_how_to_guide">
+                <div class="pull-left">
+                    <h4>How do I use the site?</h4>
+                </div>
+                <div class="pull-right">
+                    <h4><i class="fas fa-chevron-circle-down"></i></h4>
+                </div>
+                <div class="clearfix"></div>
+            </a>
+        </div>
+        <div class="collapse about_collapse in" id="collapse_how_to_guide">
+            <div class="row">
+                <ul class="col-xs-10 col-xs-offset-1 how-to-play">
+                    <li>
+                        To see full list of generator assets on record go to
+                        <a href="{{ url_for('assets') }}" target="_blank">Assets</a>.
+                    </li>
+                    <li>
+                        All available information on each asset can be seen by expanding on individual asset.
+                    </li>
+                    <li>
+                        The asset list can be filtered by using the filter navigator on the left of the <a href="{{ url_for('assets') }}" target="_blank">Assets</a> page.
+                        Each time you filter your criteria is not saved so you need to select all you wish to filter for each time you filter.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+ {% endblock %}

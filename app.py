@@ -9,3 +9,21 @@ with open('db_details.txt', 'r') as f:
     app.config["MONGO_URI"] = db_details[1]
 
 mongo = PyMongo(app)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
+
+
+
+
+
+
+
+
+if __name__ == '__main__':
+    app.run(host=os.environ.get('IP'),
+            port=os.environ.get('PORT'),
+            debug=True)
