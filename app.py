@@ -153,6 +153,13 @@ def filter_collection(attr, values, collection):
 
     return flt_collection
 
+def filter_attr_range(attr, lo, hi, collection): 
+    flt_collection = []
+    for doc in collection:
+        if attr in doc and float(doc[attr]) >= lo and float(doc[attr]) <= hi:
+            flt_collection.append(doc)
+    return flt_collection
+
 # TEMPLATE RENDERING FUNCTIONS ###############################################
 
 @app.route('/')
