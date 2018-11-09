@@ -78,6 +78,43 @@ def list_attr_collection(collection):
     attr_ls.sort()
     return attr_ls
 
+def list_attr_dict(attr, collection):
+    """
+    Returns list of dictionaries, each dictionary correspounds to a attribute 
+    value in collection. Dictionary contains attribute value, number of docs 
+    with attribute value in collection and sum of MEC_MW attribute for docs with
+    attribute value.
+    """
+    collection = collection.find()
+    values = ['NA']
+    ls_attr_dict = [{'Name': 'NA', 'Count': 0, 'MEC_Sum': 0}]
+    for doc in collection:
+        if attr not in doc or doc[attr] == 'NA' or doc[attr] == "":
+            for attr_dict in ls_attr_dict:
+                if attr_dict['Name'] == 'NA':
+                    attr_dict['Count'] += 1
+                    attr_dict['MEC_Sum'] += doc['MEC_MW']
+                    break
+        elif doc[attr] not in values:
+                attr_dict = {'Name': doc[attr], 'Count': 1, 'MEC_Sum': doc['MEC_MW']}
+                ls_attr_dict.append(attr_dict)
+                values.append(doc[attr])
+        else: 
+                for attr_dict in ls_attr_dict:
+                    if attr_dict['Name'] == doc[attr]:
+                        attr_dict['Count'] += 1
+                        attr_dict['MEC_Sum'] += doc['MEC_MW']
+                        break
+    for attr_dict in ls_attr_dict:
+        attr_dict['MEC_Sum'] = round(attr_dict['MEC_Sum'], 2)
+    for attr_dict in ls_attr_dict: # when combined with above, not all MEC_Sum's rounded ??
+        if attr_dict['Name'] == 'NA' and attr_dict['Count'] == 0:
+           ls_attr_dict.remove(attr_dict)
+           values.remove('NA')
+
+    ls_attr_dict_sorted = [x for y,x in sorted(zip(values, ls_attr_dict), key=lambda pair: pair[0])]
+    return ls_attr_dict_sorted 
+
 # TEMPLATE RENDERING FUNCTIONS ###############################################
 
 @app.route('/')
@@ -92,7 +129,8 @@ def assets():
 def trends():
         print()
 
-print(list_attr_collection(mongo.db.all_assets))
+print(list_attr_dict('Type', mongo.db.all_assets))
+
 """
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
