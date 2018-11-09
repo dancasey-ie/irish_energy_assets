@@ -191,7 +191,62 @@ def assets():
 
 @app.route('/filtered_assets', methods=['POST'])
 def filtered_assets():
-    print()
+    doc_sort = request.form['doc_sort']
+    print(doc_sort)
+    flt_search = (request.form['flt_search']).lower()
+    flt_status = request.form.getlist('flt_status')
+    flt_system_operator = request.form.getlist('flt_system_operator')
+    flt_type = request.form.getlist('flt_type')
+    flt_mec_lo = float(request.form['flt_mec_lo'])
+    flt_mec_hi = float(request.form['flt_mec_hi'])
+    flt_node = request.form.getlist('flt_node')
+    flt_county = request.form.getlist('flt_county')
+    assets = mongo.db.all_assets.find()
+    attributes = list_attr_collection(mongo.db.all_assets.find())
+    if doc_sort == "0":
+        assets = sort_collection('Name', False, assets)
+    elif doc_sort == "1":
+        assets = sort_collection('Name', True, assets)
+    elif doc_sort == "2":
+        assets = sort_collection('Type', False, assets)
+    elif doc_sort == "3":
+        assets = sort_collection('Type', True, assets)
+    elif doc_sort == "4":
+        assets = sort_collection('MEC_MW', False, assets)
+    elif doc_sort == "5":
+        assets = sort_collection('MEC_MW', True, assets)
+    if flt_search != "":
+        assets = search_collection(flt_search, assets)
+    if flt_status != []:
+        assets = filter_collection('Status', flt_status, assets)
+    if flt_system_operator != []:
+        assets = filter_collection('SystemOperator', flt_system_operator, assets)
+    if flt_type != []:
+        assets = filter_collection('Type', flt_type, assets)
+    assets = filter_attr_range('MEC_MW', flt_mec_lo, flt_mec_hi, assets)
+    if flt_node != []:
+        assets = filter_collection('Node', flt_node, assets)
+    if flt_county != []:
+        assets = filter_collection('County', flt_county, assets)
+    statuses = list_attr_dict('Status', assets)
+    system_operators = list_attr_dict('SystemOperator', assets)
+    types = list_attr_dict('Type', assets)
+    nodes = list_attr_dict('Node', assets)
+    counties = list_attr_dict('County', assets)
+    mec_total = get_total('MEC_MW', assets)
+
+
+    return render_template("assets.html", 
+                           assets=assets,
+                           attributes=attributes,
+                           doc_count=len(assets),
+                           mec_total=mec_total,
+                           statuses=statuses,
+                           system_operators=system_operators,
+                           types=types,
+                           nodes=nodes,
+                           counties=counties)
+
 @app.route('/trends')
 def trends():
         print()
