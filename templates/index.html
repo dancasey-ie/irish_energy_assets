@@ -1,16 +1,10 @@
 {% extends 'base.html'%} {% block content %}
 
-<div class="container col-xs-10 col-xs-offset-1 about_container">
+<div class="container col-xs-12 col-sm-10 col-sm-offset-1 about_container">
     <div class="about_group about_site">
         <div class="row about_header">
             <a data-toggle="collapse" href="#collapse_about_site" role="button" aria-expanded="false" aria-controls="#collapse_about_site">
-                <div class="pull-left">
-                    <h4>Whats this site about?</h4>
-                </div>
-                <div class="pull-right">
-                    <h4><i class="fas fa-chevron-circle-down"></i></h4>
-                </div>
-                <div class="clearfix"></div>
+                <h4><span class="pull-left">What is this site about?</span><span class="pull-right"><i class="fas fa-chevron-circle-down"></i></span></h4>
             </a>
         </div>
         <div class="collapse about_collapse in" id="collapse_about_site">
@@ -28,13 +22,7 @@
     <div class="about_group about_network">
         <div class="row about_header">
             <a data-toggle="collapse" href="#collapse_about_network" role="button" aria-expanded="false" aria-controls="#collapse_about_network">
-                <div class="pull-left">
-                    <h4>How is the electrical grid organised?</h4>
-                </div>
-                <div class="pull-right">
-                    <h4><i class="fas fa-chevron-circle-down"></i></h4>
-                </div>
-                <div class="clearfix"></div>
+                <h4><span class="pull-left">How is the electrical grid organised?</span><span class="pull-right"><i class="fas fa-chevron-circle-down"></i></span></h4>
             </a>
         </div>
         <div class="collapse about_collapse in" id="collapse_about_network">
@@ -59,13 +47,7 @@
     <div class="about_group about_data">
         <div class="row about_header">
             <a data-toggle="collapse" href="#collapse_about_data" role="button" aria-expanded="false" aria-controls="#collapse_about_data">
-                <div class="pull-left">
-                    <h4>Where did the data come from?</h4>
-                </div>
-                <div class="pull-right">
-                    <h4><i class="fas fa-chevron-circle-down"></i></h4>
-                </div>
-                <div class="clearfix"></div>
+                <h4><span class="pull-left">Where did the data come from?</span><span class="pull-right"><i class="fas fa-chevron-circle-down"></i></span></h4>
             </a>
         </div>
         <div class="collapse about_collapse in" id="collapse_about_data">
@@ -84,31 +66,25 @@
     <div class="about_group how_to_guide">
         <div class="row about_header">
             <a data-toggle="collapse" href="#collapse_how_to_guide" role="button" aria-expanded="false" aria-controls="#collapse_how_to_guide">
-                <div class="pull-left">
-                    <h4>How do I use the site?</h4>
-                </div>
-                <div class="pull-right">
-                    <h4><i class="fas fa-chevron-circle-down"></i></h4>
-                </div>
-                <div class="clearfix"></div>
+                <h4><span class="pull-left">How do I use the site?</span><span class="pull-right"><i class="fas fa-chevron-circle-down"></i></span></h4>
             </a>
         </div>
         <div class="collapse about_collapse in" id="collapse_how_to_guide">
-            <div class="row">
-                <ul class="col-xs-10 col-xs-offset-1 how-to-play">
-                    <li>
-                        To see full list of generator assets on record go to
-                        <a href="{{ url_for('assets') }}" target="_blank">Assets</a>.
-                    </li>
-                    <li>
-                        All available information on each asset can be seen by expanding on individual asset.
-                    </li>
-                    <li>
-                        The asset list can be filtered by using the filter navigator on the left of the <a href="{{ url_for('assets') }}" target="_blank">Assets</a> page.
-                        Each time you filter your criteria is not saved so you need to select all you wish to filter for each time you filter.
-                    </li>
-                </ul>
-            </div>
+            <ul class="how-to-play">
+                <li>
+                    To see full list of generator assets on record go to
+                    <a href="{{ url_for('assets') }}" target="_blank">Assets</a>.
+                </li>
+                <li>
+                    All available information on each asset can be seen by expanding on individual asset.
+                </li>
+                <li>
+                    The asset list can be refined using filter options on the <a href="{{ url_for('assets') }}" target="_blank">Assets</a> page.
+                </li>
+                <li>
+                    Filter has to be reset before runing new filter.
+                </li>
+            </ul>
         </div>
     </div>
 </div>

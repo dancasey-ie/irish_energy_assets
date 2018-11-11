@@ -120,7 +120,8 @@ def sort_collection(attr, reverse, collection):
     for doc in collection:
         attr_value_ls.append(doc[attr])
         collection_ls.append(doc)
-    collection_sorted = [x for y,x in sorted(zip(attr_value_ls, collection_ls) \
+    collection_sorted = [x for y,x in sorted(zip(attr_value_ls,
+                                                 collection_ls) \
         ,key=lambda pair: pair[0], reverse=reverse)]
     return collection_sorted 
 
@@ -173,10 +174,12 @@ def assets():
     attributes = list_attr_collection(mongo.db.all_assets.find())
     all_assets = mongo.db.all_assets.find()
     statuses = list_attr_dict('Status', mongo.db.all_assets.find())
-    system_operators = list_attr_dict('SystemOperator', mongo.db.all_assets.find())
+    system_operators = list_attr_dict('SystemOperator',
+                                      mongo.db.all_assets.find())
     types = list_attr_dict('Type', mongo.db.all_assets.find())
     nodes = list_attr_dict('Node', mongo.db.all_assets.find())
     counties = list_attr_dict('County', mongo.db.all_assets.find())
+    jurisdictions = list_attr_dict('Jurisdiction', mongo.db.all_assets.find())
     assets = sort_collection('Name', False, mongo.db.all_assets.find())
     mec_total = get_total('MEC_MW', assets)
 
@@ -189,7 +192,8 @@ def assets():
                            system_operators=system_operators,
                            types=types,
                            nodes=nodes,
-                           counties=counties)
+                           counties=counties,
+                           jurisdictions=jurisdictions)
 
 @app.route('/filtered_assets', methods=['POST'])
 def filtered_assets():
@@ -203,6 +207,7 @@ def filtered_assets():
     flt_mec_hi = float(request.form['flt_mec_hi'])
     flt_node = request.form.getlist('flt_node')
     flt_county = request.form.getlist('flt_county')
+    flt_jurisdiction = request.form.getlist('flt_jurisdiction')
     assets = mongo.db.all_assets.find()
     attributes = list_attr_collection(mongo.db.all_assets.find())
     if doc_sort == "0":
@@ -222,7 +227,9 @@ def filtered_assets():
     if flt_status != []:
         assets = filter_collection('Status', flt_status, assets)
     if flt_system_operator != []:
-        assets = filter_collection('SystemOperator', flt_system_operator, assets)
+        assets = filter_collection('SystemOperator',
+                                   flt_system_operator,
+                                   assets)
     if flt_type != []:
         assets = filter_collection('Type', flt_type, assets)
     assets = filter_attr_range('MEC_MW', flt_mec_lo, flt_mec_hi, assets)
@@ -230,11 +237,14 @@ def filtered_assets():
         assets = filter_collection('Node', flt_node, assets)
     if flt_county != []:
         assets = filter_collection('County', flt_county, assets)
+    if flt_jurisdiction != []:
+        assets = filter_collection('Jurisdiction', flt_jurisdiction, assets)
     statuses = list_attr_dict('Status', assets)
     system_operators = list_attr_dict('SystemOperator', assets)
     types = list_attr_dict('Type', assets)
     nodes = list_attr_dict('Node', assets)
     counties = list_attr_dict('County', assets)
+    jurisdictions = list_attr_dict('Jurisdiction', mongo.db.all_assets.find())
     mec_total = get_total('MEC_MW', assets)
 
 
@@ -247,7 +257,8 @@ def filtered_assets():
                            system_operators=system_operators,
                            types=types,
                            nodes=nodes,
-                           counties=counties)
+                           counties=counties,
+                           jurisdictions=jurisdictions)
 
 @app.route('/trends')
 def trends():
