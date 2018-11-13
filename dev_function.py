@@ -333,3 +333,45 @@ def assign_NA_to_none_nodes():
         if 'County' not in doc or doc['County'] == "":
             mongo.db.all_assets.update_one({'_id': doc['_id']},
                 {"$set": {"County" : 'NA'}}, upsert=True)
+
+def bulk_updating_systemop():
+    """
+    For updating all SystemOperator Attributes
+    """
+    timestr = time.strftime("%Y%m%d-%H%M%S")
+    for doc in mongo.db.all_assets.find():
+        if doc['SystemOperator'] == 'DSO':
+             mongo.db.all_assets.update_one({'_id': doc['_id']},
+                {"$set": {"SystemOperator" : 'ESB Networks', "NetworkType": 'Distribution', 'FirstAdded': timestr, 'LastUpdated' : timestr}}, upsert=True)
+        elif doc['SystemOperator'] == 'TSO':
+            mongo.db.all_assets.update_one({'_id': doc['_id']},
+                {"$set": {"SystemOperator" : 'EirGrid', "NetworkType": 'Transmission', 'FirstAdded': timestr, 'LastUpdated' : timestr}}, upsert=True)
+
+def updatetypes():
+    """
+    Update Types into sub types.
+    """
+    for doc in mongo.db.all_assets.find():
+        if doc['Type'] == 'Natural Gas':
+            mongo.db.all_assets.update_one({'_id': doc['_id']},
+                {"$set": {"Type" : 'Nat. Gas'}}, upsert=True)
+        elif doc['Type'] == 'LFG':
+            mongo.db.all_assets.update_one({'_id': doc['_id']},
+                {"$set": {"Type" : 'Biogas', "TypeSub": 'Land Fill Gas'}}, upsert=True)
+        elif doc['Type'] == 'Gas' or doc['Type'] == 'Nat. Gas':
+            mongo.db.all_assets.update_one({'_id': doc['_id']},
+                {"$set": {"Type" : 'Natural Gas'}}, upsert=True)
+        elif doc['Type'] == 'Water':
+            mongo.db.all_assets.update_one({'_id': doc['_id']},
+                {"$set": {"Type" : 'Hydro'}}, upsert=True)
+
+def title_nodes():
+    """
+    Title-ise all node names
+    """
+    for doc in mongo.db.all_assets.find():
+        new_node = doc['Node'].title()
+        mongo.db.all_assets.update_one({'_id': doc['_id']},
+                {"$set": {"Node" : new_node}}, upsert=True)
+
+updatetypes()

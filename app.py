@@ -40,7 +40,6 @@ def backup_mongo_collection(collection):
     backup_json = []
     for doc in collection:
         backup_json.append(doc)
-    timestr = time.strftime("%Y%m%d-%H%M%S")
     for doc in backup_json:
         doc.pop('_id')
     timestr = time.strftime("%Y%m%d-%H%M%S")
@@ -271,6 +270,7 @@ def new_asset():
 @app.route('/add_asset', methods=['POST'])
 def add_asset():
     asset_db = mongo.db.all_assets.find()
+    timestr = time.strftime("%Y%m%d-%H%M%S")
     asset_doc = {"Name": request.form['Name'],
                  "Type":  request.form['Type'],
                  "MEC_MW":  request.form['MEC_MW'],
@@ -282,7 +282,7 @@ def add_asset():
                  "SystemOperator":  request.form['SystemOperator'],
                  "AssetAddress":  request.form['AssetAddress'],
                  "Status":  request.form['Status'],
-                 "New_Entry": 'Yes'
+                 "FirstAdded": timestr
                  }
     mongo.db.all_assets.insert_one(asset_doc)
     
@@ -296,6 +296,7 @@ def edit_asset(asset_id):
 
 @app.route('/update_asset/<asset_id>', methods=['POST'])
 def update_asset(asset_id):
+    timestr = time.strftime("%Y%m%d-%H%M%S")
     mongo.db.all_assets.update(
                 {'_id': ObjectId(asset_id)},
                 {"Name": request.form['Name'],
@@ -309,7 +310,7 @@ def update_asset(asset_id):
                  "SystemOperator":  request.form['SystemOperator'],
                  "AssetAddress":  request.form['AssetAddress'],
                  "Status":  request.form['Status'],
-                 "Edited_Entry": 'Yes'})
+                 "LastUpdated": timestr})
                  
     return redirect(url_for('assets'))
     
