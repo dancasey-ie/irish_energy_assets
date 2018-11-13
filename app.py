@@ -290,9 +290,16 @@ def add_asset():
 
 @app.route('/edit_asset/<asset_id>')
 def edit_asset(asset_id):
-        return render_template('edit_asset.html',
-                               asset=mongo.db.all_assets. \
-                                   find_one({'_id': ObjectId(asset_id)}))
+    assets = mongo.db.all_assets.find()
+    attributes = list_attr_collection(assets)
+    types = list_attr_values('Type', mongo.db.all_assets.find())
+    counties = read_json_data('static/data/json/Irish_Counties.json')
+    return render_template('edit_asset.html',
+                           types=types,
+                           counties=counties,
+                           attributes=attributes,
+                           asset=mongo.db.all_assets. \
+                                find_one({'_id': ObjectId(asset_id)}))
 
 @app.route('/update_asset/<asset_id>', methods=['POST'])
 def update_asset(asset_id):
@@ -318,7 +325,6 @@ def update_asset(asset_id):
 def delete_asset(asset_id):
     mongo.db.all_assets.remove({'_id': ObjectId(asset_id)})
     return redirect(url_for("assets"))
-
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

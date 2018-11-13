@@ -14,15 +14,17 @@
                 <div class="col-sm-8 col-sm-offset-2">
                     <select name="Type" id="Type" class="form-control asset-entry-form">
                         <option selected>{{asset.Type}}</option>
-                        <option>Coal</option>
-                        <option>Gas</option>
-                        <option>Gasoil</option>
-                        <option>Oil</option>
-                        <option>Peat</option>
-                        <option>Waste</option>
-                        <option>Waste Wood</option>
-                        <option>Water</option>
+                        {% for type in types %}
+                        <option>{{type}}</option>
+                        {% endfor %}
+                        <option>Other</option>
                     </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="TypeSub">Sub Type</label>
+                <div class="col-sm-8 col-sm-offset-2">
+                    <input type="text" name="TypeSub" class="form-control asset-entry-form" id="TypeSub" value="{{asset.TypeSub}}" />
                 </div>
             </div>
             <div class="form-group row">
@@ -38,11 +40,23 @@
                 </div>
             </div>
             <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="county">County *</label>
+                <div class="col-sm-8 col-sm-offset-2">
+                    <select name="county" id="county" class="form-control asset-entry-form">
+                        <option selected>{{asset.County}}</option>
+                        {% for county in counties %}
+                            <option>{{county}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="Company">Company</label>
                 <div class="col-sm-8 col-sm-offset-2">
                     <input type="text" name="Company" class="form-control asset-entry-form" id="Company" value="{{asset.Company}}" />
                 </div>
             </div>
+
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="Node">Node</label>
                 <div class="col-sm-8 col-sm-offset-2">
@@ -66,8 +80,8 @@
                 <div class="col-sm-8 col-sm-offset-2">
                     <select name="SystemOperator" id="SystemOperator" class="form-control asset-entry-form">
                         <option selected>{{asset.SystemOperator}}</option>
-                        <option>TSO</option>
-                        <option>DSO</option>
+                        <option>EirGrid</option>
+                        <option>ESB Networks</option>
                     </select>
                 </div>
             </div>
