@@ -1,0 +1,1 @@
+[ "AssetAddress", "Category", "Company", "Connection", "ConnectionDate", "County", "EstimatedConnectionDate", "FirstAdded", "GenRef", "Jurisdiction", "LastUpdated", "MEC_MW", "Name", "NetworkType", "Node", "NodeAddress", "NodeVoltage", "Notes", "NumTurbines", "OfferType","SignedDate", "Status","SystemOperator", "Type", "TypeSub", "Voltage_kV", "YearOfConnection", "_id" ]

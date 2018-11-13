@@ -170,7 +170,7 @@ def index():
 
 @app.route('/assets')
 def assets():
-    attributes = list_attr_collection(mongo.db.all_assets.find())
+    attributes = read_json_data('static/data/json/relevent_attributes.json')
     all_assets = mongo.db.all_assets.find()
     statuses = list_attr_dict('Status', mongo.db.all_assets.find())
     system_operators = list_attr_dict('SystemOperator',
@@ -208,7 +208,7 @@ def filtered_assets():
     flt_county = request.form.getlist('flt_county')
     flt_jurisdiction = request.form.getlist('flt_jurisdiction')
     assets = mongo.db.all_assets.find()
-    attributes = list_attr_collection(mongo.db.all_assets.find())
+    attributes = read_json_data('static/data/json/relevent_attributes.json')
     if doc_sort == "0":
         assets = sort_collection('Name', False, assets)
     elif doc_sort == "1":
