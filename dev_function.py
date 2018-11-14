@@ -374,4 +374,20 @@ def title_nodes():
         mongo.db.all_assets.update_one({'_id': doc['_id']},
                 {"$set": {"Node" : new_node}}, upsert=True)
 
-updatetypes()
+def change_keyname():
+    """
+    Change the key name of dictionary
+    """
+    for doc in mongo.db.all_assets.find():
+        if 'Voltage_kV' in doc:
+            NodeVoltage = doc['Voltage_kV']
+            mongo.db.all_assets.update_one({'_id': doc['_id']},
+                {"$set": {"NodeVoltage_kV" : NodeVoltage}}, upsert=True)
+            mongo.db.all_assets.update_one({'_id': doc['_id']},
+                {"$unset": {'Voltage_kV' : ""}})
+            
+def testingprint():
+    address = "Bellacorick, \n Glenco ED, \n West Mayo, \n County Mayo, \n Connacht, \n Ireland"
+    print(address)
+
+testingprint()

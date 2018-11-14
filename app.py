@@ -162,6 +162,9 @@ def filter_attr_range(attr, lo, hi, collection):
             flt_collection.append(doc)
     return flt_collection
 
+def is_list(value):
+    return isinstance(value, list)
+
 # TEMPLATE RENDERING FUNCTIONS ###############################################
 
 @app.route('/')
