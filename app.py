@@ -165,6 +165,7 @@ def filter_attr_range(attr, lo, hi, collection):
 def is_list(value):
     return isinstance(value, list)
 
+
 # TEMPLATE RENDERING FUNCTIONS ###############################################
 
 @app.route('/')
@@ -195,7 +196,8 @@ def assets():
                            types=types,
                            nodes=nodes,
                            counties=counties,
-                           jurisdictions=jurisdictions)
+                           jurisdictions=jurisdictions,
+                           loged_in=False)
 
 @app.route('/filtered_assets', methods=['POST'])
 def filtered_assets():
@@ -260,7 +262,56 @@ def filtered_assets():
                            types=types,
                            nodes=nodes,
                            counties=counties,
-                           jurisdictions=jurisdictions)
+                           jurisdictions=jurisdictions,
+                           loged_in=False)
+
+@app.route('/my_assets')
+def my_assets():
+
+    return render_template("log_in.html",
+                           message="")
+
+@app.route('/check_username', methods=['POST'])
+def check_username():
+    """
+    Module accepts POST of username from log_in.html.
+    Return filtered assets.html or appropriete message on log_in.html.
+    """
+
+    if request.method == "POST":
+        username = request.form["username"]
+        users = read_json_data("data/users.json")
+        attributes = read_json_data('static/data/json/relevent_attributes.json')
+        if username not in users:
+            message = "That is not a valid username."
+            return render_template("log_in.html",
+                                   message=message)
+        elif username == 'admin':
+            assets = sort_collection('Name', False, mongo.db.all_assets.find())
+        else:
+            assets = filter_collection('Company', [username], mongo.db.all_assets.find())
+        statuses = list_attr_dict('Status', assets)
+        system_operators = list_attr_dict('SystemOperator',assets)
+        types = list_attr_dict('Type', assets)
+        nodes = list_attr_dict('Node', assets)
+        counties = list_attr_dict('County', assets)
+        jurisdictions = list_attr_dict('Jurisdiction', assets)
+        assets = sort_collection('Name',False,assets)
+        mec_total = get_total('MEC_MW', assets)
+            
+        return render_template("assets.html",
+                                assets=assets,
+                                attributes=attributes,
+                                doc_count=len(assets),
+                                mec_total=mec_total,
+                                statuses=statuses,
+                                system_operators=system_operators,
+                                types=types,
+                                nodes=nodes,
+                                counties=counties,
+                                jurisdictions=jurisdictions,
+                                loged_in=username)
+
 
 @app.route('/trends')
 def trends():
@@ -297,12 +348,15 @@ def edit_asset(asset_id):
     attributes = list_attr_collection(assets)
     types = list_attr_values('Type', mongo.db.all_assets.find())
     counties = read_json_data('static/data/json/Irish_Counties.json')
+    asset=mongo.db.all_assets.find_one({'_id': ObjectId(asset_id)})
+    node_address = asset['NodeAddress']
+    node_address_ls = list(node_address.split(",")) 
     return render_template('edit_asset.html',
                            types=types,
                            counties=counties,
                            attributes=attributes,
-                           asset=mongo.db.all_assets. \
-                                find_one({'_id': ObjectId(asset_id)}))
+                           asset=asset,
+                           node_address_ls= node_address_ls)
 
 @app.route('/update_asset/<asset_id>', methods=['POST'])
 def update_asset(asset_id):

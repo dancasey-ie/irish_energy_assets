@@ -1,0 +1,17 @@
+{% extends 'base.html'%} {% block content %}
+
+<div class="container col-xs-12 col-sm-10 col-sm-offset-1 about_container">
+    <div class="sign-in">
+        <form method="POST" action="/check_username">
+            <input class="form-control name-input" type="text" id="username" name="username"
+                   placeholder=" Enter username (alphanumeric)" pattern="^[a-zA-Z0-9]+$" autofocus required />
+
+            <button class="btn sign-in-btn">Sign in</button>
+        </form>
+    </div>
+    <div>
+        {{message}}
+    </div>
+</div>
+
+ {% endblock %}

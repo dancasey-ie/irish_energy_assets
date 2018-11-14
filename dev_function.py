@@ -386,8 +386,31 @@ def change_keyname():
             mongo.db.all_assets.update_one({'_id': doc['_id']},
                 {"$unset": {'Voltage_kV' : ""}})
             
-def testingprint():
-    address = "Bellacorick, \n Glenco ED, \n West Mayo, \n County Mayo, \n Connacht, \n Ireland"
-    print(address)
+def list_attr_values(attr, collection):
+    """
+    Returns sorted list of all possible values of a defined attiribute in 
+    all docs in defined collection.
+    """
+    values = []
+    for doc in collection:
+        if attr in doc and doc[attr] != "" \
+            and doc[attr] not in values:
+            values.append(doc[attr])
+    values.sort()
+    return values
 
-testingprint()
+def address_to_list(node_address):
+    address_ls = []
+    rhs = node_address
+    while "," in rhs:
+        lhs, rhs = node_address.split(",", 1)
+        address_ls.append(lhs)
+
+    print(address_ls)
+
+
+node_address = "Aghada, Corkbeg, East Cork, County Cork, Munster, Ireland"
+
+li = list(node_address.split(",")) 
+
+print(li)

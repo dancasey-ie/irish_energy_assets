@@ -1,120 +1,190 @@
 {% extends 'base.html'%} {% block content %}
 <div class="row">
-    <form  class="asset-details col-sm-10 col-sm-offset-1" method="POST" action="{{ url_for('update_asset', asset_id=asset._id) }}">
+    <form class="asset-details col-sm-10 col-sm-offset-1" method="POST" action="{{ url_for('update_asset', asset_id=asset._id) }}">
         <div>
-            <p class="lead">Edit Asset Details:</p>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="Name">Asset Name *</label>
-                <div class="col-sm-8 col-sm-offset-2">
-                    <input type="text" name="Name" class="form-control asset-entry-form" id="Name" value="{{asset.Name}}" required />
+            <div class="edit_group">
+                <div class="row edit_header">
+                    <a data-toggle="collapse" href="#collapse_edit_asset" role="button" aria-expanded="false" aria-controls="#collapse_edit_asset">
+                        <div class="pull-left">
+                            <h4>Edit Asset Details</h4>
+                        </div>
+                        <div class="pull-right">
+                            <h4><i class="fas fa-chevron-circle-down"></i></h4>
+                        </div>
+                    </a>
                 </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="Type">Asset Type *</label>
-                <div class="col-sm-8 col-sm-offset-2">
-                    <select name="Type" id="Type" class="form-control asset-entry-form">
-                        <option selected>{{asset.Type}}</option>
-                        {% for type in types %}
-                        <option>{{type}}</option>
-                        {% endfor %}
-                        <option>Other</option>
-                    </select>
+                <div class="collapse filter_collapse in" id="collapse_edit_asset">
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" for="Name">Asset Name *</label>
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <input type="text" name="Name" class="form-control asset-entry-form" id="Name" value="{{asset.Name}}" required />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" for="Type">Asset Type *</label>
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <select name="Type" id="Type" class="form-control asset-entry-form">
+                                <option selected>{{asset.Type}}</option>
+                                {% for type in types %}
+                                <option>{{type}}</option>
+                                {% endfor %}
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" for="SubType">Sub-Type</label>
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <input type="text" name="SubType" class="form-control asset-entry-form" id="SubType" value="{{asset.SubType}}" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" for="MEC_MW">Max Export Capacity (MW) *</label>
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <input type="number" name="MEC_MW" class="form-control asset-entry-form" id="MEC_MW" value="{{asset.MEC_MW}}" required />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" for="Status">Status</label>
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <select name="Status" id="Status" class="form-control asset-entry-form">
+                                <option selected>{{asset.Status}}</option>
+                                <option>Connected</option>
+                                <option>Contracted</option>
+                                <option>Energised</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" for="GenRef">Generator Reference</label>
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <input type="text" name="GenRef" class="form-control asset-entry-form" id="GenRef" value="{{asset.GenRef}}" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" for="county">County</label>
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <select name="county" id="county" class="form-control asset-entry-form">
+                                <option selected>{{asset.County}}</option>
+                                {% for county in counties %}
+                                <option>{{county}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" for="Company">Owning Company</label>
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <input type="text" name="Company" class="form-control asset-entry-form" id="Company" value="{{asset.Company}}" />
+                        </div>
+                    </div>
+                    <p>* required fields</p>
+                    <button class="btn" autofocus>Update</button>
                 </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="TypeSub">Sub Type</label>
-                <div class="col-sm-8 col-sm-offset-2">
-                    <input type="text" name="TypeSub" class="form-control asset-entry-form" id="TypeSub" value="{{asset.TypeSub}}" />
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="MEC_MW">Max Export Capacity (MW) *</label>
-                <div class="col-sm-8 col-sm-offset-2">
-                    <input type="number" name="MEC_MW" class="form-control asset-entry-form" id="MEC_MW" value="{{asset.MEC_MW}}" required />
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="GenRef">Generator Reference</label>
-                <div class="col-sm-8 col-sm-offset-2">
-                    <input type="text" name="GenRef" class="form-control asset-entry-form" id="GenRef" value="{{asset.GenRef}}" />
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="county">County *</label>
-                <div class="col-sm-8 col-sm-offset-2">
-                    <select name="county" id="county" class="form-control asset-entry-form">
-                        <option selected>{{asset.County}}</option>
-                        {% for county in counties %}
-                            <option>{{county}}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="Company">Company</label>
-                <div class="col-sm-8 col-sm-offset-2">
-                    <input type="text" name="Company" class="form-control asset-entry-form" id="Company" value="{{asset.Company}}" />
-                </div>
-            </div>
 
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="Node">Node</label>
-                <div class="col-sm-8 col-sm-offset-2">
-                    <input type="text" name="Node" class="form-control asset-entry-form" id="Node" value="{{asset.Node}}" />
+            </div>
+        </div>
+        <div class="edit_group">
+            <div class="row edit_header">
+                <a data-toggle="collapse" href="#collapse_edit_network" role="button" aria-expanded="false" aria-controls="#collapse_edit_network">
+                    <div class="pull-left">
+                        <h4>Edit Connected Network Details</h4>
+                    </div>
+                    <div class="pull-right">
+                        <h4><i class="fas fa-chevron-circle-down"></i></h4>
+                    </div>
+                </a>
+            </div>
+            <div class="collapse filter_collapse in" id="collapse_edit_network">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="NetworkType">Network Type</label>
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <select name="NetworkType" id="NetworkType" class="form-control asset-entry-form">
+                            <option selected>{{asset.NetworkType}}</option>
+                            <option>Distribution</option>
+                            <option>Transmission</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="SystemOperator">System Operator</label>
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <select name="SystemOperator" id="SystemOperator" class="form-control asset-entry-form">
+                            <option selected>{{asset.SystemOperator}}</option>
+                            <option>EirGrid</option>
+                            <option>ESB Networks</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="Jurisdiction">Jurisdiction</label>
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <select name="Jurisdiction" id="Jurisdiction" class="form-control asset-entry-form">
+                            <option selected>{{asset.Jurisdiction}}</option>
+                            <option>ROI</option>
+                            <option>NI</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="Node">Node</label>
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <input type="text" name="Node" class="form-control asset-entry-form" id="Node" value="{{asset.Node}}" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="NodeVoltage">Node Voltage</label>
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <input type="number" name="NodeVoltage" class="form-control asset-entry-form" id="NodeVoltage" value="{{asset.NodeVoltage}}" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="NodeAddress">Node Address</label>
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <input type="text" name="NodeAddress1" class="form-control asset-entry-form" id="NodeAddress" value="{{node_address_ls[0]}}" />
+                        <input type="text" name="NodeAddress2" class="form-control asset-entry-form" id="NodeAddress" value="{{node_address_ls[1]}}" />
+                        <input type="text" name="NodeAddress3" class="form-control asset-entry-form" id="NodeAddress" value="{{node_address_ls[2]}}" />
+                        <input type="text" name="NodeAddress4" class="form-control asset-entry-form" id="NodeAddress" value="{{node_address_ls[3]}}" />
+                        <input type="text" name="NodeAddress5" class="form-control asset-entry-form" id="NodeAddress" value="{{node_address_ls[4]}}" />
+                        <input type="text" name="NodeAddress6" class="form-control asset-entry-form" id="NodeAddress" value="{{node_address_ls[5]}}" />
+                    </div>
+                </div>
+                <p>* required fields</p>
+                <button class="btn" autofocus>Update</button>
+            </div>
+            <div class="edit_group">
+                <div class="row edit_header">
+                    <a data-toggle="collapse" href="#collapse_delete_asset" role="button" aria-expanded="false" aria-controls="#collapse_delete_asset">
+                        <div class="pull-left">
+                            <h4>Permanently Delete Asset</h4>
+                        </div>
+                        <div class="pull-right">
+                            <h4><i class="fas fa-chevron-circle-down"></i></h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="collapse filter_collapse" id="collapse_delete_asset">
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <p class="lead">Delete Asset:</p>
+                            <p> Perminently deletes asset from database.</p>
+                            <button class="btn"><a href="{{url_for('delete_asset', asset_id =asset._id)}}">Delete Asset</a></button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="NodeAddress">Node Address</label>
-                <div class="col-sm-8 col-sm-offset-2">
-                    <input type="text" name="NodeAddress" class="form-control asset-entry-form" id="NodeAddress" value="{{asset.NodeAddress}}" />
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="NodeVoltage">Node Voltage</label>
-                <div class="col-sm-8 col-sm-offset-2">
-                    <input type="number" name="NodeVoltage" class="form-control asset-entry-form" id="NodeVoltage" value="{{asset.NodeVoltage}}" />
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="SystemOperator">System Operator</label>
-                <div class="col-sm-8 col-sm-offset-2">
-                    <select name="SystemOperator" id="SystemOperator" class="form-control asset-entry-form">
-                        <option selected>{{asset.SystemOperator}}</option>
-                        <option>EirGrid</option>
-                        <option>ESB Networks</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="AssetAddress">Asset Address</label>
-                <div class="col-sm-8 col-sm-offset-2">
-                    <input type="text" name="AssetAddress" class="form-control asset-entry-form" id="AssetAddress" value="{{asset.AssetAddress}}" />
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="Status">Status</label>
-                <div class="col-sm-8 col-sm-offset-2">
-                    <select name="Status" id="Status" class="form-control asset-entry-form">
-                        <option selected>{{asset.Status}}</option>
-                        <option>Connected</option>
-                        <option>Contracted</option>
-                        <option>Energised</option>
-                    </select>
-                </div>
-            </div>
+        </div>
+    </form>
 
-
-
-
-            <button class="btn" autofocus>Update</button>
-        </div>   
-        </form>
 </div>
-<div class="row">
-	<div class="col-sm-10 col-sm-offset-1">
-		<p class="lead">Delete Asset:</p>
-		<p> Perminently deletes asset from database.</p>
-		<button class="btn"><a href="{{url_for('delete_asset', asset_id =asset._id)}}">Delete Asset</a></button>
-	</div>
-</div>
+
+
+
+
+
+
+
+
+
+
 {% endblock %}
