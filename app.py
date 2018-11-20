@@ -147,7 +147,7 @@ def filter_collection(attr, values, collection):
     for doc in collection:
         if attr in doc:
             for value in values:
-                if doc[attr] == value or \
+                if doc[attr].lower() == value.lower() or \
                     (doc[attr] == '' and 'NA' in values):
                     flt_collection.append(doc)
         elif 'NA' in values:
@@ -170,7 +170,8 @@ def is_list(value):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html',
+                           username="")
 
 @app.route('/assets')
 def assets():
@@ -197,12 +198,11 @@ def assets():
                            nodes=nodes,
                            counties=counties,
                            jurisdictions=jurisdictions,
-                           loged_in=False)
+                           username="")
 
 @app.route('/filtered_assets', methods=['POST'])
 def filtered_assets():
     doc_sort = request.form['doc_sort']
-    print(doc_sort)
     flt_search = (request.form['flt_search']).lower()
     flt_status = request.form.getlist('flt_status')
     flt_system_operator = request.form.getlist('flt_system_operator')
@@ -263,13 +263,17 @@ def filtered_assets():
                            nodes=nodes,
                            counties=counties,
                            jurisdictions=jurisdictions,
-                           loged_in=False)
+                           username="")
 
-@app.route('/my_assets')
-def my_assets():
-
+@app.route('/log_in')
+def log_in():
     return render_template("log_in.html",
+                           username="",
                            message="")
+@app.route('/log_out')
+def log_out():
+    return render_template('index.html',
+                           username="") 
 
 @app.route('/check_username', methods=['POST'])
 def check_username():
@@ -285,7 +289,8 @@ def check_username():
         if username not in users:
             message = "That is not a valid username."
             return render_template("log_in.html",
-                                   message=message)
+                                   message=message,
+                                   username="")
         elif username == 'admin':
             assets = sort_collection('Name', False, mongo.db.all_assets.find())
         else:
@@ -310,12 +315,18 @@ def check_username():
                                 nodes=nodes,
                                 counties=counties,
                                 jurisdictions=jurisdictions,
-                                loged_in=username)
+                                username=username)
 
 
 @app.route('/trends')
 def trends():
-    return render_template('trends.html')
+    assets = mongo.db.all_assets.find()
+    assets = list(assets)
+    for doc in assets:
+        doc.pop('_id')
+    write_json_data(assets, 'static/data/json/assets.json')
+    return render_template('trends.html',
+                           assets=assets)
 
 @app.route('/new_asset')
 def new_asset():
@@ -356,7 +367,8 @@ def edit_asset(asset_id):
                            counties=counties,
                            attributes=attributes,
                            asset=asset,
-                           node_address_ls= node_address_ls)
+                           node_address_ls= node_address_ls,
+                           username=username)
 
 @app.route('/update_asset/<asset_id>', methods=['POST'])
 def update_asset(asset_id):

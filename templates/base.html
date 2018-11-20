@@ -1,55 +1,67 @@
 ﻿<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8"/>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" type="text/css" />
-        <link rel="stylesheet" href="/static/css/main.css" type="text/css" />
-        <meta name="viewport" content="width=device-width, initial-scale-1" >
-        {% block head %} {% endblock %}
-    </head>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="/static/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="/static/css/dc.min.css" type="text/css" />
+    <script type="text/javascript" src="/static/js/d3.min.js"></script>
+    <script type="text/javascript" src="/static/js/crossfilter.min.js"></script>
+    <script type="text/javascript" src="/static/js/dc.js"></script>
+    <script type="text/javascript" src="/static/js/queue.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale-1">
+    {% block head %} {% endblock %}
+</head>
     
-    <body>
-<!---------------------------------------------------------------------------------------------------------Header Content-->
-        <nav class="navbar navbar-default navbar-fixed-top header">
-    		    <div class="container-fluid">
-    			<div class="navbar-header">
-    			    <a class="logo" href="{{ url_for('index') }}"> EASCA </a>
-    				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsible-navbar" aria-expanded="false">
-    					<span class="sr-only">Toggle navigation</span>
-    					<span class="icon-bar"></span>
-    					<span class="icon-bar"></span>
-    					<span class="icon-bar"></span>
-    				</button>
-    			</div>
-    			<div class="collapse navbar-collapse" id="collapsible-navbar">
-                    <ul class="nav navbar-nav nav-text">
-                        <li class="menu-item"><a href="{{ url_for('index') }}"><i class="fas fa-info"></i> About</a></li>
-                        <li class="menu-item"><a href="{{ url_for('assets') }}"><i class="fas fa-industry"></i> All Assets</a></li>
-                        <li class="menu-item"><a href="{{ url_for('my_assets') }}"><i class="fas fa-user"></i> My Assets</a></li>
-                        <li class="menu-item"><a href="{{ url_for('trends') }}"><i class="fa fa-chart-pie"></i> Trends</a></li>
-
-                    </ul>
-    			</div>
-    		</div>
-    	</nav>
-    	
-    	
-        <!---------------------------------------------------------------------------------------------------------Main Content--> 
-        <div class="container-fluid main-content">
-            {% block content %} {% endblock %}
+<body>
+    <!-----------------------------------------------------------------------------------------------------------------Header Content-->
+    <nav class="navbar navbar-default navbar-fixed-top header">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="logo" href="{{ url_for('index') }}"> EASCA </a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsible-navbar" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="pull-right">
+                {% if username == "" %}
+                <a href="{{ url_for('log_in') }}"><i class="fas fa-user"></i> Log In</a>
+                {% else %}
+                <a href="{{ url_for('log_out') }}"><i class="fas fa-user"></i>Welcome {{username}}, click to log out</a>
+                {% endif %}
+            </div>
+            <div class="collapse navbar-collapse" id="collapsible-navbar">
+                <ul class="nav navbar-nav nav-text">
+                    <li class="menu-item"><a href="{{ url_for('index') }}"><i class="fas fa-info"></i> About</a></li>
+                    <li class="menu-item"><a href="{{ url_for('assets') }}"><i class="fas fa-industry"></i> All Assets</a></li>
+                    <li class="menu-item"><a href="{{ url_for('log_in') }}"><i class="fas fa-user"></i> My Assets</a></li>
+                    <li class="menu-item"><a href="{{ url_for('trends') }}"><i class="fa fa-chart-pie"></i> Trends</a></li>
+                </ul>
+            </div>
         </div>
-        <!---------------------------------------------------------------------------------------------------------Footer Content-->     
-       
-            <footer class="container footer">
-                <div class="row">
-                    <div class="footer-text">
-                        <p>Check out my code on  <a class="git-link" target="_blank" href="https://github.com/dcasey720/"><i class="fab fa-github"></i> GitHub</a></p>
-                    </div>          
-                </div>
-            </footer>
-            <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    
-    </body>
+    </nav>
+
+
+    <!---------------------------------------------------------------------------------------------------------Main Content-->
+    <div class="container-fluid main-content">
+        {% block content %} {% endblock %}
+    </div>
+    <!---------------------------------------------------------------------------------------------------------Footer Content-->
+
+    <footer class="container footer">
+        <div class="row">
+            <div class="footer-text">
+                <p>Check out my code on  <a class="git-link" target="_blank" href="https://github.com/dcasey720/"><i class="fab fa-github"></i> GitHub</a></p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/static/js/main.js"></script>
+
+</body>
 </html>
