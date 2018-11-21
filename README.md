@@ -1,28 +1,26 @@
 Data Centric Development: Irish Energy Assets Database
 ============================
 This is the Milestone Project for the Data Centric Development module for the Code Institutes Diploma in Software Development. 
-The project shows my understanding and capabilities in developing a data centric web applications using Python, Flask and Bootstrap to interact with MongoDB.
+The project displays clear understanding and capabilities in developing a data centric web applications using the Flask Python framework to interact with a Mongo database. 
+The application was enhanced with JavaScript data visualisations and Bootstrap CSS styling.
 
-The project was also used to explore the uses of the software skills learned through this course, to intereact 
-applwith the energy industry, in which I have a number of years of proffessional experience.
+Time was spent developing this project to best utilise data centric skills when applied to my key area of professional experience, the Energy Industry.
 
-For the development of this app I moved away from using the online Cloud9 IDE to using Visual Studios on my local Windows machine.
+Irish-Energy-Assets application gives exploratory and CRUD access to a Mongo database comprising of all connected and contracted generation assets on the Irish national electrical grid.
+It includes assets on the transmission network, operated by Eirgrid, and distribution network, operated by ESB Networks.
 
-The app comprises with a MongoDB database of all the Connected and Contracted energy assets on the Irish National Electrical rid. 
-This included all assets on the transmission network operated by both the Irish Transmission System Operator (TSO), Eirgrid, and also the Distribution System Operator (DSO), ESB Networks.
-The data for the database was scraped from publically availalbe pdfs from the respectful system operators websites, converted to csv using Tabula.py, organised initially using Excel, 
-converted to json using an online tool, combined and added to te MongoDB database. Care was taken to gather upto date accourite data for the different assets. 
-The data from the different operators was not standardised and so there was much digging required to accuire common data across all the assets.
+The data for the database was scraped from publically available PDFs from the respectful system operators websites, converted to csv using Tabula.py, organised initially using Excel, 
+converted to json using an online tool, combined and added to the MongoDB database. Care was taken to gather up to date accurate data for the different assets. 
+The data from the different operators was not standardised and so there was much digging required to acquire common data across all the assets.
 
-The app can be used to explore all the assets on the Irish grid. New assets can be added to the database and current assets can be edited and deleted. 
-A series of graphs are used to visualise the data to give some insights into the national electrical system.
+
 
 UX
 ----
 The application was developed with two end uses in mind:
 
 * To be used by grid operators, traders and end users to keep track of all the assets available similar to that developed by the Energy Web Foundation (https://energyweb.org/  ). 
-  Much of the Front-End design concepts were taken from images of their indevelopment online platform. 
+  Much of the Front-End design concepts were taken from images of their in development online platform. 
   The Energy Web Foundation also uses json style data, which was more or a reason to use MongoDB as the database.
 
 * To be used to visualise the Irish national grid in graphs to gain a greater insight into the countries energy pool.
@@ -31,13 +29,15 @@ __User Stories__
 
 User stories were developed to guide game play and desired functions.
 
-* As a site visitor I should provided with an About App summary before accessing any data.
-* As a site visitor I should be able to see all energy assets in the DB including their attributes. Each attribute column should be filterable. And maybe have a search box.
-* As a site visitor I should be able to see data visualisation summaries of the different asset types contribution to the energy mix.
-* As a site visitor I should be able to see each asset in more detail..
-* As a site visitor I should be able to sign in as ADMINISTRATOR or as a user. The user will a company that owns and energy asset.
-* As admin should have full CRUD access access to all the assets.
+* As a site visitor I should be given an introduction and a guide to what the application is.
+* As a site visitor I should be able to see all energy assets in the DB including their attributes. 
+* As a site visitor I should be able filter the results and search for keywords.
+* As a site visitor I should be able to see graphical visualisations of the data for greater comprehension.
+* As a site visitor I should be able to sign in as admin or as a user. The user will be a company that owns and energy asset.
+* As admin I should have full CRUD access access to all the assets.
 * As non-admin logged in user I should be able to create a new asset and have update and delete access to all of my owned assets.
+* As admin I should be able to backup up the current data to a json file stored in a local directory.
+* As admin I should be able to overwrite the current database with the data from the json backup.
 
 
 Features
@@ -45,43 +45,57 @@ Features
 
 __Existing Features__
 
-* The home page shows all energy assets, with collapsible details secion
-* From the home page you can access the create new asset page, and include a new asset in the system
-* From the home page you can access the edit asset page for each of the assets, from which you can update or delete the asset from the database
-* The trend page displays two pie charts: the distribution of power capicity for each of the companies in the TSO non-wind catagory. 
-  And a pie chart of the energy distribution of all connected assets across the counties of ireland.
+* Home page gives user an introduction and instructions as to how to use the application.
+* All assets can be explored on a tabular format, with additional attributes hidden in accordian style collapse.
+* A filter side bar allows the user the to easily filter or search the database for keywords.
+* Can sign in as a company or as an administrator
+* As signed in administrator you have full CRUD access to all assets.
+* As signed in company you have CRUD access to all your company's assets.
+* D3 interactive charts are displayed on the trend page.
+
  
-__Future Features__
-* Sign in feature. Admin ill have full access to database. A company will only be able to edit their owned assets.
-* Use psyio app to show running trend of the irish generation data. This will either require a seperate collection of pull the data direct from the app.
-* Funtion to set db back to original data
-* Require summary as to why asset has been edited
+__Future Features + To Do__
+* As ADMIN have button backup database to json
+* As ADMIN have dropdown to rewrite database with json backup, select file from dropdown
+* Include change log to each doc
+* User stays signed in when moving around 
+* Filter on enter and pass filter onto next load
+* Add pagination
 * Get admin to confirm edit or entry
 * Seperate page for user assets
-* Filter and search funtions for database on home page
-* Show more graphs. i.e compare TSO and DSO capacities and distributions, the percentage of new contracts under each heading ect.
+* Show more graphs on home screen and on assets
+* Move NI docs into different collection
 
 
 
 Technologies Used
 -----------------------
-* __VisualStudios2017__ was used for developing the app.
-* __VirtualEnvirnment__ was used to wrap the project.
-* __Tabula.py__ was used to extract data from PDF to CVS
-* __matplotlip__ was used to generate pie charts
-* __geopy__ was used to get the address of the substations
-* __FluidUI__ (https://www.fluidui.com) was used to develop wireframes for the initial UI design mockups.
-* __Python3__ (https://docs.python.org/3/) was used to develop all back-end code.
+* __VisualStudios2017__ (https://visualstudio.microsoft.com/downloads/) IDE was used in the development of the project.
+* __VirtualEnvirnment__ (https://docs.python.org/3/library/venv.html) was used to wrap the project.
+* __Git__ (https://git-scm.com/) was used for version control.
+* __GitHub__ (https://github.com/) was used to share the repository.
+* __Heroku__ (https://dashboard.heroku.com/) was used to host the application.
+* __MonogDB__ (https://www.mongodb.com/) database was used to store data.
+* __mLab__ (https://mlab.com/) was used to host and explore the Mongo database.
+* __Python3.6__ (https://docs.python.org/3/) was used to develop all back-end code.
+* __Flask__ (http://flask.pocoo.org/) microframework was used throughout the project in interacting between the back-end code and front-end templates.
 * __HTML5__ (https://www.w3.org/TR/html5/) was used to develop front-end templates.
 * __CSS__ (https://www.w3.org/Style/CSS/) was used for styling of front-end templates.
-* __Flask__ (http://flask.pocoo.org/) microframework was used throughout the project in interacting between the back-end code and front-end templates, rendering templates and acquiring data.
-* __json__ (http://www.json.org/) was used to store and access game play data.
 * __Bootstrap 3.3.7__ (https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css) was used for more effective CSS layout styling. 
-    - __Boostrap Grid__ system was used for content arrangement and responsive behavour when moving between different screen sizes
+    - __Boostrap Grid__ system was used for content arrangement and responsive behaviour when moving between different screen sizes
     - __Boostrap Navbar__ was used for the main navigation. Collapsible menu was utilised for lower screen resolutions.
     - __Bootstrap Forms Controls__ were used for the user actions.
 * __Font-Awesome 5.3.1__ (https://use.fontawesome.com/releases/v5.3.1/css/all.css) was for the icons in the header, footer and quiz template.
+* __JavaScript__ was used for interactive frontend development.
+* __D3.js__ (https://d3js.org/) was used to develop graphical visualizations of the data.
+* __DC.js__ (https://dc-js.github.io/dc.js/) was to give interactive attributes to D3 charts.
+* __Tabula.py__ (https://github.com/tabulapdf/tabula) was used to extract PDF data to CVS
+* __GeoPy__ (https://geopy.readthedocs.io/en/stable/) was used to get the address of the substations
+* __FluidUI__ (https://www.fluidui.com) was used to develop wireframes for the initial UI design mockups.
 * __Unittest__ (https://docs.python.org/3/library/unittest.html) unit testing framework was used for the testing of none template rendering functions.
+* __json__ (http://www.json.org/) was used to store and access non-database data.
+* __CSVJSON__ (https://www.csvjson.com/csv2json) was used to convert CSV formatted data to json.
+
 
 Testing
 -----------------------
@@ -92,5 +106,27 @@ __Code Validation__
 * __HTML__ was validated using https://validator.w3.org/. Due to the python code embedded in the HTML templates there were a number of errors.
 * __CSS__ was validated using https://jigsaw.w3.org/css-validator/validator. No  errors were found.
 * __Spelling and Grammar__ was validated using Google Docs.
+
+
+Development
+------------------------
+Visual Studios 2017 was used in the development of this project. I moved away from using the online Cloud9 IDE as I was having issues with Python versions,
+when working with pip installed packages. By moving my development onto my local machine I have more control over the installed packages and can explore their folder
+structures more easily. 
+
+This did require considerable more learning to manage my development on a Windows machine rather than on a Linux. 
+A number of packages needed to be downloaded, alternative windows commands needed to be used and System Variables set.
+Although time consuming, I felt this was time well spent and has given me a greater understanding on the Windows 10 system.
+
+Virtual Environment was used as a wrapper to keep the project requirements separate from the rest of the machine. As there was a lot of experimenting with this project,
+a number of different projects were created, copied, deleted and edited. Utilising the virtual environment made this an easy exercise and has left my final project much cleaner 
+than what would have been.
+
+As the data came from a number of different sources, mostly in PDF, and in different layouts there was considerable manipulation required to combine and format the data in a 
+usable format. I have kept the code and data not used by the running application, but used in the development process in a separate folder, Dev Folder. 
+
+
+Deployment
+------------------------
 
 
