@@ -76,7 +76,8 @@ def bulk_insert_assets(local_collection, mongo_collection):
     """
     Deletes entire mongo_collection and then fills it with local_collection.
     """
-    result = mongo.db.all_assets.delete_many({ })
+    # result = mongo_collection.delete_many({ })
+    local_collection = read_json_data(local_collection)
     for doc in local_collection:
         mongo_collection.insert_one(doc)
 
@@ -408,9 +409,16 @@ def address_to_list(node_address):
 
     print(address_ls)
 
+def move_NI_to_json():
+    NI_docs = []
+    for doc in  mongo.db.all_assets.find():
+        if 'Jurisdiction' in doc and doc['Jurisdiction'] == 'NI':
+            mongo.db.all_assets.remove({'_id': ObjectId(doc['_id'])})
+            doc.pop('_id')
+            NI_docs.append(doc)
 
-node_address = "Aghada, Corkbeg, East Cork, County Cork, Munster, Ireland"
 
-li = list(node_address.split(",")) 
+    write_json_data(NI_docs, 'NI_Assets.json')
 
-print(li)
+
+print(list_attr_values('County',mongo.db.all_assets.find()))
