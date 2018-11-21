@@ -1,7 +1,7 @@
 {% extends 'base.html'%} {% block content %}
 
 
-<div class="container filter_container col-xs-12 col-sm-3">
+<div class="container filter_container col-xs-12 col-sm-3 col-md-2">
 
         <div>
             <p>Showing 1-30 of {{doc_count}} assets</p>
@@ -171,20 +171,21 @@
     </div>
 </div>
 
-        <div class="container col-xs-12 col-sm-8 col-sm-offset-1 col-md-7 asset_table">
+        <div class="container col-xs-12 col-sm-6 col-sm-offset-1 col-md-5 asset_table">
             <div class="row table_heading">
-                <div class="col-xs-4 col_header">Name</div>
+                <div class="col-xs-5 col_header">Name</div>
                 <div class="col-xs-3 col_header">Type</div>
                 <div class="col-xs-2 col-sm-3 col_header">MEC (MW)</div>
             </div>
-            {% for asset in assets[:30] %}
+            <div class="table_warpper">
+                {% for asset in assets %}
                 <div class="table_row_container">
                     <div class="row">
 
-                        <div class="col-xs-4 row_attr">{{asset.Name}}</div>
+                        <div class="col-xs-5 row_attr">{{asset.Name}}</div>
                         <div class="col-xs-3 row_attr ">{{asset.Type}}</div>
-                        <div class="col-xs-2 col-sm-3 row_attr">{{asset.MEC_MW}}</div>
-                        <div class="col-xs-1">
+                        <div class="col-xs-3 col-sm-3 row_attr">{{asset.MEC_MW}}</div>
+                        <div class="">
                             <a data-toggle="collapse" href="#collapse{{asset._id}}" role="button" aria-expanded="false" aria-controls="collapse{{asset._id}}">
                                 <i class="fas fa-chevron-circle-down"></i>
                             </a>
@@ -226,21 +227,36 @@
                             <div class="data_details col-xs-12 col-sm-6">
                                 <h3>Data Details</h3>
                                 {% for attribute in attributes[14:] %}
-                                    <div class="row">
-                                        <div class="col-xs-6">
-                                            <p>{{attribute}}:</p>
-                                        </div>
-                                        <div class="col-xs-6">
-                                            <p>{{asset[attribute]}}</p>
-                                        </div>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <p>{{attribute}}:</p>
                                     </div>
+                                    <div class="col-xs-6">
+                                        <p>{{asset[attribute]}}</p>
+                                    </div>
+                                </div>
                                 {% endfor %}
                             </div>
                         </div>
                     </div>
                 </div>
 
-            {% endfor %}
+                {% endfor %}
+            </div>
+
+        </div>
+        <div class="container col-xs-12 col-sm-2 col-sm-offset-1 col-md-3 trends_side">
+
+                <div>
+                    <div id="per-type-chart"></div>
+                </div>
+                <div>
+                    <div id="per-county-chart"></div>
+                </div>
+                <div>
+                    <div id="per-status-stacked"></div>
+                </div>
+
 
         </div>
 
