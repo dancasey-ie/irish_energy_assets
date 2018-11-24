@@ -5,7 +5,7 @@ import app
 class TestApp(unittest.TestCase):
     def test_list_attr_values(self):
         """
-        Returns sorted list of all possible values of a defined attiribute in
+        Tests function returns sorted list of all possible values of a defined attiribute in
         all docs in defined collection. All values must be of same type.
         """
         collection = [{"Index": 1, "Attribute1": 11,
@@ -30,7 +30,7 @@ class TestApp(unittest.TestCase):
 
     def test_list_attr_collection(self):
         """
-        Returns sorted list of all attributes in all docs in defined
+        Tests function returns sorted list of all attributes in all docs in defined
         collection. Attributes are case sensitive.
         """
         collection = [{"Index": 1, "Attribute1": 11,
@@ -49,7 +49,7 @@ class TestApp(unittest.TestCase):
 
     def test_list_attr_dict(self):
         """
-        Returns sorted list of dictionaries, each dictionary correspounds to a
+        Tests function returns sorted list of dictionaries, each dictionary correspounds to a
         attribute value in collection. Dictionary contains attribute value,
         number of docs with attribute value in collection and sum of MEC_MW
         attribute for docs with attribute value.
@@ -78,7 +78,7 @@ class TestApp(unittest.TestCase):
 
     def test_sort_collection(self):
         """
-        Sorts a collection based on attribute.
+        Tests function sorts a collection based on attribute.
         Case sensitive.
         """
         collection = [{"Index": 1, "Attribute1": "11",
@@ -118,7 +118,7 @@ class TestApp(unittest.TestCase):
 
     def test_get_total(self):
         """
-        Returns sum of values of defined attribute in defined collection.
+        Tests function returns sum of values of defined attribute in defined collection.
         """
         collection = [{"Index": 1, "Attribute1": "11",
                        "Attribute2": "Ethan", "Attribute3": "4"},
@@ -135,7 +135,7 @@ class TestApp(unittest.TestCase):
 
     def test_search_collection(self):
         """
-        Collection filter for keyword.
+        Tests collection filter for keyword.
         Returns subset of defined collection that contains the defined
         keyword in its attribute values.
         """
@@ -167,7 +167,7 @@ class TestApp(unittest.TestCase):
 
     def test_filter_collection(self):
         """
-        Collection filter for attribute list of values.
+        Tests sollection filter for attribute list of values.
         Returns subset of collection that defined attribute's value is in
         defined list of values.
 
@@ -200,7 +200,7 @@ class TestApp(unittest.TestCase):
 
     def test_filter_attr_range(self):
         """
-        Collection filter for attribute value within range.
+        Tests collection filter for attribute value within range.
         Returns subset of collection that defined attribute's value is between
         defined range set by hi and lo constraints.
         """
