@@ -57,7 +57,7 @@
                     <div class="collapse filter_collapse in" id="collapse_status">
                         {% for status in statuses %}
                         <div class="checkbox">
-                            <label><input type="checkbox" name="flt_status" value={{status['Name']}}>{{status['Name']}}   ({{status['Count']}})  ({{status['MEC_Sum']}}MW)</label>
+                            <label><input type="checkbox" name="flt_status" value={{status['Name']}}>{{status['Name']}}   ({{status['Count']}})  ({{status['Total']}}MW)</label>
                         </div>
                         {% endfor %}
                     </div>
@@ -77,7 +77,7 @@
                     <div class="collapse filter_collapse in" id="collapse_system_operator">
                         {% for system_operator in system_operators %}
                         <div class="checkbox">
-                            <label><input type="checkbox" name="flt_system_operator" value={{system_operator['Name']}}>{{system_operator['Name']}}   ({{system_operator['Count']}})  ({{system_operator['MEC_Sum']}}MW)</label>
+                            <label><input type="checkbox" name="flt_system_operator" value={{system_operator['Name']}}>{{system_operator['Name']}}   ({{system_operator['Count']}})  ({{system_operator['Total']}}MW)</label>
                         </div>
                         {% endfor %}
                     </div>
@@ -97,7 +97,7 @@
                     <div class="collapse filter_collapse in" id="collapse_types">
                         {% for type in types %}
                         <div class="checkbox">
-                            <label><input type="checkbox" name="flt_type" value={{type['Name']}}>{{type['Name']}}   ({{type['Count']}})  ({{type['MEC_Sum']}}MW)</label>
+                            <label><input type="checkbox" name="flt_type" value={{type['Name']}}>{{type['Name']}}   ({{type['Count']}})  ({{type['Total']}}MW)</label>
                         </div>
                         {% endfor %}
                     </div>
@@ -140,7 +140,7 @@
                     <div class="collapse filter_collapse" id="collapse_node">
                         {% for node in nodes %}
                         <div class="checkbox">
-                            <label><input type="checkbox" name="flt_node" value={{node['Name']}}>{{node['Name']}}   ({{node['Count']}})  ({{node['MEC_Sum']}}MW)</label>
+                            <label><input type="checkbox" name="flt_node" value={{node['Name']}}>{{node['Name']}}   ({{node['Count']}})  ({{node['Total']}}MW)</label>
                         </div>
                         {% endfor %}
                     </div>
@@ -161,7 +161,7 @@
 
                         {% for county in counties %}
                         <div class="checkbox">
-                            <label><input type="checkbox" name="flt_county" value={{county['Name']}}>{{county['Name']}}   ({{county['Count']}})  ({{county['MEC_Sum']}}MW)</label>
+                            <label><input type="checkbox" name="flt_county" value={{county['Name']}}>{{county['Name']}}   ({{county['Count']}})  ({{county['Total']}}MW)</label>
                         </div>
                         {% endfor %}
                     </div>

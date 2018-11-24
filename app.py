@@ -52,19 +52,23 @@ def backup_mongo_collection(collection):
 def list_attr_values(attr, collection):
     """
     Returns sorted list of all possible values of a defined attiribute in 
-    all docs in defined collection.
+    all docs in defined collection. All values must be of same type.
     """
     values = []
     for doc in collection:
         if attr in doc and doc[attr] != "" \
             and doc[attr] not in values:
-            values.append(doc[attr])
+            if isinstance(doc[attr], str):
+                values.append(doc[attr].lower())
+            else:
+                values.append(doc[attr])
     values.sort()
     return values
 
 def list_attr_collection(collection):
     """
     Returns sorted list of all attributes in all docs in defined collection.
+    Attributes are case sensitive.
     """
     attr_ls = []
     for doc in collection:
@@ -74,7 +78,7 @@ def list_attr_collection(collection):
     attr_ls.sort()
     return attr_ls
 
-def list_attr_dict(attr, collection):
+def list_attr_dict(attr, attr_to_sum, collection):
     """
     Returns sorted list of dictionaries, each dictionary correspounds to a 
     attribute value in collection. Dictionary contains attribute value, 
@@ -82,28 +86,36 @@ def list_attr_dict(attr, collection):
     attribute for docs with attribute value.
     """
     values = ['NA']
-    ls_attr_dict = [{'Name': 'NA', 'Count': 0, 'MEC_Sum': 0}]
+    ls_attr_dict = [{'Name': 'NA', 'Count': 0, 'Total': 0}]
     for doc in collection:
-        if attr not in doc or doc[attr] == 'NA' or doc[attr] == "":
+        if attr_to_sum not in doc:
+            break
+        elif attr not in doc or doc[attr] == 'NA' or doc[attr] == "":
             for attr_dict in ls_attr_dict:
                 if attr_dict['Name'] == 'NA':
                     attr_dict['Count'] += 1
-                    attr_dict['MEC_Sum'] += float(doc['MEC_MW'])
+                    attr_dict['Total'] += float(doc[attr_to_sum])
                     break
-        elif doc[attr] not in values:
-                attr_dict = {'Name': doc[attr], 'Count': 1, 'MEC_Sum': \
-                             float(doc['MEC_MW'])}
+        elif isinstance(doc[attr], str) and doc[attr].title() not in values:
+                attr_dict = {'Name': doc[attr].title(), 'Count': 1, 'Total': \
+                             float(doc[attr_to_sum])}
+                ls_attr_dict.append(attr_dict)
+                values.append(doc[attr].title())
+        elif not isinstance(doc[attr], str) and doc[attr] not in values:
+                attr_dict = {'Name': doc[attr], 'Count': 1, 'Total': \
+                             float(doc[attr_to_sum])}
                 ls_attr_dict.append(attr_dict)
                 values.append(doc[attr])
         else: 
                 for attr_dict in ls_attr_dict:
-                    if attr_dict['Name'] == doc[attr]:
+                    if isinstance(doc[attr], str) and \
+                        attr_dict['Name'] == doc[attr].title():
                         attr_dict['Count'] += 1
-                        attr_dict['MEC_Sum'] += float(doc['MEC_MW'])
+                        attr_dict['Total'] += float(doc[attr_to_sum])
                         break
     for attr_dict in ls_attr_dict:
-        attr_dict['MEC_Sum'] = round(attr_dict['MEC_Sum'], 2)
-    # when below is combined with above, not all MEC_Sum's rounded ??
+        attr_dict['Total'] = round(attr_dict['Total'], 2)
+    # when below is combined with above, not all Totals rounded ??
     for attr_dict in ls_attr_dict: 
         if attr_dict['Name'] == 'NA' and attr_dict['Count'] == 0:
            ls_attr_dict.remove(attr_dict)
@@ -114,6 +126,10 @@ def list_attr_dict(attr, collection):
     return ls_attr_dict_sorted 
 
 def sort_collection(attr, reverse, collection):
+    """
+    Sorts a collection based on attribute.
+    Case sensitive.
+    """
     collection_ls = []
     attr_value_ls = []
     for doc in collection:
@@ -125,12 +141,22 @@ def sort_collection(attr, reverse, collection):
     return collection_sorted 
 
 def get_total(attr, collection):
+    """
+    Returns sum of values of defined attribute in defined collection.
+    """
     total = 0
     for doc in collection:
-        total += float(doc[attr])
+        if attr in doc:
+            total += float(doc[attr])
     return round(total, 2)
 
 def search_collection(keyword, collection):
+    """
+    Collection filter for keyword.
+    Returns subset of defined collection that contains the defined
+    keyword in its attribute values.
+    """
+    keyword = keyword.lower()
     if keyword == "" or keyword == " ":
         return collection
     else:
@@ -143,11 +169,16 @@ def search_collection(keyword, collection):
         return flt_collection
 
 def filter_collection(attr, values, collection):
+    """
+    Collection filter for attribute list of values.
+    Returns subset of collection that defined attribute's value is in defined list
+    of values.
+    """
     flt_collection = []
     for doc in collection:
         if attr in doc:
-            for value in values:
-                if doc[attr].lower() == value.lower() or \
+            for value in values:     
+                if str(doc[attr]).lower() == str(value).lower() or \
                     (doc[attr] == '' and 'NA' in values):
                     flt_collection.append(doc)
         elif 'NA' in values:
@@ -155,16 +186,17 @@ def filter_collection(attr, values, collection):
 
     return flt_collection
 
-def filter_attr_range(attr, lo, hi, collection): 
+def filter_attr_range(attr, lo, hi, collection):
+    """
+    Collection filter for attribute value within range.
+    Returns subset of collection that defined attribute's value is between
+    defined range set by hi and lo constraints.
+    """
     flt_collection = []
     for doc in collection:
         if attr in doc and float(doc[attr]) >= lo and float(doc[attr]) <= hi:
             flt_collection.append(doc)
     return flt_collection
-
-def is_list(value):
-    return isinstance(value, list)
-
 
 # TEMPLATE RENDERING FUNCTIONS ###############################################
 
@@ -177,13 +209,13 @@ def index():
 def assets():
     attributes = read_json_data('static/data/json/relevent_attributes.json')
     all_assets = mongo.db.all_assets.find()
-    statuses = list_attr_dict('Status', mongo.db.all_assets.find())
-    system_operators = list_attr_dict('SystemOperator',
+    statuses = list_attr_dict('Status', "MEC_MW", mongo.db.all_assets.find())
+    system_operators = list_attr_dict('SystemOperator', "MEC_MW",
                                       mongo.db.all_assets.find())
-    types = list_attr_dict('Type', mongo.db.all_assets.find())
-    nodes = list_attr_dict('Node', mongo.db.all_assets.find())
-    counties = list_attr_dict('County', mongo.db.all_assets.find())
-    jurisdictions = list_attr_dict('Jurisdiction', mongo.db.all_assets.find())
+    types = list_attr_dict('Type', "MEC_MW", mongo.db.all_assets.find())
+    nodes = list_attr_dict('Node', "MEC_MW", mongo.db.all_assets.find())
+    counties = list_attr_dict('County', "MEC_MW", mongo.db.all_assets.find())
+    jurisdictions = list_attr_dict('Jurisdiction', "MEC_MW", mongo.db.all_assets.find())
     assets = sort_collection('Name', False, mongo.db.all_assets.find())
     mec_total = get_total('MEC_MW', assets)
 
@@ -243,12 +275,12 @@ def filtered_assets():
         assets = filter_collection('County', flt_county, assets)
     if flt_jurisdiction != []:
         assets = filter_collection('Jurisdiction', flt_jurisdiction, assets)
-    statuses = list_attr_dict('Status', assets)
-    system_operators = list_attr_dict('SystemOperator', assets)
-    types = list_attr_dict('Type', assets)
-    nodes = list_attr_dict('Node', assets)
-    counties = list_attr_dict('County', assets)
-    jurisdictions = list_attr_dict('Jurisdiction', mongo.db.all_assets.find())
+    statuses = list_attr_dict('Status', "MEC_MW", assets)
+    system_operators = list_attr_dict('SystemOperator', "MEC_MW", assets)
+    types = list_attr_dict('Type', "MEC_MW", assets)
+    nodes = list_attr_dict('Node', "MEC_MW", assets)
+    counties = list_attr_dict('County', "MEC_MW", assets)
+    jurisdictions = list_attr_dict('Jurisdiction', "MEC_MW", mongo.db.all_assets.find())
     mec_total = get_total('MEC_MW', assets)
 
 
@@ -295,12 +327,12 @@ def check_username():
             assets = sort_collection('Name', False, mongo.db.all_assets.find())
         else:
             assets = filter_collection('Company', [username], mongo.db.all_assets.find())
-        statuses = list_attr_dict('Status', assets)
-        system_operators = list_attr_dict('SystemOperator',assets)
-        types = list_attr_dict('Type', assets)
-        nodes = list_attr_dict('Node', assets)
-        counties = list_attr_dict('County', assets)
-        jurisdictions = list_attr_dict('Jurisdiction', assets)
+        statuses = list_attr_dict('Status', "MEC_MW", assets)
+        system_operators = list_attr_dict('SystemOperator', "MEC_MW",assets)
+        types = list_attr_dict('Type', "MEC_MW", assets)
+        nodes = list_attr_dict('Node', "MEC_MW", assets)
+        counties = list_attr_dict('County', "MEC_MW", assets)
+        jurisdictions = list_attr_dict('Jurisdiction', "MEC_MW", assets)
         assets = sort_collection('Name',False,assets)
         mec_total = get_total('MEC_MW', assets)
             

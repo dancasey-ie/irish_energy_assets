@@ -65,6 +65,7 @@ __Future Features + To Do__
 * Seperate page for user assets
 * Show more graphs on home screen and on assets
 * Move NI docs into different collection
+* Use crossfilter.js to filter table results using .top(Infinity)
 
 
 
