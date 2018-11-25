@@ -7,17 +7,13 @@ function makeGraphs(error, assetsData) {
     var type_dim = ndx.dimension(dc.pluck('Type'))
     var total_mec_per_type = type_dim.group().reduceSum(dc.pluck('MEC_MW'));
     dc.pieChart('#per-type-chart')
-        .height(240)
-        .width(240)
-        .radius(180)
+        //.radius(180)
         .dimension(type_dim)
         .group(total_mec_per_type);
 
     var county_dim = ndx.dimension(dc.pluck('County'))
     var total_mec_per_county = county_dim.group().reduceSum(dc.pluck('MEC_MW'));
     dc.pieChart('#per-county-chart')
-        .height(240)
-        .width(240)
         .radius(180)
         .dimension(county_dim)
         .group(total_mec_per_county)
@@ -38,8 +34,6 @@ function makeGraphs(error, assetsData) {
     });
     var stackedChart = dc.barChart("#per-status-stacked");
     stackedChart
-        .width(250)
-        .height(300)
         .dimension(network_dim)
         .group(mecPerConnected, "Transmission")
         .stack(mecPerContracted, "Distribution")

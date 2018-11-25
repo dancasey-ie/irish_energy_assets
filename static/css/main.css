@@ -7,6 +7,7 @@ html, body {
 .header {
     background-color: #303130;
     color: #c4c4c4;
+    height: 90px;
 }
 
 .navbar-default .navbar-brand {
@@ -18,21 +19,21 @@ html, body {
 
 .logo{
     float: left;
-    height: 30px;
-    padding: 15px 15px;
-    font-size: 28px;
+    height: 35px;
+    padding: 10px 10px;
+    font-size: 27px;
     font-weight: bold;
-    line-height: 20px;
+    line-height: 25px;
     color: #f702ce;
     width:150px;
 }
 
 
-.navbar-default .navbar-nav>li>a {
+.navbar-default .navbar-nav > li > a {
     color: #c4c4c4;
     font-weight: bold;
     font-size: 18px;
-    
+    margin-top: 45px;
 }
 
 .navbar-default .navbar-nav>li>a:hover {
@@ -69,7 +70,7 @@ html, body {
 
 
 .main-content {
-    margin-top: 50px;
+    margin-top: 90px;
     margin-bottom: 30px;
     background-color: #555;
     padding: 30px;
@@ -100,43 +101,7 @@ html, body {
 }
 
 /* ------------------------------------------------------Asset Styling*/
-.asset_table {
-    border: 2px solid #c4c4c4;
-    border-radius: 10px;
-    background-color: #303130;
-    height: 1170px;
-    margin-bottom:10px;
-}
 
-.table_warpper {
-    height: 1125px;
-    overflow: scroll;
-}
-.table_row_container {
-    border-top: 2px solid #c4c4c4;
-
-}
-
-.table_row {
-}
-
-.row_attr {
-    color: white;
-}
-
-.table_heading {
-    text-align: left;
-    color: white;
-}
-
-.asset_details_collapse {
-    background-color: #555;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border: 1px solid #c4c4c4;
-    margin-bottom: 30px;
-    padding: 10px;
-}
 
 .filter_container {
     background-color: #303130;
@@ -146,37 +111,6 @@ html, body {
     padding: 30px;
     border-radius: 10px;
     margin-bottom: 10px
-}
-
-.trends_side {
-    background-color: #303130;
-    border-color: #c4c4c4;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 10px;
-    margin-bottom: 10px
-}
-
-.pie-chart {
-    margin-top: 20px;
-    margin-bottom: 50px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.dc-chart {
-    fill: white;
-}
-
-
-.bar-chart {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 0px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .sort-by-selecter {
@@ -209,6 +143,96 @@ html, body {
     padding-left: 10px;
 }
 
+.charts_container {
+    background-color: #303130;
+    border-color: #c4c4c4;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    margin-bottom: 10px
+    }
+
+svg {
+    margin: 0px;
+    width: 100% !important;
+    height: auto !important;
+    align-self: center !important;
+}
+
+.chart_title{
+    text-align:center;
+    color: white;
+}
+.dc-chart {
+    fill: white;
+    margin: 0px;
+}
+
+.pie-chart {
+    margin-bottom: 20px;
+    padding: 0px;
+    height:300px;
+}
+.bar-chart {
+    margin: 0px;
+    padding: 0px;
+}
+#per-county-chart {
+    height: 200px;
+    margin-bottom:20px
+}
+
+#per-type-chart {
+    width: 100%;
+    height: auto
+}
+
+#per-status-stacked {
+    margin: 0px;
+    padding: 0px;
+    height: 300px;
+    width: 300px;
+}
+
+.asset_table {
+    border: 2px solid #c4c4c4;
+    border-radius: 10px;
+    background-color: #303130;
+    margin-bottom: 10px;
+}
+.assets_collapse {
+    max-height: 900px;
+    overflow: scroll;
+}
+
+.table_row_container {
+    border-top: 2px solid #c4c4c4;
+}
+
+.row_attr {
+    color: white;
+}
+.detail-dropdown {
+    color: #337ab7;
+    margin-right: 10px;
+}
+.row_attr :hover {
+    color: #337ab7;
+}
+.table_heading {
+    text-align: left;
+    color: white;
+}
+
+.asset_details_collapse {
+    background-color: #555;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 1px solid #c4c4c4;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
 
 .edit_icon {
     color: #f702ce;
@@ -229,10 +253,13 @@ html, body {
     background-color: #303130;
 }
 
+.chart_header{
+    padding: 10px;
+}
 
 
 /*------------------------------------------------------------------Media Querries*/
-@media (max-width: 768px) {
+@media (max-width: 991px) {
     .collapse.in {
         display: block !important;
     }
