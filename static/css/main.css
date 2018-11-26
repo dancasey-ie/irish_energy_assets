@@ -104,13 +104,13 @@ html, body {
 
 
 .filter_container {
+    padding-top: 20px;
     background-color: #303130;
     border-color: #c4c4c4;
     border-style: solid;
     border-width: 1px;
-    padding: 30px;
     border-radius: 10px;
-    margin-bottom: 10px
+    margin-bottom: 10px;
 }
 
 .sort-by-selecter {
@@ -122,17 +122,20 @@ html, body {
 }
 
 .filter_collapse {
-    padding: 10px;
     background-color: #555;
-    margin: 0px;
     border: 1px solid #c4c4c4;
-    border-radius: 10px
+    border-radius: 10px;
+    padding:10px
 }
 
 .filter_header {
     color: #c4c4c4;
+    padding:10px;
 }
 
+.filter_form {
+    margin:5px;
+}
 .mec-range-field {
     margin-left: 20px;
 }
@@ -201,7 +204,7 @@ svg {
     margin-bottom: 10px;
 }
 .assets_collapse {
-    max-height: 900px;
+    max-height: 825px;
     overflow: scroll;
 }
 
@@ -259,8 +262,3 @@ svg {
 
 
 /*------------------------------------------------------------------Media Querries*/
-@media (max-width: 991px) {
-    .collapse.in {
-        display: block !important;
-    }
-}

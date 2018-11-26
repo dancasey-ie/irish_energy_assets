@@ -7,10 +7,7 @@
     <link rel="stylesheet" href="/static/css/main.css" type="text/css" />
     <link rel="stylesheet" href="/static/css/dc.min.css" type="text/css" />
     <link rel="icon" href="data:,">
-    <script type="text/javascript" src="/static/js/d3.min.js"></script>
-    <script type="text/javascript" src="/static/js/crossfilter.min.js"></script>
-    <script type="text/javascript" src="/static/js/dc.js"></script>
-    <script type="text/javascript" src="/static/js/queue.min.js"></script>
+
     <meta name="viewport" content="width=device-width">
     {% block head %} {% endblock %}
 </head>
@@ -58,9 +55,18 @@
             </div>
         </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!---------------------------------------------------------------------------------------------------------Scripts-->
+    <!--Moved scripts to bottom as $ wasn't being defined even when jquery was being called first-->
+    <script type="text/javascript" src="static/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/d3.min.js"></script>
+    <script type="text/javascript" src="/static/js/crossfilter.min.js"></script>
+    <script type="text/javascript" src="/static/js/dc.js"></script>
+    <script type="text/javascript" src="/static/js/queue.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/static/js/main.js"></script>
+    <script type="text/javascript" src="static/js/main.js"></script>
+    <script type="text/javascript" src="/static/js/charts.js"></script>
+
 
 </body>
 </html>

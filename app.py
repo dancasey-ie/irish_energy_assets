@@ -237,6 +237,7 @@ def assets():
                            assets=assets,
                            attributes=attributes,
                            doc_count=len(assets),
+                           total_docs_count=len(assets),
                            mec_total=mec_total,
                            statuses=statuses,
                            system_operators=system_operators,
@@ -260,6 +261,7 @@ def filtered_assets():
     flt_county = request.form.getlist('flt_county')
     flt_jurisdiction = request.form.getlist('flt_jurisdiction')
     assets = mongo.db.all_assets.find()
+    total_docs_count = assets.count()
     attributes = read_json_data('static/data/json/relevent_attributes.json')
     if doc_sort == "0":
         assets = sort_collection('Name', False, assets)
@@ -303,6 +305,7 @@ def filtered_assets():
                            assets=assets,
                            attributes=attributes,
                            doc_count=len(assets),
+                           total_docs_count=total_docs_count,
                            mec_total=mec_total,
                            statuses=statuses,
                            system_operators=system_operators,
