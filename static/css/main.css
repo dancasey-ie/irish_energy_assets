@@ -256,9 +256,25 @@ svg {
     background-color: #303130;
 }
 
-.chart_header{
+.container_header{
     padding: 10px;
 }
 
+/*------------------------------------------------------------------Edit Asset Styling*/
+.edit_container {
+    padding-top: 20px;
+    background-color: #303130;
+    border-color: #c4c4c4;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
 
+.edit_group {
+    margin-bottom: 20px;
+}
+.edit_header {
+    padding: 10px;
+}
 /*------------------------------------------------------------------Media Querries*/

@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="/static/css/main.css" type="text/css" />
     <link rel="stylesheet" href="/static/css/dc.min.css" type="text/css" />
     <link rel="icon" href="data:,">
-
+    <script type="text/javascript" src="{{ url_for('static', filename="js/jquery-3.3.1.min.js")}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename="js/d3.min.js")}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename="js/crossfilter.min.js")}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename="js/dc.js")}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename="js/queue.min.js")}}"></script>
     <meta name="viewport" content="width=device-width">
     {% block head %} {% endblock %}
 </head>
@@ -51,21 +55,18 @@
     <footer class="container footer">
         <div class="row">
             <div class="footer-text">
-                <p>Check out my code on  <a class="git-link" target="_blank" href="https://github.com/dcasey720/"><i class="fab fa-github"></i> GitHub</a></p>
+                <p>Developed by <a class="git-link" target="_blank" href="https://www.linkedin.com/in/danielcaseyengineer/">Daniel Casey</a></p>
             </div>
         </div>
     </footer>
 
     <!---------------------------------------------------------------------------------------------------------Scripts-->
     <!--Moved scripts to bottom as $ wasn't being defined even when jquery was being called first-->
-    <script type="text/javascript" src="static/js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="/static/js/d3.min.js"></script>
-    <script type="text/javascript" src="/static/js/crossfilter.min.js"></script>
-    <script type="text/javascript" src="/static/js/dc.js"></script>
-    <script type="text/javascript" src="/static/js/queue.min.js"></script>
+
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="static/js/main.js"></script>
-    <script type="text/javascript" src="/static/js/charts.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename="js/main.js")}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename="js/charts.js")}}"></script>
 
 
 </body>

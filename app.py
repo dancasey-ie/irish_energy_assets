@@ -325,7 +325,7 @@ def log_in():
 
 @app.route('/log_out')
 def log_out():
-    return render_template('index.html',
+    return render_template('assets.html',
                            username="")
 
 
@@ -413,8 +413,11 @@ def add_asset():
     return redirect(url_for('assets'))
 
 
-@app.route('/edit_asset/<asset_id>')
-def edit_asset(asset_id):
+@app.route('/edit_asset/<asset_id>/<username>')
+
+def edit_asset(asset_id, username):
+    print(asset_id)
+    print(username)
     assets = mongo.db.all_assets.find()
     attributes = list_attr_collection(assets)
     types = list_attr_values('Type', mongo.db.all_assets.find())
@@ -434,20 +437,30 @@ def edit_asset(asset_id):
 @app.route('/update_asset/<asset_id>', methods=['POST'])
 def update_asset(asset_id):
     timestr = time.strftime("%Y%m%d-%H%M%S")
+    node_address =  "%s, %s, %s, %s, %s, %s" % (request.form['NodeAddress0'],
+                                                request.form['NodeAddress1'],
+                                                request.form['NodeAddress2'],
+                                                request.form['NodeAddress3'],
+                                                request.form['NodeAddress4'],
+                                                request.form['NodeAddress5'])
+
     mongo.db.all_assets.update(
                 {'_id': ObjectId(asset_id)},
-                {"Name": request.form['Name'],
+                {'$set': {
+                 "Name": request.form['Name'],
                  "Type":  request.form['Type'],
+                 "SubType":  request.form['SubType'],
                  "MEC_MW":  request.form['MEC_MW'],
-                 "GenRef":  request.form['GenRef'],
-                 "Company":  request.form['Company'],
-                 "Node":  request.form['Node'],
-                 "NodeAddress":  request.form['NodeAddress'],
-                 "NodeVoltage":  request.form['NodeVoltage'],
-                 "SystemOperator":  request.form['SystemOperator'],
-                 "AssetAddress":  request.form['AssetAddress'],
                  "Status":  request.form['Status'],
-                 "LastUpdated": timestr})
+                 "GenRef":  request.form['GenRef'],
+                 "County":  request.form['County'],
+                 "Company":  request.form['Company'],
+                 "NetworkType":  request.form['NetworkType'],
+                 "SystemOperator":  request.form['SystemOperator'],
+                 "Node":  request.form['Node'],
+                 "NodeVoltage":  request.form['NodeVoltage'],
+                 "NodeAddress":  node_address,
+                 "LastUpdated": timestr}})
 
     return redirect(url_for('assets'))
 
