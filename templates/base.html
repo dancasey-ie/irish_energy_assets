@@ -40,6 +40,9 @@
                 <ul class="nav navbar-nav nav-text">
                     <li class="menu-item"><a href="{{ url_for('index') }}"><i class="fas fa-info"></i> About</a></li>
                     <li class="menu-item"><a href="{{ url_for('assets') }}"><i class="fas fa-industry"></i> Assets</a></li>
+                    {% if username == "admin" %}
+                    <li class="menu-item"><a href="{{ url_for('admin') }}"><i class="fas fa-cog"></i> Admin</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>

@@ -1,1 +1,1 @@
-[ "Name", "Type", "Subtype", "MEC_MW", "Status", "GenRef", "County", "Company", "NetworkType", "SystemOperator", "Jurisdiction", "Node", "NodeVoltage", "NodeAddress", "FirstAdded", "LastUpdated" ]
+[ "Name", "Type", "Subtype", "MEC_MW", "Status", "GenRef", "County", "Company", "NetworkType", "SystemOperator", "Node", "NodeVoltage_kV", "NodeAddress", "FirstAdded", "LastUpdated" ]

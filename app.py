@@ -48,8 +48,6 @@ def backup_mongo_collection(collection):
     backup_file_name = "static/data/json/backups/all_assets_collection_" \
                        "backup_%s.json" % timestr
     write_json_data(backup_json, backup_file_name)
-    print("Back up created of 'all_assets'. Back up collection has %s" +
-          "documents." % len(backup_json))
 
 
 def list_attr_values(attr, collection):
@@ -374,43 +372,51 @@ def check_username():
                                jurisdictions=jurisdictions,
                                username=username)
 
+@app.route('/admin')
+def admin():
+    return render_template('admin.html')
 
-@app.route('/trends')
-def trends():
-    assets = mongo.db.all_assets.find()
-    assets = list(assets)
-    for doc in assets:
-        doc.pop('_id')
-    write_json_data(assets, 'static/data/json/assets.json')
-    return render_template('trends.html',
-                           assets=assets)
-
+@app.route('/json_backup')
+def json_backup():
+    backup_mongo_collection(mongo.db.all_assets.find())
+    return redirect(url_for('admin'))
 
 @app.route('/new_asset')
 def new_asset():
-    return render_template('add_asset.html')
-
+    types = list_attr_values('Type', mongo.db.all_assets.find())
+    counties = read_json_data('static/data/json/Irish_Counties.json')
+    return render_template('add_asset.html',
+                           types=types,
+                           counties=counties)
 
 @app.route('/add_asset', methods=['POST'])
 def add_asset():
-    asset_db = mongo.db.all_assets.find()
     timestr = time.strftime("%Y%m%d-%H%M%S")
+    node_address =  "%s, %s, %s, %s, %s, %s" % (request.form['NodeAddress0'],
+                                                request.form['NodeAddress1'],
+                                                request.form['NodeAddress2'],
+                                                request.form['NodeAddress3'],
+                                                request.form['NodeAddress4'],
+                                                request.form['NodeAddress5'])
+
     asset_doc = {"Name": request.form['Name'],
                  "Type":  request.form['Type'],
+                 "SubType":  request.form['SubType'],
                  "MEC_MW":  request.form['MEC_MW'],
-                 "GenRef":  request.form['GenRef'],
-                 "Company":  request.form['Company'],
-                 "Node":  request.form['Node'],
-                 "NodeAddress":  request.form['NodeAddress'],
-                 "NodeVoltage":  request.form['NodeVoltage'],
-                 "SystemOperator":  request.form['SystemOperator'],
-                 "AssetAddress":  request.form['AssetAddress'],
                  "Status":  request.form['Status'],
+                 "GenRef":  request.form['GenRef'],
+                 "County":  request.form['County'],
+                 "Company":  request.form['Company'],
+                 "NetworkType":  request.form['NetworkType'],
+                 "SystemOperator":  request.form['SystemOperator'],
+                 "Node":  request.form['Node'],
+                 "NodeVoltage":  request.form['NodeVoltage'],
+                 "NodeAddress":  node_address,
                  "FirstAdded": timestr}
 
     mongo.db.all_assets.insert_one(asset_doc)
 
-    return redirect(url_for('assets'))
+    return redirect(url_for('admin'))
 
 
 @app.route('/edit_asset/<asset_id>/<username>')

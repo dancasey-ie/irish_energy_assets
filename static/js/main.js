@@ -20,6 +20,9 @@ var setDivsState = function () {
 
 $(window).resize(setDivsState);
 
+$(document).on(setDivsState);
+
+
 
 
 $('.collapse').on('shown.bs.collapse', function () {
