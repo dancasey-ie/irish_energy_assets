@@ -49,6 +49,15 @@ def backup_mongo_collection(collection):
                        "backup_%s.json" % timestr
     write_json_data(backup_json, backup_file_name)
 
+def overwrite_with_backup(local_collection, mongo_collection):
+    """
+    Deletes entire mongo_collection and then fills it with local_collection.
+    """
+    backup_mongo_collection(collection)
+    result = mongo_collection.delete_many({ })
+    local_collection = read_json_data(local_collection)
+    for doc in local_collection:
+        mongo_collection.insert_one(doc)
 
 def list_attr_values(attr, collection):
     """
@@ -209,15 +218,8 @@ def filter_attr_range(attr, lo, hi, collection):
 
 # TEMPLATE RENDERING FUNCTIONS ###############################################
 
-
 @app.route('/')
 def index():
-    return render_template('index.html',
-                           username="")
-
-
-@app.route('/assets')
-def assets():
     attributes = read_json_data('static/data/json/relevent_attributes.json')
     all_assets = mongo.db.all_assets.find()
     statuses = list_attr_dict('Status', "MEC_MW", mongo.db.all_assets.find())
@@ -231,7 +233,7 @@ def assets():
     assets = sort_collection('Name', False, mongo.db.all_assets.find())
     mec_total = get_total('MEC_MW', assets)
 
-    return render_template("assets.html",
+    return render_template("index.html",
                            assets=assets,
                            attributes=attributes,
                            doc_count=len(assets),
@@ -299,7 +301,7 @@ def filtered_assets():
                                    mongo.db.all_assets.find())
     mec_total = get_total('MEC_MW', assets)
 
-    return render_template("assets.html",
+    return render_template("index.html",
                            assets=assets,
                            attributes=attributes,
                            doc_count=len(assets),
@@ -313,6 +315,10 @@ def filtered_assets():
                            jurisdictions=jurisdictions,
                            username="")
 
+@app.route('/about')
+def about():
+    return render_template('about.html',
+                           username="")
 
 @app.route('/log_in')
 def log_in():
@@ -323,15 +329,14 @@ def log_in():
 
 @app.route('/log_out')
 def log_out():
-    return render_template('assets.html',
-                           username="")
+    return redirect('/')
 
 
 @app.route('/check_username', methods=['POST'])
 def check_username():
     """
     Module accepts POST of username from log_in.html.
-    Return filtered assets.html or appropriete message on log_in.html.
+    Return filtered index.html or appropriete message on log_in.html.
     """
 
     if request.method == "POST":
@@ -339,17 +344,18 @@ def check_username():
         users = read_json_data("data/users.json")
         attributes = read_json_data('static/data/json/' +
                                     'relevent_attributes.json')
+
         if username not in users:
             message = "That is not a valid username."
             return render_template("log_in.html",
-                                   message=message,
-                                   username="")
+                                    message=message,
+                                    username="")
         elif username == 'admin':
             assets = sort_collection('Name', False,
-                                     mongo.db.all_assets.find())
+                                        mongo.db.all_assets.find())
         else:
             assets = filter_collection('Company', [username],
-                                       mongo.db.all_assets.find())
+                                        mongo.db.all_assets.find())
         statuses = list_attr_dict('Status', "MEC_MW", assets)
         system_operators = list_attr_dict('SystemOperator', "MEC_MW", assets)
         types = list_attr_dict('Type', "MEC_MW", assets)
@@ -358,23 +364,25 @@ def check_username():
         jurisdictions = list_attr_dict('Jurisdiction', "MEC_MW", assets)
         assets = sort_collection('Name', False, assets)
         mec_total = get_total('MEC_MW', assets)
+        total_docs_count = mongo.db.all_assets.find().count()
+        return render_template("index.html",
+                                assets=assets,
+                                attributes=attributes,
+                                doc_count=len(assets),
+                                total_docs_count=total_docs_count,
+                                mec_total=mec_total,
+                                statuses=statuses,
+                                system_operators=system_operators,
+                                types=types,
+                                nodes=nodes,
+                                counties=counties,
+                                jurisdictions=jurisdictions,
+                                username=username)
 
-        return render_template("assets.html",
-                               assets=assets,
-                               attributes=attributes,
-                               doc_count=len(assets),
-                               mec_total=mec_total,
-                               statuses=statuses,
-                               system_operators=system_operators,
-                               types=types,
-                               nodes=nodes,
-                               counties=counties,
-                               jurisdictions=jurisdictions,
-                               username=username)
-
-@app.route('/admin')
-def admin():
-    return render_template('admin.html')
+@app.route('/admin/<username>')
+def admin(username):
+    return render_template('admin.html',
+                           username=username)
 
 @app.route('/json_backup')
 def json_backup():
@@ -468,13 +476,13 @@ def update_asset(asset_id):
                  "NodeAddress":  node_address,
                  "LastUpdated": timestr}})
 
-    return redirect(url_for('assets'))
+    return redirect(url_for('/'))
 
 
 @app.route('/delete_asset/<asset_id>')
 def delete_asset(asset_id):
     mongo.db.all_assets.remove({'_id': ObjectId(asset_id)})
-    return redirect(url_for("assets"))
+    return redirect(url_for("/"))
 
 
 if __name__ == '__main__':

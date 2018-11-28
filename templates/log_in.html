@@ -3,6 +3,11 @@
 <div class="container col-xs-12 col-sm-10 col-sm-offset-1 about_container">
     <div class="sign-in">
         <form method="POST" action="/check_username">
+            <ul>
+                <li>Log in as company name i.e. 'esb', to be able to delete or edit your companies assets details, from the assets dropdown.</li>
+                <li>Log in as 'admin' to be able to delete or edit any asset from the assets dropdown, and backup the database,
+                load in backed up database or create new assets from the admin page.</li>
+            </ul>
             <input class="form-control name-input" type="text" id="username" name="username"
                    placeholder=" Enter username (alphanumeric)" pattern="^[a-zA-Z0-9]+$" autofocus required />
 

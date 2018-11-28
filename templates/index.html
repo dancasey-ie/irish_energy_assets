@@ -1,93 +1,294 @@
 {% extends 'base.html'%} {% block content %}
 
-<div class="container col-xs-12 col-sm-10 col-sm-offset-1 about_container">
-    <div class="about_group about_site">
-        <div class="row about_header">
-            <a data-toggle="collapse" href="#collapse_about_site" role="button" aria-expanded="false" aria-controls="#collapse_about_site">
-                <h4><i class="fas fa-plus"></i> What is this site about?</h4>
+
+<div class="col-xs-12 col-sm-3 col-md-4 col-lg-3">
+    <div class="container filter_container col-xs-12">
+        <div>
+            <p>Showing {{doc_count}} of {{total_docs_count}} assets</p>
+        </div>
+        <div>
+            <p>Total MEC of {{mec_total}}MW</p>
+        </div>
+
+    <div class="filter_group refine_filter">
+        <div class="row filter_header">
+            <a data-toggle="collapse" href="#collapse_refine" role="button" aria-expanded="false" aria-controls="#collapse_refine">
+                <div class="pull-left">
+                    <h4>Refine Filter</h4>
+                </div>
+                <div class="pull-right">
+                    <h4><i class="fas fa-plus"></i></h4>
+                </div>
+                <div class="clearfix"></div>
             </a>
         </div>
-        <div class="collapse about_collapse collapse_sm" id="collapse_about_site">
-            <p>
-                This site is a means to explore Irelands electrical generation assets across both the transmission and distribution networks.
-            </p>
-            <p>
-                As the electrical grid migrates to a more distributed system there is an ever growing need to keep track of the assets on the network.
-                For system operators it is important to be aware of what types of generaters are where, what is the generation share of the different types
-                and what eqiupment on the network is reaching capacity.
-            </p>
+
+        <div class="collapse collapse_sm  in" id="collapse_refine">
+
+            <form method="POST" action="{{ url_for('filtered_assets')}}">
+                <button type="submit" class="btn add_asset-btn">Apply Filter</button>
+                <button type="reset" class="btn add_asset-btn">Reset Filter</button>
+                <div class="form-group row filter_form">
+                    <label for="doc_sort">Sort by:</label>
+                    <select class="form-control sort-by-selecter" name="doc_sort" id="doc_sort">
+                        <option value="0">Name (A - Z)</option>
+                        <option value="1">Name (Z - A)</option>
+                        <option value="2">Type (A - Z)</option>
+                        <option value="3">Type (Z - A)</option>
+                        <option value="4">MEC (Low - High)</option>
+                        <option value="5">MEC (High - Low)</option>
+                    </select>
+                </div>
+                <div class="form-group row  filter_form">
+                    <label for="flt_search">Search</label>
+                    <input type="search" name="flt_search" class="form-control search-input" id="flt_search" />
+                </div>
+                <div class="filter_group status">
+                    <div class="row filter_header">
+                        <a data-toggle="collapse" href="#collapse_status" role="button" aria-expanded="false" aria-controls="#collapse_status">
+                            <div class="pull-left">
+                                <h4>Status</h4>
+                            </div>
+                            <div class="pull-right">
+                                <h4><i class="fas fa-plus"></i></h4>
+                            </div>
+                            <div class="clearfix"></div>
+                        </a>
+                    </div>
+                    <div class="collapse filter_collapse in" id="collapse_status">
+                        {% for status in statuses %}
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="flt_status" value={{status['Name']}}>{{status['Name']}}   ({{status['Count']}})  ({{status['Total']}}MW)</label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="filter_group system_operator">
+                    <div class="row filter_header">
+                        <a data-toggle="collapse" href="#collapse_system_operator" role="button" aria-expanded="false" aria-controls="#collapse_system_operator">
+                            <div class="pull-left">
+                                <h4>System Operator</h4>
+                            </div>
+                            <div class="pull-right">
+                                <h4><i class="fas fa-plus"></i></h4>
+                            </div>
+                            <div class="clearfix"></div>
+                        </a>
+                    </div>
+                    <div class="collapse filter_collapse in" id="collapse_system_operator">
+                        {% for system_operator in system_operators %}
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="flt_system_operator" value={{system_operator['Name']}}>{{system_operator['Name']}}
+                            ({{system_operator['Count']}})
+                            ({{system_operator['Total']}}MW)</label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="filter_group types">
+                    <div class="row filter_header">
+                        <a data-toggle="collapse" href="#collapse_types" role="button" aria-expanded="false" aria-controls="#collapse_types">
+                            <div class="pull-left">
+                                <h4>Types</h4>
+                            </div>
+                            <div class="pull-right">
+                                <h4><i class="fas fa-plus"></i></h4>
+                            </div>
+                            <div class="clearfix"></div>
+                        </a>
+                    </div>
+                    <div class="collapse filter_collapse in" id="collapse_types">
+                        {% for type in types %}
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="flt_type" value={{type['Name']}}>{{type['Name']}}   ({{type['Count']}})  ({{type['Total']}}MW)</label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="filter_group mec">
+                    <div class="row filter_header">
+                        <a data-toggle="collapse" href="#collapse_mec" role="button" aria-expanded="false" aria-controls="#collapse_mec">
+                            <div class="pull-left">
+                                <h4>Max Export Capacity</h4>
+                            </div>
+                            <div class="pull-right">
+                                <h4><i class="fas fa-plus"></i></h4>
+                            </div>
+                            <div class="clearfix"></div>
+                        </a>
+                    </div>
+                    <div class="collapse filter_collapse in" id="collapse_mec">
+                        <div class="row">
+                            <label for="flt_mec_lo" class="mec-range-field">from</label>
+                            <input class="pull-right mec_range_input" autocomplete="off" id="flt_mec_lo" name="flt_mec_lo" data-pattern="range" data-role="to" type="number" pattern="[0-9]+(\.[0-9]{0,2})" maxlength="7" value="0">
+                        </div>
+                        <div class="row">
+                            <label for="flt_mec_hi" class="mec-range-field last-child">to</label>
+                            <input class="pull-right mec_range_input" autocomplete="off" id="flt_mec_hi" name="flt_mec_hi" data-pattern="range" data-role="to" type="number" pattern="[0-9]+(\.[0-9]{0,2})" maxlength="7" value="1000">
+                        </div>
+                    </div>
+                </div>
+                <div class="filter_group node">
+                    <div class="row filter_header">
+                        <a data-toggle="collapse" href="#collapse_node" role="button" aria-expanded="true" aria-controls="#collapse_node">
+                            <div class="pull-left">
+                                <h4>Node</h4>
+                            </div>
+                            <div class="pull-right">
+                                <h4><i class="fas fa-plus"></i></h4>
+                            </div>
+                            <div class="clearfix"></div>
+                        </a>
+                    </div>
+                    <div class="collapse filter_collapse" id="collapse_node">
+                        {% for node in nodes %}
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="flt_node" value={{node['Name']}}>{{node['Name']}}   ({{node['Count']}})  ({{node['Total']}}MW)</label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="filter_group county">
+                    <div class="row filter_header">
+                        <a data-toggle="collapse" href="#collapse_county" role="button" aria-expanded="true" aria-controls="#collapse_county">
+                            <div class="pull-left">
+                                <h4>County</h4>
+                            </div>
+                            <div class="pull-right">
+                                <h4><i class="fas fa-plus"></i></h4>
+                            </div>
+                            <div class="clearfix"></div>
+                        </a>
+                    </div>
+                    <div class="collapse filter_collapse" id="collapse_county">
+
+                        {% for county in counties %}
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="flt_county" value={{county['Name']}}>{{county['Name']}}   ({{county['Count']}})  ({{county['Total']}}MW)</label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-
-    <div class="about_group about_network">
-        <div class="row about_header">
-            <a data-toggle="collapse" href="#collapse_about_network" role="button" aria-expanded="false" aria-controls="#collapse_about_network">
-                <h4><i class="fas fa-plus"></i> How is the electrical grid organised?</h4>
-            </a>
-        </div>
-        <div class="collapse about_collapse collapse_sm in" id="collapse_about_network">
-
-            <p>
-                The infrastructure of wires and cables around Ireland is divided into the distribution network and the transmission network.
-                Traditionally, the transmission network sends electricity from generating stations to main nodes in the country.
-                The electricity passes into the distribution network at these nodes.
-                The distribution network then sends electricity supply to customers' premises.
-                As more and more smaller generators are connected to the grid (i.e. home PV, single wind turbines etc), the distribution network is moving away from purelly delivering energy from
-                transmission nodes to the consumer and begining to feed energy back into the grid.
-            </p>
-            <p>
-                EirGrid is the acting TSO (Transmission System Operator) responsible for operating and planning the development of the transmission system.
-                ESB Networks is the acting DSO (Distribution Systmem Operator)  responsible for the operation, maintenance and development of the electricity distribution network in Ireland.
-                It is also responsible for maintaining and developing the transmission network.
-            </p>
-
-        </div>
     </div>
-
-    <div class="about_group how_to_guide">
-        <div class="row about_header">
-            <a data-toggle="collapse" href="#collapse_how_to_guide" role="button" aria-expanded="false" aria-controls="#collapse_how_to_guide">
-                <h4><i class="fas fa-plus"></i> How do I use the site?</h4>
-            </a>
-        </div>
-        <div class="collapse about_collapse collapse_sm in" id="collapse_how_to_guide">
-            <ul class="how-to-play">
-                <li>
-                    To see full list of generator assets on record go to
-                    <a href="{{ url_for('assets') }}" target="_blank">Assets</a>.
-                </li>
-                <li>
-                    All available information on each asset can be seen by expanding on individual asset.
-                </li>
-                <li>
-                    The asset list can be refined using filter options on the <a href="{{ url_for('assets') }}" target="_blank">Assets</a> page.
-                </li>
-                <li>
-                    Filter has to be reset before runing new filter.
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="about_group about_data">
-        <div class="row about_header">
-            <a data-toggle="collapse" href="#collapse_about_data" role="button" aria-expanded="false" aria-controls="#collapse_about_data">
-                <h4><i class="fas fa-plus"></i> Where did the data come from?</h4>
-            </a>
-        </div>
-        <div class="collapse about_collapse collapse_sm in" id="collapse_about_data">
-            <p>
-                The data shown on this site is a combination of publically available data released by
-                <a href="https://www.esbnetworks.ie/new-connections/generator-connections/generator-connection-statistics" target="_blank">ESB Networks</a> and
-                <a href="http://www.eirgridgroup.com/customer-and-industry/general-customer-information/connected-and-contracted-generators/" target="_blank">Eirgrid</a>,
-                as well as addtional data included for a more functional uses of the site.
-            </p>
-            <p>
-                As some data has been included that is not official data from the system operators, the data on this site should only be used for reference purposes.
-            </p>
-        </div>
-    </div>
-
 </div>
+<div class="col-xs-12 col-sm-9 col-md-8 col-lg-9">
+    <div class="container charts_container col-xs-12">
+        <div class="row chart_header">
+            <a data-toggle="collapse" href="#chart_collapse" role="button" aria-expanded="true" aria-controls="#chart_collapse">
+                <div class="pull-left">
+                    <h4>Charts</h4>
+                </div>
+                <div class="pull-right">
+                    <h4><i class="fas fa-plus"></i></h4>
+                </div>
+                <div class="clearfix"></div>
+            </a>
+        </div>
+        <div class="collapse chart_collapse collapse_xs in" id="chart_collapse">
+            <div class="pie-chart col-xs-12 col-sm-6 col-lg-4">
+                <h5 class="chart_title">MEC (MW) by Type</h5>
+                <div id="per-type-chart"></div>
+            </div>
+            <div class="pie-chart col-xs-12 col-sm-6 col-lg-4">
+                <h5 class="chart_title">MEC (MW) by County</h5>
+                <div id="per-county-chart"></div>
+            </div>
+            <div class="bar-chart col-xs-12 col-sm-12 col-lg-4">
+                <h5 class="chart_title">MEC (MW) by Status</h5>
+                <div id="per-status-stacked"></div>
+            </div>
+        </div>
+    </div>
 
+
+
+    <div class="container asset_table col-xs-12">
+        <div class="row chart_header">
+        <a data-toggle="collapse" href="#assets_collapse" role="button" aria-expanded="true" aria-controls="#assets_collapse">
+            <div class="pull-left">
+                <h4>Assets List</h4>
+            </div>
+            <div class="pull-right">
+                <h4><i class="fas fa-plus"></i></h4>
+            </div>
+            <div class="clearfix"></div>
+        </a>
+        </div>
+        <div class="collapse assets_collapse in" id="assets_collapse">
+            <div class="row table_heading">
+                <div class="col-xs-6 col_header">Name</div>
+                <div class="col-xs-3 col_header">Type</div>
+                <div class="col-xs-3 col-sm-3 col_header">MEC (MW)</div>
+            </div>
+            <div class="table_warpper">
+                {% for asset in assets %}
+                <div class="table_row_container">
+                    <div class="row">
+                        <a data-toggle="collapse" href="#collapse{{asset._id}}" role="button" aria-expanded="false" aria-controls="collapse{{asset._id}}">
+
+                            <div class="row_attr">
+                                <div class="col-xs-6"><i class="fas fa-chevron-circle-down detail-dropdown"> </i>{{asset.Name}}</div>
+                                <div class="col-xs-3">{{asset.Type}}</div>
+                                <div class="col-xs-3 col-sm-3">{{asset.MEC_MW}}</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="collapse asset_details_collapse col-xs-12" id="collapse{{asset._id}}">
+                        <div class="card card-body">
+                            <div class="asset_details col-xs-12 col-md-6">
+                                <h3>Asset Details</h3>
+                                {% for attribute in attributes[:8] %}
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <p>{{attribute}}:</p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <p>{{asset[attribute]}}</p>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <div class="network_details col-xs-12 col-md-6">
+                                <h3>Network Details</h3>
+                                {% for attribute in attributes[8:13] %}
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <p>{{attribute}}:</p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <p>{{asset[attribute]}}</p>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <div class="data_details col-xs-12 col-md-6">
+                                <h3>Data Details</h3>
+                                {% for attribute in attributes[13:] %}
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <p>{{attribute}}:</p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <p>{{asset[attribute]}}</p>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                {% if username == 'admin' or (username != "" and asset['Company'].lower() == username.lower()) %}
+                                <div class="">
+                                    <a href="{{url_for('edit_asset', asset_id = asset._id, username = username)}}">Update Details <i class="edit_icon fas fa-cog"></i></a>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
  {% endblock %}

@@ -52,20 +52,29 @@ __Existing Features__
 * As signed in administrator you have full CRUD access to all assets.
 * As signed in company you have CRUD access to all your company's assets.
 * D3 interactive charts are displayed on the trend page.
+* As ADMIN have button backup database to json
 
  
 __Future Features + To Do__
-* As ADMIN have button backup database to json
 * As ADMIN have dropdown to rewrite database with json backup, select file from dropdown
 * Include change log to each doc
+!5* Update Voltage_kV
+* Include Node capacity data
+* Incude glossary
+* Either get d3 data direct from mongo or write to json on every change
+!4* Types, limit dropdown
 * User stays signed in when moving around 
 * Filter on enter and pass filter onto next load
-* Add pagination
 * Get admin to confirm edit or entry
-* Seperate page for user assets
-* Show more graphs on home screen and on assets
-* Move NI docs into different collection
 * Use crossfilter.js to filter table results using .top(Infinity)
+!3* Style sizing of charts
+* Add title
+* Collpase script, run on first load
+* Collapse icons, make correct on first load
+* Include analysis section in about
+* For reading addresses, make it a loop, as some geopy addresses are >6 lines
+* Clear filter btn
+* combine assets, filtered assets and check_username into one render event
 
 
 
@@ -96,6 +105,7 @@ Technologies Used
 * __Unittest__ (https://docs.python.org/3/library/unittest.html) unit testing framework was used for the testing of none template rendering functions.
 * __json__ (http://www.json.org/) was used to store and access non-database data.
 * __CSVJSON__ (https://www.csvjson.com/csv2json) was used to convert CSV formatted data to json.
+* __Firefox Developer Edition__ (https://www.mozilla.org/en-US/firefox/developer/) was used for debugging of the running app.
 
 
 Testing
@@ -113,7 +123,7 @@ Development
 ------------------------
 Visual Studios 2017 was used in the development of this project. I moved away from using the online Cloud9 IDE as I was having issues with Python versions,
 when working with pip installed packages. By moving my development onto my local machine I have more control over the installed packages and can explore their folder
-structures more easily. 
+structures more easily. Sublime text editor as played with for a while but found Visual Studios much more featured and informative when developing.
 
 This did require considerable more learning to manage my development on a Windows machine rather than on a Linux. 
 A number of packages needed to be downloaded, alternative windows commands needed to be used and System Variables set.

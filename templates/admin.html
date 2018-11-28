@@ -2,7 +2,14 @@
 
 <div class="container col-xs-12 col-sm-10 col-sm-offset-1 admin_container">
     <div class="container backup_ctrl_container">
-        <div class="btn"><a href="{{ url_for('json_backup') }}">Backup</a></div>
+        <div class="row">
+            <div><p>Save json backup of database: </p></div>
+            <div class="btn"><a href="{{ url_for('json_backup') }}">Backup</a></div>
+        </div>
+        <div class="row">
+            <div><p>Replace database with json backup: </p></div>
+            <div class="btn btn-warning">Backup</div>
+        </div>
     </div>
     <div class="container col-xs-12 col-sm-10 col-sm-offset-1 new_asset_container">
         <form class="" method="POST" action="{{ url_for('add_asset') }}">
@@ -138,6 +145,6 @@
             <button class="btn">Add Asset</button>
         </form>
     </div>
-    </div>
+</div>
 
     {% endblock %}
