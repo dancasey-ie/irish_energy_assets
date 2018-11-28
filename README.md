@@ -60,25 +60,22 @@ __Existing Features__
 __Future Features + To Do__
 * As ADMIN have dropdown to rewrite database with json backup, select file from dropdown
 * Include change log to each doc
-!5* Update Voltage_kV
+!5* Update Voltage_kV _ further 45 to include
 * Include Node capacity data
 * Incude glossary
 * Either get d3 data direct from mongo or write to json on every change
-!4* Types, limit dropdown
 * User stays signed in when moving around 
 * Filter on enter and pass filter onto next load
-* Get admin to confirm edit or entry
-* Use crossfilter.js to filter table results using .top(Infinity)
-!3* Style sizing of charts
-* Add title
 * Collpase script, run on first load
 * Collapse icons, make correct on first load
 * Include analysis section in about
-* For reading addresses, make it a loop, as some geopy addresses are >6 lines
-* Clear filter btn
 * combine assets, filtered assets and check_username into one render event
+* reload d3 charts on screen resize for correct formating
 
-
+not pushed
+* For reading addresses, make it a loop, as some geopy addresses are >6 lines
+* Use crossfilter.js to filter table results using .top(Infinity)
+* Get admin to confirm edit or entry
 
 Technologies Used
 -----------------------

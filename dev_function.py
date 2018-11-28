@@ -25,7 +25,7 @@ def convert_pdf_to_csv(pdf_file):
     """
     Converts pdf file into csv and stores in same directory
     """
-    tabula.convert_into(pdf_file, 
+    tabula.convert_into(pdf_file,
                         str(pdf_file[:-4] + ".csv"),
                         output_format="csv",
                         spreadsheet=True,
@@ -46,8 +46,8 @@ def write_json_data(data, json_file):
     Write data to json file
     """
     with open(json_file, "w") as json_data:
-        json.dump(data, json_data) 
-        
+        json.dump(data, json_data)
+
 def update_collection_with_attr(attr, value, collection):
     """
     Used to update collecction if attr does not exist with attr = value.
@@ -89,7 +89,7 @@ def my_autopct(pct):
 
 def get_node_address():
     """
-    Uses geopy to assign the NodeAddress. 
+    Uses geopy to assign the NodeAddress.
     Prints out list of Nodes not found and _id's with no node attribute.
     """
     not_found = []
@@ -114,7 +114,7 @@ def get_node_address():
 
 def get_asset_address():
     """
-    Uses geopy to assign the NodeAddress. 
+    Uses geopy to assign the NodeAddress.
     Prints out list of Nodes not found and _id's with no node attribute.
     """
     not_found = []
@@ -167,17 +167,17 @@ def update_node_address():
             'Blundlestown']
 
     node_address_list = [
-        'Drybridge,Tullyallen, Drogheda, County Louth, Ireland', 
-        'Screeb, Salthill, County Galway, Ireland', 
-        'Portlaoise, County Laois, Leinster, Ireland', 
-        'Cathaleens Fall, Beleek Road, Tully, Ballyshannon, County Donegal, Ireland', 
+        'Drybridge,Tullyallen, Drogheda, County Louth, Ireland',
+        'Screeb, Salthill, County Galway, Ireland',
+        'Portlaoise, County Laois, Leinster, Ireland',
+        'Cathaleens Fall, Beleek Road, Tully, Ballyshannon, County Donegal, Ireland',
         'Boggeragh, County Cork, Ireland',
-        'Reamore, County Kerry, Ireland', 
-        'Barnahealy, Ringaskiddy , County Cork, Ireland', 
-        'Barnadivine, County Cork, Ireland', 
-        'Oweninney, Moneynierin, County Mayo, Ireland', 
-        'Longpoint, County Cork, Ireland', 
-        "Cathaleens Fall, Beleek Road, Tully, Ballyshannon, County Donegal, Ireland", 
+        'Reamore, County Kerry, Ireland',
+        'Barnahealy, Ringaskiddy , County Cork, Ireland',
+        'Barnadivine, County Cork, Ireland',
+        'Oweninney, Moneynierin, County Mayo, Ireland',
+        'Longpoint, County Cork, Ireland',
+        "Cathaleens Fall, Beleek Road, Tully, Ballyshannon, County Donegal, Ireland",
         'Blundlestown, Polleban, County Meath, Ireland']
 
     for asset in mongo.db.all_assets.find():
@@ -206,7 +206,7 @@ def company_pie():
             if 'Company' in asset and str(asset['Company']) == company:
                     company_tot_mw += asset['MEC_MW']
         companies_tot_mw.append(company_tot_mw)
-    
+
     companies = [x for _,x in sorted(zip(companies_tot_mw, companies), \
                                       reverse=True)]
     companies_tot_mw = sorted(companies_tot_mw, reverse=True)
@@ -228,7 +228,7 @@ def company_pie():
             round((companies_tot_mw[index]*100/total), 1)
         companies[index] = companies[index] + " - " + \
             str(company_percentage) + "%"
- 
+
     fig1, ax1 = plt.subplots()
 
     texts, autotexts = ax1.pie(companies_tot_mw,
@@ -237,7 +237,7 @@ def company_pie():
                                labeldistance=1,
                                rotatelabels=True)
     ax1.set_title("Company share of Assets", pad=60, color='white')
-     
+
     for autotext in autotexts:
         autotext.set_color('white')
     ax1.axis('equal')
@@ -266,7 +266,7 @@ def county_pie():
                  and  asset["Status"] != 'Contracted':
                      county_tot_mw += asset['MEC_MW']
          counties_tot_mw.append(county_tot_mw)
-    
+
      counties = [x for _,x in sorted(zip(counties_tot_mw, counties),
                                      reverse=True)]
      counties_tot_mw = sorted(counties_tot_mw, reverse=True)
@@ -287,7 +287,7 @@ def county_pie():
          county_percentage = round((counties_tot_mw[index]*100/total), 1)
          counties[index] = counties[index] + " - " + \
                            str(county_percentage) + "%"
- 
+
      fig1, ax1 = plt.subplots()
 
      texts, autotexts = ax1.pie(counties_tot_mw,
@@ -296,7 +296,7 @@ def county_pie():
                                 labeldistance=1,
                                 rotatelabels=True)
      ax1.set_title("county share of Assets", pad=60, color='white')
-     
+
      for autotext in autotexts:
          autotext.set_color('white')
      ax1.axis('equal')
@@ -386,10 +386,10 @@ def change_keyname():
                 {"$set": {"NodeVoltage_kV" : NodeVoltage}}, upsert=True)
             mongo.db.all_assets.update_one({'_id': doc['_id']},
                 {"$unset": {'Voltage_kV' : ""}})
-            
+
 def list_attr_values(attr, collection):
     """
-    Returns sorted list of all possible values of a defined attiribute in 
+    Returns sorted list of all possible values of a defined attiribute in
     all docs in defined collection.
     """
     values = []
@@ -421,4 +421,17 @@ def move_NI_to_json():
     write_json_data(NI_docs, 'NI_Assets.json')
 
 
-print(list_attr_values('County',mongo.db.all_assets.find()))
+def update_voltage_from_old (old_collection, mongo_collection):
+    for docA in old_collection:
+        name = docA['Name']
+        voltage_kV = docA['Voltage_kV']
+        for docB in mongo_collection.find():
+            if docB['Name'] == name:
+                mongo_collection.update_one({'_id': docB['_id']},
+                                            {"$set": {"NodeVoltage_kV" : voltage_kV}}, upsert=True)
+                break
+
+
+for doc in mongo.db.all_assets.find():
+    if 'NodeVoltage_kV' not in doc or doc['NodeVoltage_kV'] == "":
+        print(doc['Name'])

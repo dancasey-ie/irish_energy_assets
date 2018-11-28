@@ -66,10 +66,10 @@ def list_attr_values(attr, collection):
     """
     values = []
     for doc in collection:
-        if attr in doc and doc[attr] != "" and doc[attr] not in values:
-                if isinstance(doc[attr], str):
+        if attr in doc and doc[attr] != "" and isinstance(doc[attr], str) \
+            and doc[attr].lower() not in values:
                     values.append(doc[attr].lower())
-                else:
+        elif attr in doc and doc[attr] != "" and doc[attr] not in values:
                     values.append(doc[attr])
     values.sort()
     return values
@@ -245,7 +245,8 @@ def index():
                            nodes=nodes,
                            counties=counties,
                            jurisdictions=jurisdictions,
-                           username="")
+                           username="",
+                           title="Irish Energy Assets | Assets")
 
 
 @app.route('/filtered_assets', methods=['POST'])
@@ -313,18 +314,21 @@ def filtered_assets():
                            nodes=nodes,
                            counties=counties,
                            jurisdictions=jurisdictions,
-                           username="")
+                           username="",
+                           title="Irish Energy Assets | Assets")
 
 @app.route('/about')
 def about():
     return render_template('about.html',
-                           username="")
+                           username="",
+                           title="Irish Energy Assets | About")
 
 @app.route('/log_in')
 def log_in():
     return render_template("log_in.html",
                            username="",
-                           message="")
+                           message="",
+                           title="Irish Energy Assets | Log In")
 
 
 @app.route('/log_out')
@@ -377,12 +381,14 @@ def check_username():
                                 nodes=nodes,
                                 counties=counties,
                                 jurisdictions=jurisdictions,
-                                username=username)
+                                username=username,
+                                title="Irish Energy Assets | Assets")
 
 @app.route('/admin/<username>')
 def admin(username):
     return render_template('admin.html',
-                           username=username)
+                           username=username,
+                           title="Irish Energy Assets | Admin")
 
 @app.route('/json_backup')
 def json_backup():
@@ -395,7 +401,8 @@ def new_asset():
     counties = read_json_data('static/data/json/Irish_Counties.json')
     return render_template('add_asset.html',
                            types=types,
-                           counties=counties)
+                           counties=counties,
+                           title="Irish Energy Assets | New Asset")
 
 @app.route('/add_asset', methods=['POST'])
 def add_asset():
@@ -445,7 +452,8 @@ def edit_asset(asset_id, username):
                            attributes=attributes,
                            asset=asset,
                            node_address_ls=node_address_ls,
-                           username=username)
+                           username=username,
+                           title="Irish Energy Assets | Edit Asset")
 
 
 @app.route('/update_asset/<asset_id>', methods=['POST'])
@@ -476,13 +484,13 @@ def update_asset(asset_id):
                  "NodeAddress":  node_address,
                  "LastUpdated": timestr}})
 
-    return redirect(url_for('/'))
+    return redirect(url_for('index'))
 
 
 @app.route('/delete_asset/<asset_id>')
 def delete_asset(asset_id):
     mongo.db.all_assets.remove({'_id': ObjectId(asset_id)})
-    return redirect(url_for("/"))
+    return redirect(url_for("index"))
 
 
 if __name__ == '__main__':

@@ -107,7 +107,13 @@ html, body {
     min-height: 100%;
 }
 
-
+.my_btn {
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    padding: 5px;
+    color: #303130;
+    margin: 5px;
+}
 /* ------------------------------------------------------Index Styling*/
 
 
