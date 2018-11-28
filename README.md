@@ -19,6 +19,8 @@ UX
 ----
 The application was developed with two end uses in mind:
 
+decidedd to have index show the assets and provide the info seperatly.
+
 * To be used by grid operators, traders and end users to keep track of all the assets available similar to that developed by the Energy Web Foundation (https://energyweb.org/  ). 
   Much of the Front-End design concepts were taken from images of their in development online platform. 
   The Energy Web Foundation also uses json style data, which was more or a reason to use MongoDB as the database.

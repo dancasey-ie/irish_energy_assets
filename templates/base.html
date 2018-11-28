@@ -49,7 +49,7 @@
                         {% endif %}">
                         <a href="{{ url_for('index') }}"><i class="fas fa-industry"></i> Assets</a>
                     </li>
-                    <li class="menu-item {% if '/about' in request.path %} active_menu {% endif %}"><a href="{{ url_for('about') }}"><i class="fas fa-info"></i> About</a></li>
+                    <li class="menu-item {% if '/about' in request.path %} active_menu {% endif %}"><a href="{{ url_for('about') }}"><i class="fas fa-info"></i> About Site</a></li>
                     {% if username == "admin" %}
                     <li class="menu-item {% if '/admin' in request.path %} active_menu {% endif %}"><a href="{{ url_for('admin', username=username) }}"><i class="fas fa-cog"></i> Admin</a></li>
                     {% endif %}

@@ -7,14 +7,12 @@ function makeGraphs(error, assetsData) {
     var type_dim = ndx.dimension(dc.pluck('Type'))
     var total_mec_per_type = type_dim.group().reduceSum(dc.pluck('MEC_MW'));
     dc.pieChart('#per-type-chart')
-        //.radius(180)
         .dimension(type_dim)
         .group(total_mec_per_type);
 
     var county_dim = ndx.dimension(dc.pluck('County'))
     var total_mec_per_county = county_dim.group().reduceSum(dc.pluck('MEC_MW'));
     dc.pieChart('#per-county-chart')
-        .radius(180)
         .dimension(county_dim)
         .group(total_mec_per_county)
     var network_dim = ndx.dimension(dc.pluck('Status'));
@@ -40,7 +38,7 @@ function makeGraphs(error, assetsData) {
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .yAxisLabel("MEC (MW)")
-        .legend(dc.legend().x(150).y(10).itemHeight(15).gap(5))
+        .legend(dc.legend().x(50).y(188).itemHeight(15).gap(5).horizontal(true).itemWidth(100))
         .margins().left = 55;
     dc.renderAll();
 }

@@ -188,15 +188,15 @@
             </a>
         </div>
         <div class="collapse chart_collapse collapse_xs in" id="chart_collapse">
-            <div class="pie-chart col-xs-12 col-sm-6 col-lg-4">
+            <div class="pie_chart col-xs-12 col-sm-6 col-lg-4">
                 <h5 class="chart_title">MEC (MW) by Type</h5>
                 <div id="per-type-chart"></div>
             </div>
-            <div class="pie-chart col-xs-12 col-sm-6 col-lg-4">
+            <div class="pie_chart col-xs-12 col-sm-6 col-lg-4">
                 <h5 class="chart_title">MEC (MW) by County</h5>
                 <div id="per-county-chart"></div>
             </div>
-            <div class="bar-chart col-xs-12 col-sm-12 col-lg-4">
+            <div class="bar_chart col-xs-12 col-sm-12 col-lg-4">
                 <h5 class="chart_title">MEC (MW) by Status</h5>
                 <div id="per-status-stacked"></div>
             </div>
@@ -221,9 +221,9 @@
             <div class="row table_heading">
                 <div class="col-xs-6 col_header">Name</div>
                 <div class="col-xs-3 col_header">Type</div>
-                <div class="col-xs-3 col-sm-3 col_header">MEC (MW)</div>
+                <div class="col-xs-2 col_header">MEC (MW)</div>
             </div>
-            <div class="table_warpper">
+            <div class="table_wrapper">
                 {% for asset in assets %}
                 <div class="table_row_container">
                     <div class="row">
@@ -232,7 +232,7 @@
                             <div class="row_attr">
                                 <div class="col-xs-6"><i class="fas fa-chevron-circle-down detail-dropdown"> </i>{{asset.Name}}</div>
                                 <div class="col-xs-3">{{asset.Type}}</div>
-                                <div class="col-xs-3 col-sm-3">{{asset.MEC_MW}}</div>
+                                <div class="col-xs-2">{{asset.MEC_MW}}</div>
                             </div>
                         </a>
                     </div>

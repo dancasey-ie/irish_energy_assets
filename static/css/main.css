@@ -107,29 +107,8 @@ html, body {
     min-height: 100%;
 }
 
+
 /* ------------------------------------------------------Index Styling*/
-.about_container {
-    background-color: #303130;
-    border-color: #c4c4c4;
-    border-style: solid;
-    border-width: 1px;
-    padding: 30px;
-    border-radius: 10px;
-}
-
-.about_group{
-    margin-bottom: 20px;
-}
-.about_collapse {
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid #c4c4c4;
-    border-radius: 10px;
-    color: black;
-    margin-top: 10px;
-}
-
-/* ------------------------------------------------------Asset Styling*/
 
 
 .filter_container {
@@ -183,47 +162,45 @@ html, body {
     border-radius: 10px;
     margin-bottom: 10px
     }
+.chart_header {
+    padding: 10px;
+}
 
-svg {
+.dc-chart {
+    fill: white;
     margin: 0px;
-    width: 100% !important;
-    height: auto !important;
-    align-self: center !important;
 }
 
 .chart_title{
     text-align:center;
     color: white;
 }
-.dc-chart {
-    fill: white;
-    margin: 0px;
+
+.bar_chart {
+    padding: 0px;
 }
 
-.pie-chart {
-    margin-bottom: 20px;
+.pie_chart {
     padding: 0px;
-    height:300px;
-}
-.bar-chart {
-    margin: 0px;
-    padding: 0px;
+    text-align:center;
 }
 #per-county-chart {
-    height: 200px;
-    margin-bottom:20px
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 20px;
+    width: auto;
 }
 
 #per-type-chart {
-    width: 100%;
-    height: auto
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 20px;
+    width: auto;
 }
 
 #per-status-stacked {
     margin: 0px;
     padding: 0px;
-    height: 300px;
-    width: 300px;
 }
 
 .asset_table {
@@ -233,10 +210,12 @@ svg {
     margin-bottom: 10px;
 }
 .assets_collapse {
-    max-height: 825px;
-    overflow: scroll;
 }
 
+.table_wrapper {
+    overflow: scroll;
+    max-height: 800px;
+}
 .table_row_container {
     border-top: 2px solid #c4c4c4;
 }
@@ -288,6 +267,30 @@ svg {
 .container_header{
     padding: 10px;
 }
+
+/* ------------------------------------------------------About Styling*/
+.about_container {
+    background-color: #303130;
+    border-color: #c4c4c4;
+    border-style: solid;
+    border-width: 1px;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.about_group {
+    margin-bottom: 20px;
+}
+
+.about_collapse {
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #c4c4c4;
+    border-radius: 10px;
+    color: black;
+    margin-top: 10px;
+}
+
 
 /*------------------------------------------------------------------Edit Asset Styling*/
 .edit_container {
