@@ -45,17 +45,17 @@ def backup_mongo_collection(collection):
     for doc in backup_json:
         doc.pop('_id')
     timestr = time.strftime("%Y%m%d-%H%M%S")
-    backup_file_name = "static/data/json/backups/all_assets_collection_" \
-                       "backup_%s.json" % timestr
+    backup_file_name = ("static/data/json/backups/assets_backup_%s.json"
+                        % timestr)
     write_json_data(backup_json, backup_file_name)
 
 def overwrite_with_backup(local_collection, mongo_collection):
     """
-    Deletes entire mongo_collection and then fills it with local_collection.
+    Backs up collection locally, deletes entire mongo_collection and
+    then fills it with a defined local_collection.
     """
-    backup_mongo_collection(collection)
+    backup_mongo_collection(mongo_collection.find())
     result = mongo_collection.delete_many({ })
-    local_collection = read_json_data(local_collection)
     for doc in local_collection:
         mongo_collection.insert_one(doc)
 
@@ -386,14 +386,38 @@ def check_username():
 
 @app.route('/admin/<username>')
 def admin(username):
+    back_ups = os.listdir('static/data/json/backups')
+    back_ups.sort(reverse=True)
     return render_template('admin.html',
                            username=username,
+                           back_ups=back_ups,
                            title="Irish Energy Assets | Admin")
 
-@app.route('/json_backup')
-def json_backup():
+@app.route('/json_backup/<username>')
+def json_backup(username):
     backup_mongo_collection(mongo.db.all_assets.find())
-    return redirect(url_for('admin'))
+    back_ups = os.listdir('static/data/json/backups')
+    back_ups.sort(reverse=True)
+    return render_template('admin.html',
+                           username=username,
+                           back_ups=back_ups,
+                           title="Irish Energy Assets | Admin")
+
+@app.route('/over_write_db/<username>', methods=['POST'])
+def over_write_db(username):
+    if request.method == "POST":
+        json_file = request.form["backup_select"]
+        local_collection =  read_json_data('static/data/json/backups/%s'
+                                           % json_file)
+        overwrite_with_backup(local_collection, mongo.db.all_assets)
+        back_ups = os.listdir('static/data/json/backups')
+        back_ups.sort(reverse=True)
+    return render_template('admin.html',
+                           username=username,
+                           back_ups=back_ups,
+                           title="Irish Energy Assets | Admin")
+
+
 
 @app.route('/new_asset')
 def new_asset():

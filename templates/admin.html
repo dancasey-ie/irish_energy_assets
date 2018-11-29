@@ -4,15 +4,25 @@
     <div class="container backup_ctrl_container">
         <div class="row">
             <div><p>Save json backup of database: </p></div>
-            <div class="btn"><a href="{{ url_for('json_backup') }}">Backup</a></div>
+            <div class="btn"><a href="{{ url_for('json_backup', username=username) }}">Backup</a></div>
         </div>
         <div class="row">
             <div><p>Replace database with json backup: </p></div>
-            <div class="btn btn-warning">Backup</div>
+            <div class="btn btn-warning">Over Write</div>
         </div>
+        <form class="" method="POST" action="{{ url_for('over_write_db', username=username) }}">
+            <div class="">
+                <select name="backup_select" id="backup_select" class="form-control">
+                    {% for file in back_ups %}
+                    <option>{{file}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button class="btn btn-warnin">Over Write</button>
+        </form>
     </div>
     <div class="container col-xs-12 col-sm-10 col-sm-offset-1 new_asset_container">
-        <form class="" method="POST" action="{{ url_for('add_asset') }}">
+        <form class="" method="POST" action="{{ url_for('add_asset', username=username) }}">
             <div class="container edit_group edit_asset_details_container col-xs-12 col-md-6">
                 <div class="row edit_header">
                     <a data-toggle="collapse" href="#collapse_edit_asset" role="button" aria-expanded="false" aria-controls="#collapse_edit_asset">

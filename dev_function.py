@@ -432,6 +432,6 @@ def update_voltage_from_old (old_collection, mongo_collection):
                 break
 
 
-for doc in mongo.db.all_assets.find():
-    if 'NodeVoltage_kV' not in doc or doc['NodeVoltage_kV'] == "":
-        print(doc['Name'])
+
+
+print(os.listdir('static/data/json/backups'))
