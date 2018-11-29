@@ -54,11 +54,11 @@ __Existing Features__
 * As signed in administrator you have full CRUD access to all assets.
 * As signed in company you have CRUD access to all your company's assets.
 * D3 interactive charts are displayed on the trend page.
-* As ADMIN have button backup database to json
+* As Admin have button backup database to json
+* As Admin have function to overwrite the database with local backup.
 
  
 __Future Features + To Do__
-* As ADMIN have dropdown to rewrite database with json backup, select file from dropdown
 * Include change log to each doc
 !5* Update Voltage_kV _ further 45 to include
 * Include Node capacity data

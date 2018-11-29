@@ -1,160 +1,160 @@
 {% extends 'base.html'%} {% block content %}
 
 <div class="container col-xs-12 col-sm-10 col-sm-offset-1 admin_container">
-    <div class="container backup_ctrl_container">
-        <div class="row">
-            <div><p>Save json backup of database: </p></div>
-            <div class="btn"><a href="{{ url_for('json_backup', username=username) }}">Backup</a></div>
-        </div>
-        <div class="row">
-            <div><p>Replace database with json backup: </p></div>
-            <div class="btn btn-warning">Over Write</div>
-        </div>
-        <form class="" method="POST" action="{{ url_for('over_write_db', username=username) }}">
-            <div class="">
-                <select name="backup_select" id="backup_select" class="form-control">
-                    {% for file in back_ups %}
-                    <option>{{file}}</option>
-                    {% endfor %}
-                </select>
+    <div class="col-xs-12 new_asset_container">
+            <div class="row admin_header">
+                <a data-toggle="collapse" href="#collapse_new_asset" role="button" aria-expanded="false" aria-controls="#collapse_new_asset">
+                    <div class="pull-left">
+                        <h4><i class="fas fa-chevron-circle-down"></i> New Asset</h4>
+                    </div>
+                </a>
             </div>
-            <button class="btn btn-warnin">Over Write</button>
-        </form>
+            <div class="collapse collapse_new_asset collapse_xs in" id="collapse_new_asset">
+                <form class="" method="POST" action="{{ url_for('add_asset', username=username) }}">
+                    <div class="new_asset_details col-sm-12 col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="Name">Asset Name *</label>
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <input type="text" name="Name" class="form-control asset-entry-form" id="Name" required />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="Type">Asset Type *</label>
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <select name="Type" id="Type" class="form-control asset-entry-form">
+                                    {% for type in types %}
+                                    <option>{{type}}</option>
+                                    {% endfor %}
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="SubType">Sub-Type</label>
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <input type="text" name="SubType" class="form-control asset-entry-form" id="SubType" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="MEC_MW">Max Export Capacity (MW) *</label>
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <input type="number" name="MEC_MW" class="form-control asset-entry-form" id="MEC_MW" required />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="Status">Status</label>
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <select name="Status" id="Status" class="form-control asset-entry-form">
+                                    <option>Connected</option>
+                                    <option>Contracted</option>
+                                    <option>Disconnected</option>
+                                    <option>Energised</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="GenRef">Generator Reference</label>
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <input type="text" name="GenRef" class="form-control asset-entry-form" id="GenRef" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="county">County</label>
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <select name="County" id="County" class="form-control asset-entry-form">
+                                    {% for county in counties %}
+                                    <option>{{county}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="Company">Owning Company</label>
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <input type="text" name="Company" class="form-control asset-entry-form" id="Company" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="new_asset_network_details col-sm-12 col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="NetworkType">Network Type</label>
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <select name="NetworkType" id="NetworkType" class="form-control asset-entry-form">
+                                    <option>Distribution</option>
+                                    <option>Transmission</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="SystemOperator">System Operator</label>
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <select name="SystemOperator" id="SystemOperator" class="form-control asset-entry-form">
+                                    <option>EirGrid</option>
+                                    <option>ESB Networks</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="Node">Node</label>
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <input type="text" name="Node" class="form-control asset-entry-form" id="Node" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="NodeVoltage">Node Voltage</label>
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <input type="number" name="NodeVoltage" class="form-control asset-entry-form" id="NodeVoltage" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="NodeAddress">Node Address</label>
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <input type="text" name="NodeAddress0" class="form-control asset-entry-form address_entry_field" id="NodeAddress0" />
+                                <input type="text" name="NodeAddress1" class="form-control asset-entry-form address_entry_field" id="NodeAddress1" />
+                                <input type="text" name="NodeAddress2" class="form-control asset-entry-form address_entry_field" id="NodeAddress2" />
+                                <input type="text" name="NodeAddress3" class="form-control asset-entry-form address_entry_field" id="NodeAddress3" />
+                                <input type="text" name="NodeAddress4" class="form-control asset-entry-form address_entry_field" id="NodeAddress4" />
+                                <input type="text" name="NodeAddress5" class="form-control asset-entry-form address_entry_field" id="NodeAddress5" />
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12"><p>* required fields</p></div>
+                    <div class="col-xs-12"><button class="btn my_btn">Add Asset</button></div>
+                </form>
+            </div>
     </div>
-    <div class="container col-xs-12 col-sm-10 col-sm-offset-1 new_asset_container">
-        <form class="" method="POST" action="{{ url_for('add_asset', username=username) }}">
-            <div class="container edit_group edit_asset_details_container col-xs-12 col-md-6">
-                <div class="row edit_header">
-                    <a data-toggle="collapse" href="#collapse_edit_asset" role="button" aria-expanded="false" aria-controls="#collapse_edit_asset">
-                        <div class="pull-left">
-                            <h4><i class="fas fa-chevron-circle-down"></i> Edit Asset Details</h4>
-                        </div>
-                    </a>
+    <div class="col-xs-12 backup_container">
+        <div class="row admin_header">
+            <a data-toggle="collapse" href="#collapse_backup" role="button" aria-expanded="false" aria-controls="#collapse_backup">
+                <div class="pull-left">
+                    <h4><i class="fas fa-chevron-circle-down"></i> Backup Control</h4>
                 </div>
-                <div class="collapse collapse_edit_asset collapse_xs in" id="collapse_edit_asset">
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" for="Name">Asset Name *</label>
-                        <div class="col-sm-8 col-sm-offset-2">
-                            <input type="text" name="Name" class="form-control asset-entry-form" id="Name" required />
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" for="Type">Asset Type *</label>
-                        <div class="col-sm-8 col-sm-offset-2">
-                            <select name="Type" id="Type" class="form-control asset-entry-form">
-                                {% for type in types %}
-                                <option>{{type}}</option>
-                                {% endfor %}
-                                <option>Other</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" for="SubType">Sub-Type</label>
-                        <div class="col-sm-8 col-sm-offset-2">
-                            <input type="text" name="SubType" class="form-control asset-entry-form" id="SubType" />
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" for="MEC_MW">Max Export Capacity (MW) *</label>
-                        <div class="col-sm-8 col-sm-offset-2">
-                            <input type="number" name="MEC_MW" class="form-control asset-entry-form" id="MEC_MW" required />
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" for="Status">Status</label>
-                        <div class="col-sm-8 col-sm-offset-2">
-                            <select name="Status" id="Status" class="form-control asset-entry-form">
-                                <option>Connected</option>
-                                <option>Contracted</option>
-                                <option>Disconnected</option>
-                                <option>Energised</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" for="GenRef">Generator Reference</label>
-                        <div class="col-sm-8 col-sm-offset-2">
-                            <input type="text" name="GenRef" class="form-control asset-entry-form" id="GenRef" />
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" for="county">County</label>
-                        <div class="col-sm-8 col-sm-offset-2">
-                            <select name="County" id="County" class="form-control asset-entry-form">
-                                {% for county in counties %}
-                                <option>{{county}}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" for="Company">Owning Company</label>
-                        <div class="col-sm-8 col-sm-offset-2">
-                            <input type="text" name="Company" class="form-control asset-entry-form" id="Company" />
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="container edit_group edit_network_container col-xs-12 col-md-6">
-                <div class="row edit_header">
-                    <a data-toggle="collapse" href="#collapse_edit_network" role="button" aria-expanded="false" aria-controls="#collapse_edit_network">
-                        <div class="pull-left">
-                            <h4><i class="fas fa-chevron-circle-down"></i> Edit Connected Network Details</h4>
-                        </div>
-                    </a>
-                </div>
-                <div class="collapse collapse_edit_network collapse_xs in" id="collapse_edit_network">
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" for="NetworkType">Network Type</label>
-                        <div class="col-sm-8 col-sm-offset-2">
-                            <select name="NetworkType" id="NetworkType" class="form-control asset-entry-form">
-                                <option>Distribution</option>
-                                <option>Transmission</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" for="SystemOperator">System Operator</label>
-                        <div class="col-sm-8 col-sm-offset-2">
-                            <select name="SystemOperator" id="SystemOperator" class="form-control asset-entry-form">
-                                <option>EirGrid</option>
-                                <option>ESB Networks</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" for="Node">Node</label>
-                        <div class="col-sm-8 col-sm-offset-2">
-                            <input type="text" name="Node" class="form-control asset-entry-form" id="Node" />
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" for="NodeVoltage">Node Voltage</label>
-                        <div class="col-sm-8 col-sm-offset-2">
-                            <input type="number" name="NodeVoltage" class="form-control asset-entry-form" id="NodeVoltage" />
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" for="NodeAddress">Node Address</label>
-                        <div class="col-sm-8 col-sm-offset-2">
-                            <input type="text" name="NodeAddress0" class="form-control asset-entry-form" id="NodeAddress0" />
-                            <input type="text" name="NodeAddress1" class="form-control asset-entry-form" id="NodeAddress1" />
-                            <input type="text" name="NodeAddress2" class="form-control asset-entry-form" id="NodeAddress2" />
-                            <input type="text" name="NodeAddress3" class="form-control asset-entry-form" id="NodeAddress3" />
-                            <input type="text" name="NodeAddress4" class="form-control asset-entry-form" id="NodeAddress4" />
-                            <input type="text" name="NodeAddress5" class="form-control asset-entry-form" id="NodeAddress5" />
-                        </div>
-                    </div>
-
+            </a>
+        </div>
+        <div class="collapse collapse_backup collapse_xs in" id="collapse_backup">
+            <div class="back_ctrl_div col-xs-12">
+                <p class="col-xs-12 col-sm-4">Save json backup of database:</p>
+                <div class="col-xs-12 col-sm-3">
+                    <a class="btn my_btn" href="{{ url_for('json_backup', username=username) }}">Backup</a>
                 </div>
             </div>
-            <p>* required fields</p>
-            <button class="btn">Add Asset</button>
-        </form>
+            <div class="overwrite_ctrl_div col-xs-12">
+                <form class="" method="POST" action="{{ url_for('over_write_db', username=username) }}">
+                    <p class="col-xs-12 col-sm-4">Overwrite database with selected local backup file:</p>
+                    <div class="col-xs-12 col-sm-3">
+                        <select name="backup_select" id="backup_select" class="form-control backup_selector">
+                            {% for file in back_ups %}
+                            <option>{{file}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-3">
+                        <button class="btn btn-warning">Over Write</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
     </div>
-</div>
-
     {% endblock %}

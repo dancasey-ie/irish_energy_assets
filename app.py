@@ -220,6 +220,9 @@ def filter_attr_range(attr, lo, hi, collection):
 
 @app.route('/')
 def index():
+    """
+    Renders index.html with all assets.
+    """
     attributes = read_json_data('static/data/json/relevent_attributes.json')
     all_assets = mongo.db.all_assets.find()
     statuses = list_attr_dict('Status', "MEC_MW", mongo.db.all_assets.find())
@@ -251,6 +254,9 @@ def index():
 
 @app.route('/filtered_assets', methods=['POST'])
 def filtered_assets():
+    """
+    Renders index.html with filtered assets.
+    """
     doc_sort = request.form['doc_sort']
     flt_search = (request.form['flt_search']).lower()
     flt_status = request.form.getlist('flt_status')
@@ -319,12 +325,18 @@ def filtered_assets():
 
 @app.route('/about')
 def about():
+    """
+    Renders about.html.
+    """
     return render_template('about.html',
                            username="",
                            title="Irish Energy Assets | About")
 
 @app.route('/log_in')
 def log_in():
+    """
+    Renders log_in.html.
+    """
     return render_template("log_in.html",
                            username="",
                            message="",
@@ -333,6 +345,9 @@ def log_in():
 
 @app.route('/log_out')
 def log_out():
+    """
+    Renders index.html without username set.
+    """
     return redirect('/')
 
 
@@ -386,50 +401,66 @@ def check_username():
 
 @app.route('/admin/<username>')
 def admin(username):
+    """
+    Renders admin.html.
+    """
     back_ups = os.listdir('static/data/json/backups')
     back_ups.sort(reverse=True)
+    types = list_attr_values('Type', mongo.db.all_assets.find())
+    counties = read_json_data('static/data/json/Irish_Counties.json')
     return render_template('admin.html',
                            username=username,
                            back_ups=back_ups,
+                           types=types,
+                           counties=counties,
                            title="Irish Energy Assets | Admin")
 
 @app.route('/json_backup/<username>')
 def json_backup(username):
+    """
+    Renders admin.html after creating local json backup of mongo database.
+    """
     backup_mongo_collection(mongo.db.all_assets.find())
     back_ups = os.listdir('static/data/json/backups')
     back_ups.sort(reverse=True)
+    types = list_attr_values('Type', mongo.db.all_assets.find())
+    counties = read_json_data('static/data/json/Irish_Counties.json')
     return render_template('admin.html',
                            username=username,
                            back_ups=back_ups,
+                           types=types,
+                           counties=counties,
                            title="Irish Energy Assets | Admin")
 
 @app.route('/over_write_db/<username>', methods=['POST'])
 def over_write_db(username):
+    """
+    Renders admin.html after overwriting the mongo database with local backup
+    json. A local backup of the current mongo database is created before
+    overwriting.
+    """
     if request.method == "POST":
         json_file = request.form["backup_select"]
         local_collection =  read_json_data('static/data/json/backups/%s'
                                            % json_file)
         overwrite_with_backup(local_collection, mongo.db.all_assets)
-        back_ups = os.listdir('static/data/json/backups')
-        back_ups.sort(reverse=True)
+
+    back_ups = os.listdir('static/data/json/backups')
+    back_ups.sort(reverse=True)
+    types = list_attr_values('Type', mongo.db.all_assets.find())
+    counties = read_json_data('static/data/json/Irish_Counties.json')
     return render_template('admin.html',
                            username=username,
                            back_ups=back_ups,
-                           title="Irish Energy Assets | Admin")
-
-
-
-@app.route('/new_asset')
-def new_asset():
-    types = list_attr_values('Type', mongo.db.all_assets.find())
-    counties = read_json_data('static/data/json/Irish_Counties.json')
-    return render_template('add_asset.html',
                            types=types,
                            counties=counties,
-                           title="Irish Energy Assets | New Asset")
+                           title="Irish Energy Assets | Admin")
 
 @app.route('/add_asset', methods=['POST'])
 def add_asset():
+    """
+    Renders admin.html after adding new asset to database.
+    """
     timestr = time.strftime("%Y%m%d-%H%M%S")
     node_address =  "%s, %s, %s, %s, %s, %s" % (request.form['NodeAddress0'],
                                                 request.form['NodeAddress1'],
@@ -455,12 +486,23 @@ def add_asset():
 
     mongo.db.all_assets.insert_one(asset_doc)
 
-    return redirect(url_for('admin'))
+    back_ups = os.listdir('static/data/json/backups')
+    back_ups.sort(reverse=True)
+    types = list_attr_values('Type', mongo.db.all_assets.find())
+    counties = read_json_data('static/data/json/Irish_Counties.json')
+    return render_template('admin.html',
+                           username=username,
+                           back_ups=back_ups,
+                           types=types,
+                           counties=counties,
+                           title="Irish Energy Assets | Admin")
 
 
 @app.route('/edit_asset/<asset_id>/<username>')
-
 def edit_asset(asset_id, username):
+    """
+    Renders edit_asset.html for editing a defined asset.
+    """
     print(asset_id)
     print(username)
     assets = mongo.db.all_assets.find()
@@ -482,6 +524,9 @@ def edit_asset(asset_id, username):
 
 @app.route('/update_asset/<asset_id>', methods=['POST'])
 def update_asset(asset_id):
+    """
+    Renders index.html after updating asset edited in edit_asset.html
+    """
     timestr = time.strftime("%Y%m%d-%H%M%S")
     node_address =  "%s, %s, %s, %s, %s, %s" % (request.form['NodeAddress0'],
                                                 request.form['NodeAddress1'],
@@ -513,6 +558,9 @@ def update_asset(asset_id):
 
 @app.route('/delete_asset/<asset_id>')
 def delete_asset(asset_id):
+    """
+    Renders index.html after deleting asset from database.
+    """
     mongo.db.all_assets.remove({'_id': ObjectId(asset_id)})
     return redirect(url_for("index"))
 

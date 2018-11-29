@@ -114,9 +114,12 @@ html, body {
     color: #303130;
     margin: 5px;
 }
+
+.address_entry_field {
+    margin-bottom: 5px;
+}
+
 /* ------------------------------------------------------Index Styling*/
-
-
 .filter_container {
     padding-top: 20px;
     background-color: #303130;
@@ -325,5 +328,19 @@ html, body {
     border-width: 1px;
     border-radius: 10px;
     margin-bottom: 10px;
+}
+
+.backup_selector{
+    max-width: 300px
+}
+.back_ctrl_div, .overwrite_ctrl_div {
+    margin-bottom: 20px;
+    padding:0px
+}
+
+
+
+.backup_container {
+    margin-bottom: 30px
 }
 /*------------------------------------------------------------------Media Querries*/
