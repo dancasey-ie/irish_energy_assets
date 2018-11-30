@@ -18,9 +18,10 @@ var setDivsState = function () {
         });
     }
 
+$(document).ready(setDivsState);
 $(window).resize(setDivsState);
 
-$(document).on(setDivsState);
+
 
 
 

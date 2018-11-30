@@ -54,16 +54,6 @@
                     {% if username == "admin" %}
                     <li class="menu-item {% if '/admin' in request.path %} active_menu {% endif %}"><a href="{{ url_for('admin', username=username) }}"><i class="fas fa-cog"></i> Admin</a></li>
                     {% endif %}
-
-                    <!--
-                    <li class="hidden-sm {% if '/log_in' in request.path %} active_menu {% endif %}">
-                        {% if username == "" %}
-                        <a href="{{ url_for('log_in') }}"><i class="fas fa-user"></i> Log In</a>
-                        {% else %}
-                        <a href="{{ url_for('log_out') }}"><i class="fas fa-user"></i> Log out</a>
-                        {% endif %}
-                    </li>
-                    -->>
                 </ul>
             </div>
         </div>

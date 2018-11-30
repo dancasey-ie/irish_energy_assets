@@ -231,8 +231,6 @@ def index():
     types = list_attr_dict('Type', "MEC_MW", mongo.db.all_assets.find())
     nodes = list_attr_dict('Node', "MEC_MW", mongo.db.all_assets.find())
     counties = list_attr_dict('County', "MEC_MW", mongo.db.all_assets.find())
-    jurisdictions = list_attr_dict('Jurisdiction', "MEC_MW",
-                                   mongo.db.all_assets.find())
     assets = sort_collection('Name', False, mongo.db.all_assets.find())
     mec_total = get_total('MEC_MW', assets)
 
@@ -247,7 +245,6 @@ def index():
                            types=types,
                            nodes=nodes,
                            counties=counties,
-                           jurisdictions=jurisdictions,
                            username="",
                            title="Irish Energy Assets | Assets")
 
@@ -304,8 +301,6 @@ def filtered_assets():
     types = list_attr_dict('Type', "MEC_MW", assets)
     nodes = list_attr_dict('Node', "MEC_MW", assets)
     counties = list_attr_dict('County', "MEC_MW", assets)
-    jurisdictions = list_attr_dict('Jurisdiction', "MEC_MW",
-                                   mongo.db.all_assets.find())
     mec_total = get_total('MEC_MW', assets)
 
     return render_template("index.html",
@@ -319,7 +314,6 @@ def filtered_assets():
                            types=types,
                            nodes=nodes,
                            counties=counties,
-                           jurisdictions=jurisdictions,
                            username="",
                            title="Irish Energy Assets | Assets")
 

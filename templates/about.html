@@ -19,13 +19,41 @@
         </div>
     </div>
 
+    <div class="about_group how_to_guide">
+        <div class="row about_header">
+            <a data-toggle="collapse" href="#collapse_how_to_guide" role="button" aria-expanded="false" aria-controls="#collapse_how_to_guide">
+                <h4><i class="fas fa-plus"></i> How do I use the site?</h4>
+            </a>
+        </div>
+        <div class="collapse about_collapse collapse_sm" id="collapse_how_to_guide">
+            <ul class="how-to-play">
+                <li>
+                    To see full list of generator assets on record go to
+                    <a href="{{ url_for('index') }}" target="_blank">Assets</a>.
+                </li>
+                <li>
+                    All available information on each asset can be seen by expanding on individual asset.
+                </li>
+                <li>
+                    The asset list can be refined using filter options on the <a href="{{ url_for('index') }}" target="_blank">Assets</a> page.
+                </li>
+                <li>
+                    Filter has to be reset before runing new filter.
+                </li>
+                <li>
+                    The charts are interactive, if you click on a segment from any chart the other charts only show data relating to the selected data set..
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <div class="about_group about_network">
         <div class="row about_header">
             <a data-toggle="collapse" href="#collapse_about_network" role="button" aria-expanded="false" aria-controls="#collapse_about_network">
                 <h4><i class="fas fa-plus"></i> How is the electrical grid organised?</h4>
             </a>
         </div>
-        <div class="collapse about_collapse collapse_sm in" id="collapse_about_network">
+        <div class="collapse about_collapse collapse_sm" id="collapse_about_network">
 
             <p>
                 The infrastructure of wires and cables around Ireland is divided into the distribution network and the transmission network.
@@ -44,38 +72,13 @@
         </div>
     </div>
 
-    <div class="about_group how_to_guide">
-        <div class="row about_header">
-            <a data-toggle="collapse" href="#collapse_how_to_guide" role="button" aria-expanded="false" aria-controls="#collapse_how_to_guide">
-                <h4><i class="fas fa-plus"></i> How do I use the site?</h4>
-            </a>
-        </div>
-        <div class="collapse about_collapse collapse_sm in" id="collapse_how_to_guide">
-            <ul class="how-to-play">
-                <li>
-                    To see full list of generator assets on record go to
-                    <a href="{{ url_for('index') }}" target="_blank">Assets</a>.
-                </li>
-                <li>
-                    All available information on each asset can be seen by expanding on individual asset.
-                </li>
-                <li>
-                    The asset list can be refined using filter options on the <a href="{{ url_for('index') }}" target="_blank">Assets</a> page.
-                </li>
-                <li>
-                    Filter has to be reset before runing new filter.
-                </li>
-            </ul>
-        </div>
-    </div>
-
     <div class="about_group about_data">
         <div class="row about_header">
             <a data-toggle="collapse" href="#collapse_about_data" role="button" aria-expanded="false" aria-controls="#collapse_about_data">
                 <h4><i class="fas fa-plus"></i> Where did the data come from?</h4>
             </a>
         </div>
-        <div class="collapse about_collapse collapse_sm in" id="collapse_about_data">
+        <div class="collapse about_collapse collapse_sm" id="collapse_about_data">
             <p>
                 The data shown on this site is a combination of publically available data released by
                 <a href="https://www.esbnetworks.ie/new-connections/generator-connections/generator-connection-statistics" target="_blank">ESB Networks</a> and

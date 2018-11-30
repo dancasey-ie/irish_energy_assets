@@ -60,17 +60,17 @@ __Existing Features__
  
 __Future Features + To Do__
 * Include change log to each doc
-!5* Update Voltage_kV _ further 45 to include
+* Update Voltage_kV _ further 45 to include
 * Include Node capacity data
 * Incude glossary
 * Either get d3 data direct from mongo or write to json on every change
-* User stays signed in when moving around 
-* Filter on enter and pass filter onto next load
-* Collpase script, run on first load
-* Collapse icons, make correct on first load
+                                                                                !* User stays signed in when moving around 
+                                                                                !* Filter on enter and pass filter onto next load
+                                                                                !* Collpase script, run on first load
+                                                                                !* Collapse icons, make correct on first load
 * Include analysis section in about
 * combine assets, filtered assets and check_username into one render event
-* reload d3 charts on screen resize for correct formating
+                                                                                !* reload d3 charts on screen resize for correct formating
 
 not pushed
 * For reading addresses, make it a loop, as some geopy addresses are >6 lines
