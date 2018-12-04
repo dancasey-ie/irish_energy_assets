@@ -19,12 +19,6 @@ var setDivsState = function () {
     }
 
 $(document).ready(setDivsState);
-$(window).resize(setDivsState);
-
-
-
-
-
 
 $('.collapse').on('shown.bs.collapse', function () {
     $(this).parent().find(".fa-plus").removeClass("fa-plus").addClass("fa-minus");
