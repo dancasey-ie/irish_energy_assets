@@ -75,30 +75,37 @@ Features and Process
 
 __Existing Features__
 
-__Site Visiter__
 
-* Data was scraped from PDFs available publically on the Eirgrid and ESB websites, collecting data on all connected and contracted electrical generation assets on both the transmission and distribution networks.
-* Tabula.py was used for parsing the data to .csv format which after manipulation was converted to .json using www.csvjson.com/csv2json.
-* Mongo Database of from this .json data.
-* Home page (index.html) primary feature is to display the last of all the assets in the database, under 'Assets List'.
-* The primary information of each item is displayed in the line item of the list (Name, Type and MEC).
-* A scrollable display of the all data was used rather than pagination.
-* Further asset details are displayed in an accordian style dropdown on clicking each asset in the list.
-* On clicking an asset line item, further asset details are displayed in an accordian style dropdown. Additional details included details on the assets
+* __Data Collection__ of asset details publically available in PDF format from ESB and Eirgrid websites.
+* __Data Formating__ using Tabula.py to convert .pdf files to .csv format, which were then converted to .json using www.csvjson.com/csv2json.
+* __MongoDB Creation__ by developing script to bulk import the .json data files.
+* __Scrollible Data Display__ in index.html 'Assets List' section in tabular format, showing primary asset details (Name, Type and MEC). The table is scrollable rather than paignated as it would be more user friendly.
+* __Accordian Collapse__ style dropdown shows further asset details when clicking on the primary line item. Additional details included details on the assets
 connected network, when the asset was first added to the database and when it was last updated.
-* The Node address was not available in any documentation, so a script was developed to using GeoPy.py to obtain the full address by using the Node name followed by Ireland as the search parameters.
-* By default the assets list is sorted alphabetically by name.
-* A filter side-nav (collapsed window in mobile) can be used to refine the assets displayed and rearrange the order in which they are displayed.
-* The list can be sorted alphabetically (A-Z or Z-A) by name or type, or by MEC value (Low-High or High-low). Selected by a dropdown list in the filter side-nav.
-* The list can be filtered by keywords entered into the search box in the filter side-nav.
-* Tick box selectors are used to select what items to display from the asset attributes Status, System Operator, Types, Node and County.
-If no box from a section is ticked then no filter for that attribute is imposed. If a box is ticked in a section than only the values ticked will be displayed.
-* MEC (Max Export Capacity) can be filtered by setting the range to be displayed in the filter side-nav.
-* The filters are organised by level of importance to an interested party.
-* Each filter section is collapsible, with the more important sections initially shown, unless in viewing in a small screen.
-* 'Apply Filter' button at the top of the refine filter side-nav needs to be clicked to return the filtered assets list.
-* 'Reset Filter' button removes any filters set in the filter, but does not reload the page.
-* 'Clear Filter' button reloads the page with all assets, no filters applied.
+* __Geocoding__ was performed using GeoPy.py to assign full addresses to each Node by searching for 'Node Name' + 'Ireland'.
+* __Data Filter__ scripts were writen taking in filter parameters set in 'Refine Filter' side-nav. 
+    - __Apply Filter__ button reloads the page with filtered data based on filter parameters and selected sort arrangment.
+    - __Reset Filter__ button clears the parameters set in the filter nav since the last page load. Does not change the data currently displayed.
+    - __Clear Filter__ button reloads the page with no filters applied.
+    - __Keyword Search__ loops through all document attributes and returns, subset where the keyword is found in values. This is not case sensitive.
+    - __Tick Box Selectors__ for Status, SystemOperator, Types, Node and County attributes set list of value argumenets for returning the subset. If no box from a section is ticked then no filter for that attribute is imposed. 
+    If a box is ticked in a section than only the values ticked will be displayed.
+    - __Range Filter__ for MEC sets the range of MEC values to return.
+* __Data Sorter__ sorts data alphabetically (A-Z) by asset 'Name' by default. This can be changed by selecting one of the 6 options from the 'Srot by' dropdown in the 'Refine Filter' section.
+    - Name (A - Z)
+    - Name (Z - A)
+    - Type (A - Z)
+    - Type (Z - A)
+    - MEC (Low - High)
+    - MEC (High - Low)
+* 
+
+
+
+
+
+
+
 * DC interactive charts are displayed above the Assets list. An insightful example of the use of the interactive chart is by clicking on the connected bar on the MEC by Status chart, and Wind on the MEC by Type,
 you will see from the MEC by County chart that half the connected wind is built on the most exposed corners of the Irish coast Kerry, Cork and Donegal, and if you then include contracted you will see that Mayo will have the most development in the coming years.
 * 'About Site' page, accessed from the main nav gives information on the purpose of the site, how to use the site, how the electrical grid is organised, where the data came from and a glossary of terms and abbreviations used.
