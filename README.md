@@ -1,5 +1,5 @@
 Data Centric Development: Irish Energy Assets Database
-============================
+=========================================================
 This is the Milestone Project for the Data Centric Development module for the Code Institutes Diploma in Software Development.
 The project displays clear understanding and capabilities in developing a data centric web applications using the Flask Python framework to interact with a Mongo database.
 The application was enhanced with JavaScript data visualisations and Bootstrap CSS styling.
@@ -83,10 +83,10 @@ __Existing Features__
 * __Accordian Collapse__ style dropdown shows further asset details when clicking on the primary line item. Additional details included details on the assets
 connected network, when the asset was first added to the database and when it was last updated.
 * __Geocoding__ was performed using GeoPy.py to assign full addresses to each Node by searching for 'Node Name' + 'Ireland'.
-* __Data Filter__ scripts were writen taking in filter parameters set in 'Refine Filter' side-nav. 
-    - __Apply Filter__ button reloads the page with filtered data based on filter parameters and selected sort arrangment.
-    - __Reset Filter__ button clears the parameters set in the filter nav since the last page load. Does not change the data currently displayed.
-    - __Clear Filter__ button reloads the page with no filters applied.
+* __Data Filter__ scripts were writen taking in filter parameters set in 'Refine Filter' side-nav. NExt to each filter option the number of documents to that will be returned and sum of their MEC is displayed.
+    - __Apply Filter Button__  reloads the page with filtered data based on filter parameters and selected sort arrangment.
+    - __Reset Filter Button__ clears the parameters set in the filter nav since the last page load. Does not change the data currently displayed.
+    - __Clear Filter Button__  reloads the page with no filters applied.
     - __Keyword Search__ loops through all document attributes and returns, subset where the keyword is found in values. This is not case sensitive.
     - __Tick Box Selectors__ for Status, SystemOperator, Types, Node and County attributes set list of value argumenets for returning the subset. If no box from a section is ticked then no filter for that attribute is imposed. 
     If a box is ticked in a section than only the values ticked will be displayed.
@@ -98,48 +98,26 @@ connected network, when the asset was first added to the database and when it wa
     - Type (Z - A)
     - MEC (Low - High)
     - MEC (High - Low)
-* 
-
-
-
-
-
-
-
-* DC interactive charts are displayed above the Assets list. An insightful example of the use of the interactive chart is by clicking on the connected bar on the MEC by Status chart, and Wind on the MEC by Type,
+* __Interactive Charts__ display the database data. Three charts show the MEC distribution across Types, Counties and Status. An insightful example of the use of the interactive chart is by clicking on the connected bar on the MEC by Status chart, and Wind on the MEC by Type,
 you will see from the MEC by County chart that half the connected wind is built on the most exposed corners of the Irish coast Kerry, Cork and Donegal, and if you then include contracted you will see that Mayo will have the most development in the coming years.
-* 'About Site' page, accessed from the main nav gives information on the purpose of the site, how to use the site, how the electrical grid is organised, where the data came from and a glossary of terms and abbreviations used.
-
-__Company Log In__
-
-* User can log in by entering the login page by clicking on 'Login on the top right of the view'.
-* 'Log In' instructs the user that they can log in as a company name on record or as 'admin'.
-* If an invalid company name is entered an error message is displayed for the user to enter a valid name.
-* If signed in as a company name on record (i.e. ESB) the home page is displayed filtered to display all assets owned by you.
-* A welcomes message to the logged in user is displayed and the user is given the option to log out in the top right of the screen.
-* As a user you can edit and delete your asset details from the database by clicking the 'Update Asset' link, located in the 'Data Details' section in the dropdown for that asset.
-* The 'Update Asset' link opens the 'edit asset' page where the user can update the details or delete the asset entirely from the database.
-
-__Admin Log In__
-
-* If logged in as 'admin', you have edit and delete access to all assets, by the same means as detailed above for Company Login.
-* An additional 'Admin' menu item is shown giving access to the 'admin' page.
-* Here 'admin' can add a new asset to the database by entering in the details under the 'New Asset' section and clicking the 'Add Asset' button.
-* Some of the attribute fields are required for the asset to be entered and some require to be chosen from a list of options.
-* Note: for the type section there is an option to select 'Other' and then enter the type under sub-type to allow for new technologies to be added to the system.
-* Under the 'Backup Control' section the admin can right the Mongo database (losing the object ID) to a .json file stored in the local website directory by clicking the 'Backup' button.
-The backup is time stamped.
-* The admin can also replace the Mongo database with one of the previous .json backups. The file to be used is selected from a dropdown and executed by clicking 'Overwrite' button.
-* As the this function deletes all assets from the database before writing backup data to it, a backup of the current database is automatically created when executing the overwrite.
+* __About Site__ page gives information on the purpose of the site, how to use the site, how the electrical grid is organised, where the data came from and a glossary of terms and abbreviations used.
+* __User Login__ for logging in as 'admin' or a company that owns one of the assetss. Accessed by entering the login page from login button on top right of the page. Loging as a company gives you edit and delete database access to their assets. Loggin in as 'admin' gives full CRUD access to the database.
+* __User Validation__ if user enters a name that is not on the list of company names, they are receive an erro message and asked to enter a valid company name.
+* __Updating Document__ can be performed once logged in, by clicking 'Update Asset' link, located in the 'Data Details' section in the dropdown for that asset. This is only visible when you have access to the document. This opens edit_asset.html to edit the asset.
+* __Deleting Document__ can be performed from the edit_asset.html page by clicking 'Delete Asset' button.
+* __Creating Documnet__ to add to the database can only be performed by the admin. To add a document the admin must enter the 'Admin' page by clicking the menu option, only visible when logged in as 'admin'. Here the 'admin' can enter the new asset details.
+Note: for the type section there is an option to select 'Other' and then enter the type under sub-type to allow for new technologies to be added to the system.
+* __Database Backup__ can be performed from the 'Admin' page by clicking the 'Backup' button. This writes the MongoDB collection, less the object _ID, to a .json file in the websites directory. The backups are timestamped.
+* __Database Fallback__ to a backup .json can be performed by selecting one of the backups in the directory and clicking 'Fallback' button. Before the collection is cleared, a backup is automatically created to avoid loss of data.
+* __Responsive Design__ collapses and rearranges sections based on importance as the screen changes sizes. Dropdown indicators change to indicate what state the relevent collapse is in.
 
 
+__Future Development__
 
- 
-__Future Features + To Do__
-* Include change log to each doc
-* Update Voltage_kV _ further 45 to include
-* Include Node capacity data
-* Include glossary
+
+* __Change Log__ recording if, when and by who a document was updated.
+* __Node Capacity__ to indicate which nodes are reaching their maximium connected MEC limit.
+* __Glossary__ of abbrevieations and terminaology
 * Either get d3 data direct from mongo or write to json on every change
                                                                                 !* User stays signed in when moving around
                                                                                 !* Filter on enter and pass filter onto next load
@@ -154,9 +132,6 @@ not pushed
 * Use crossfilter.js to filter table results using .top(Infinity)
 * Get admin to confirm edit or entry
 
-
-
-
 Testing
 -----------------------
 
@@ -164,8 +139,50 @@ __Code Validation__
 
 * __Python__ was validated using http://pep8online.com/. Both run.py and test_quiz.py are pep8 compliant.
 * __HTML__ was validated using https://validator.w3.org/. Due to the python code embedded in the HTML templates there were a number of errors.
-* __CSS__ was validated using https://jigsaw.w3.org/css-validator/validator. No  errors were found.
+* __CSS__ was validated using https://jigsaw.w3.org/css-validator/validator. No errors were found.
 * __Spelling and Grammar__ was validated using Google Docs.
+
+__Unittest Automated Testing__
+
+Throughout the development of this project a 'Test After' approach was taken. After deciding what was needed, the function was written, manually tested 
+while developing. Once a basic function was built, an automated test was written in test_app.py using unittest testing framework for each of the possible conditions.
+As functions became more complex and interacted with other functions, these automated tests insured that the functions all maintained their required functionality. 8 functions were tested in this manor.
+
+__Visual Testing__
+
+The dev tool within Firefox Development Edition was used to test that the pages were displaying correctly (alignment, spacing, position etc) across different screen widths.
+
+
+|                                                       | Galaxy S5 | Pixel 2 | Pixel 2XL | iPhone 5/SE |	iPhone 6/7/8 | iPhone 6/7/8 + | iPhone X | iPad  | iPad Pro   | Responsive 1366 x 768 | Responsive 1680 x 1050 |  
+| ----------------------------------------------------- | --------- | ------- | --------- | ----------- | -------------- | -------------- | -------- | ------| ---------- | --------------------- | ---------------------- |
+| index.html (collapsed and un-collpased sections)      | OK        | OK      | OK        | OK          | OK             | OK             | OK       | OK    | OK         | OK                    | OK                     |                 
+| about.html (collapsed and un-collpased sections)      | OK        | OK      | OK        | OK          | OK             | OK             | OK       | OK    | OK         | OK                    | OK                     | 
+| login.html                                            | OK        | OK      | OK        | OK          | OK             | OK             | OK       | OK    | OK         | OK                    | OK                     | 
+| edit_asset.html (collapsed and un-collpased sections) | OK        | OK      | OK        | OK          | OK             | OK             | OK       | OK    | OK         | OK                    | OK                     | 
+| admin.html (collapsed and un-collpased sections)      | OK        | OK      | OK        | OK          | OK             | OK             | OK       | OK    | OK         | OK                    | OK                     | 
+
+
+__Manual Testing__
+
+The following test were performed manually.
+
+|    Feature        |   Test Action                                                                         |   Expected Result                                |  Chrome (Desktop) |  Firefox (Desktop)  | Chrome (Mobile) |
+| ----------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------ | ----------------- | ------------------- | --------------- |
+| Data Sorter       | Select 'Sort by' option, 'Apply Filter', Repeat for all 'Sort by' options.            | Data is sorted appropritely                      | OK                | OK                  | OK              |
+| Keyword Search    | 'Clear Filter', enter 'an cnoc' into 'Search' box, 'Apply Filter'                     | Returns asset 'An Cnoc'                          | OK                | OK                  | OK              |
+| Tick Box Filter   | 'Clear Filter', select 'Connected' under Status and 'Wind' under Type, 'Apply Filter' | Returns list of all connected wind assets        | OK                | OK                  | OK              |
+| MEC Range Filter  | 'Clear Filter', enter range 'from' 250 'to' 350, 'Apply Filter'                       | Returns assets with 250 < MEC < 350              | OK                | OK                  | OK              |    
+| MEC Range Filter  | 'Clear Filter', enter range 'from' 250 'to' 350, 'Apply Filter'                       | Returns assets with 250 < MEC < 350              | OK                | OK                  | OK              |    
+| Company Login     | Click 'Login', enter 'esb', click 'Login'                                             | Returns index.html filtered for ESB owned assets, 'Welcome ESB' top right, 'Update Details' visible in assets dropdown | OK                | OK                  | OK              | 
+| Update Asset      | Expand  'Aghada 1', 'Update Details', change Ireland to IRE, 'Save Changes'           | Details in index now show IRE                    | OK                | OK                  | OK              |    
+| Log Out           | Click 'Log Out'                                                                       | Reloads index.html, logged out                   | OK                | OK                  | OK              |    
+| Unknown Login     | Click 'Login', enter 'abc', click 'Login'                                             | Error 'That is not a valid username.' displayed  | OK                | OK                  | OK              |    
+| Admin Login       | Enter 'admin', click 'Login'                                                          | Returns index.html, 'Admin' menu tab visible     | OK                | OK                  | OK              |    
+| New Asset         | Click 'Admin', enter asset name 'abc' details, 'Add Asset'                            | Returns admin.html, asset 'abc' included in index.html | OK                | OK                  | OK              |    
+| Backup Database   | Enter 'Admin', click 'Backup'                                                         | New .json file in local directory                | OK                | OK                  | OK              |    
+| Delete Asset      | Enter index.html, expand asset 'abc', click 'Update Asset', click 'Delete Asset'      | Returns index.html, 'abc' no longer included     | OK                | OK                  | OK              |    
+| Database Fallback | Enter 'Admin', select most recent .json file, click 'Fallback'                        | Returns admin.html, asset 'abc' can be seen again in index.html, new .json file in local directory. Returns index.html, 'abc' no longer included     | OK                | OK                  | OK              |   
+
 
 
 Development
