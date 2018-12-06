@@ -45,7 +45,7 @@
             <div class="collapse navbar-collapse" id="collapsible-navbar">
                 <ul class="nav navbar-nav nav-text">
                     <li class="menu-item
-                        {% if request.path == '/' or request.path == '/filtered_assets' or request.path == '/check_username' %}
+                        {% if request.path == '/' or request.path == '/filtered_assets/' or request.path == '/check_username' %}
                         active_menu
                         {% endif %}">
                         <a href="{{ url_for('index') }}"><i class="fas fa-industry"></i> Assets</a>

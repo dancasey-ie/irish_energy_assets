@@ -231,6 +231,7 @@ def index():
     types = list_attr_dict('Type', "MEC_MW", mongo.db.all_assets.find())
     nodes = list_attr_dict('Node', "MEC_MW", mongo.db.all_assets.find())
     counties = list_attr_dict('County', "MEC_MW", mongo.db.all_assets.find())
+    companies = list_attr_dict('Company', "MEC_MW", mongo.db.all_assets.find())
     assets = sort_collection('Name', False, mongo.db.all_assets.find())
     mec_total = get_total('MEC_MW', assets)
 
@@ -245,6 +246,7 @@ def index():
                            types=types,
                            nodes=nodes,
                            counties=counties,
+                           companies=companies,
                            username="",
                            title="Irish Energy Assets | Assets")
 
@@ -266,7 +268,7 @@ def filtered_assets(username):
     flt_mec_hi = float(request.form['flt_mec_hi'])
     flt_node = request.form.getlist('flt_node')
     flt_county = request.form.getlist('flt_county')
-    flt_jurisdiction = request.form.getlist('flt_jurisdiction')
+    flt_company = request.form.getlist('flt_company')
     assets = mongo.db.all_assets.find()
     total_docs_count = assets.count()
     attributes = read_json_data('static/data/json/relevent_attributes.json')
@@ -297,13 +299,14 @@ def filtered_assets(username):
         assets = filter_collection('Node', flt_node, assets)
     if flt_county != []:
         assets = filter_collection('County', flt_county, assets)
-    if flt_jurisdiction != []:
-        assets = filter_collection('Jurisdiction', flt_jurisdiction, assets)
+    if flt_company != []:
+        assets = filter_collection('Company', flt_company, assets)
     statuses = list_attr_dict('Status', "MEC_MW", assets)
     system_operators = list_attr_dict('SystemOperator', "MEC_MW", assets)
     types = list_attr_dict('Type', "MEC_MW", assets)
     nodes = list_attr_dict('Node', "MEC_MW", assets)
     counties = list_attr_dict('County', "MEC_MW", assets)
+    companies = list_attr_dict('Company', "MEC_MW", mongo.db.all_assets.find())
     mec_total = get_total('MEC_MW', assets)
 
     return render_template("index.html",
@@ -317,6 +320,7 @@ def filtered_assets(username):
                            types=types,
                            nodes=nodes,
                            counties=counties,
+                           companies=companies,
                            username=username,
                            title="Irish Energy Assets | Assets")
 
@@ -361,7 +365,7 @@ def check_username():
         attributes = read_json_data('static/data/json/' +
                                     'relevent_attributes.json')
 
-        if username not in users:
+        if username.lower() not in users:
             message = "That is not a valid username."
             return render_template("log_in.html",
                                     message=message,
@@ -377,6 +381,7 @@ def check_username():
         types = list_attr_dict('Type', "MEC_MW", assets)
         nodes = list_attr_dict('Node', "MEC_MW", assets)
         counties = list_attr_dict('County', "MEC_MW", assets)
+        companies = list_attr_dict('Company', "MEC_MW", assets)
         jurisdictions = list_attr_dict('Jurisdiction', "MEC_MW", assets)
         assets = sort_collection('Name', False, assets)
         mec_total = get_total('MEC_MW', assets)
@@ -392,6 +397,7 @@ def check_username():
                                 types=types,
                                 nodes=nodes,
                                 counties=counties,
+                                companies=companies,
                                 jurisdictions=jurisdictions,
                                 username=username,
                                 title="Irish Energy Assets | Assets")

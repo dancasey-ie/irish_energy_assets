@@ -128,6 +128,7 @@ html, body {
     border-width: 1px;
     border-radius: 10px;
     margin-bottom: 10px;
+    padding-bottom: 20px;
 }
 
 .sort-by-selecter {
