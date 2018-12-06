@@ -24,11 +24,10 @@
         </div>
 
         <div class="collapse collapse_sm" id="collapse_refine">
-
-            <form method="POST" action="{{ url_for('filtered_assets')}}">
+            <form method="POST" action="{{ url_for('filtered_assets', username=username)}}">
                 <button type="submit" class="btn my_btn">Apply Filter</button>
                 <button type="reset" class="btn my_btn">Reset Filter</button>
-                <a class="btn my_btn" href="{{ url_for('index')}}">Clear Filter</a>
+                <a class="btn my_btn" href="{{ url_for('index', username=username)}}">Clear Filter</a>
                 <div class="form-group row filter_form">
                     <label for="doc_sort">Sort by:</label>
                     <select class="form-control sort-by-selecter" name="doc_sort" id="doc_sort">
@@ -79,9 +78,11 @@
                     <div class="collapse filter_collapse in" id="collapse_system_operator">
                         {% for system_operator in system_operators %}
                         <div class="checkbox">
-                            <label><input type="checkbox" name="flt_system_operator" value={{system_operator['Name']}}>{{system_operator['Name']}}
-                            ({{system_operator['Count']}})
-                            ({{system_operator['Total']}}MW)</label>
+                            <label>
+                                <input type="checkbox" name="flt_system_operator" value={{system_operator['Name']}}>{{system_operator['Name']}}
+                                ({{system_operator['Count']}})
+                                ({{system_operator['Total']}}MW)
+                            </label>
                         </div>
                         {% endfor %}
                     </div>

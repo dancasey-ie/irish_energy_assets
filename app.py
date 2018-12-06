@@ -248,9 +248,12 @@ def index():
                            username="",
                            title="Irish Energy Assets | Assets")
 
+@app.route('/filtered_assets/', methods=['POST'])
+def filter_nologin():
+    return filtered_assets('')
 
-@app.route('/filtered_assets', methods=['POST'])
-def filtered_assets():
+@app.route('/filtered_assets/<username>', methods=['POST'])
+def filtered_assets(username):
     """
     Renders index.html with filtered assets.
     """
@@ -314,7 +317,7 @@ def filtered_assets():
                            types=types,
                            nodes=nodes,
                            counties=counties,
-                           username="",
+                           username=username,
                            title="Irish Energy Assets | Assets")
 
 @app.route('/about')
@@ -485,7 +488,7 @@ def add_asset():
     types = list_attr_values('Type', mongo.db.all_assets.find())
     counties = read_json_data('static/data/json/Irish_Counties.json')
     return render_template('admin.html',
-                           username=username,
+                           username='admin',
                            back_ups=back_ups,
                            types=types,
                            counties=counties,

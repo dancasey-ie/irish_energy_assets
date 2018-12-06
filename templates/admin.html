@@ -141,7 +141,7 @@
             </div>
             <div class="overwrite_ctrl_div col-xs-12">
                 <form class="" method="POST" action="{{ url_for('over_write_db', username=username) }}">
-                    <p class="col-xs-12 col-sm-4">Overwrite database with selected local backup file:</p>
+                    <p class="col-xs-12 col-sm-4">Fallback database with selected local backup file:</p>
                     <div class="col-xs-12 col-sm-3">
                         <select name="backup_select" id="backup_select" class="form-control backup_selector">
                             {% for file in back_ups %}
@@ -150,7 +150,7 @@
                         </select>
                     </div>
                     <div class="col-xs-12 col-sm-3">
-                        <button class="btn btn-warning">Over Write</button>
+                        <button class="btn btn-warning">Fallback</button>
                     </div>
                 </form>
             </div>

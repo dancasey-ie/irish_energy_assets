@@ -166,22 +166,22 @@ __Manual Testing__
 
 The following test were performed manually.
 
-|    Feature        |   Test Action                                                                         |   Expected Result                                |  Chrome (Desktop) |  Firefox (Desktop)  | Chrome (Mobile) |
-| ----------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------ | ----------------- | ------------------- | --------------- |
-| Data Sorter       | Select 'Sort by' option, 'Apply Filter', Repeat for all 'Sort by' options.            | Data is sorted appropritely                      | OK                | OK                  | OK              |
-| Keyword Search    | 'Clear Filter', enter 'an cnoc' into 'Search' box, 'Apply Filter'                     | Returns asset 'An Cnoc'                          | OK                | OK                  | OK              |
-| Tick Box Filter   | 'Clear Filter', select 'Connected' under Status and 'Wind' under Type, 'Apply Filter' | Returns list of all connected wind assets        | OK                | OK                  | OK              |
-| MEC Range Filter  | 'Clear Filter', enter range 'from' 250 'to' 350, 'Apply Filter'                       | Returns assets with 250 < MEC < 350              | OK                | OK                  | OK              |    
-| MEC Range Filter  | 'Clear Filter', enter range 'from' 250 'to' 350, 'Apply Filter'                       | Returns assets with 250 < MEC < 350              | OK                | OK                  | OK              |    
-| Company Login     | Click 'Login', enter 'esb', click 'Login'                                             | Returns index.html filtered for ESB owned assets, 'Welcome ESB' top right, 'Update Details' visible in assets dropdown | OK                | OK                  | OK              | 
-| Update Asset      | Expand  'Aghada 1', 'Update Details', change Ireland to IRE, 'Save Changes'           | Details in index now show IRE                    | OK                | OK                  | OK              |    
-| Log Out           | Click 'Log Out'                                                                       | Reloads index.html, logged out                   | OK                | OK                  | OK              |    
-| Unknown Login     | Click 'Login', enter 'abc', click 'Login'                                             | Error 'That is not a valid username.' displayed  | OK                | OK                  | OK              |    
-| Admin Login       | Enter 'admin', click 'Login'                                                          | Returns index.html, 'Admin' menu tab visible     | OK                | OK                  | OK              |    
-| New Asset         | Click 'Admin', enter asset name 'abc' details, 'Add Asset'                            | Returns admin.html, asset 'abc' included in index.html | OK                | OK                  | OK              |    
-| Backup Database   | Enter 'Admin', click 'Backup'                                                         | New .json file in local directory                | OK                | OK                  | OK              |    
-| Delete Asset      | Enter index.html, expand asset 'abc', click 'Update Asset', click 'Delete Asset'      | Returns index.html, 'abc' no longer included     | OK                | OK                  | OK              |    
-| Database Fallback | Enter 'Admin', select most recent .json file, click 'Fallback'                        | Returns admin.html, asset 'abc' can be seen again in index.html, new .json file in local directory. Returns index.html, 'abc' no longer included     | OK                | OK                  | OK              |   
+|    Feature            |   Test Action                                                                         |   Expected Result                                |  Chrome (Desktop) |  Firefox (Desktop)  | Chrome (Mobile) |
+| --------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------ | ----------------- | ------------------- | --------------- |
+| __Data Sorter__       | Select 'Sort by' option, 'Apply Filter', Repeat for all 'Sort by' options.            | Data is sorted appropritely                      | OK                | OK                  | OK              |
+| __Keyword Search__    | 'Clear Filter', enter 'an cnoc' into 'Search' box, 'Apply Filter'                     | Returns asset 'An Cnoc'                          | OK                | OK                  | OK              |
+| __Tick Box Filter__   | 'Clear Filter', select 'Connected' under Status and 'Wind' under Type, 'Apply Filter' | Returns list of all connected wind assets        | OK                | OK                  | OK              |
+| __MEC Range Filter__  | 'Clear Filter', enter range 'from' 250 'to' 350, 'Apply Filter'                       | Returns assets with 250 < MEC < 350              | OK                | OK                  | OK              |    
+| __MEC Range Filter__  | 'Clear Filter', enter range 'from' 250 'to' 350, 'Apply Filter'                       | Returns assets with 250 < MEC < 350              | OK                | OK                  | OK              |    
+| __Company Login__     | Click 'Login', enter 'esb', click 'Login'                                             | Returns index.html filtered for ESB owned assets, 'Welcome ESB' top right, 'Update Details' visible in assets dropdown | OK                | OK                  | OK              | 
+| __Update Asset__      | Expand  'Aghada 1', 'Update Details', change Ireland to IRE, 'Save Changes'           | Details in index now show IRE                    | OK                | OK                  | OK              |    
+| __Log Out__           | Click 'Log Out'                                                                       | Reloads index.html, logged out                   | OK                | OK                  | OK              |    
+| __Unknown Login__     | Click 'Login', enter 'abc', click 'Login'                                             | Error 'That is not a valid username.' displayed  | OK                | OK                  | OK              |    
+| __Admin Login__       | Enter 'admin', click 'Login'                                                          | Returns index.html, 'Admin' menu tab visible     | OK                | OK                  | OK              |    
+| __New Asset__         | Click 'Admin', enter asset name 'abc' details, 'Add Asset'                            | Returns admin.html, asset 'abc' included in index.html | OK                | OK                  | OK              |    
+| __Backup Database__   | Enter 'Admin', click 'Backup'                                                         | New .json file in local directory                | OK                | OK                  | OK              |    
+| __Delete Asset__      | Enter index.html, expand asset 'abc', click 'Update Asset', click 'Delete Asset'      | Returns index.html, 'abc' no longer included     | OK                | OK                  | OK              |    
+| __Database Fallback__ | Enter 'Admin', select most recent .json file, click 'Fallback'                        | Returns admin.html, asset 'abc' can be seen again in index.html, new .json file in local directory. Returns index.html, 'abc' no longer included     | OK                | OK                  | OK              |   
 
 
 
