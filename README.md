@@ -45,15 +45,9 @@ Technologies Used
 
 UX
 ----
-The application was developed with two end uses in mind:
-
+The application was developed as a tool to be managed by a system operator. 
+The public could visit the site to get information on the generator assets around them, asset developers could see where there is saturation in the market, asset owners could update anychanges they have made to let the system operator keep track.
 decidedd to have index show the assets and provide the info seperatly.
-
-* To be used by grid operators, traders and end users to keep track of all the assets available similar to that developed by the Energy Web Foundation (https://energyweb.org/  ).
-  Much of the Front-End design concepts were taken from images of their in development online platform.
-  The Energy Web Foundation also uses json style data, which was more or a reason to use MongoDB as the database.
-
-* To be used to visualise the Irish national grid in graphs to gain a greater insight into the countries energy pool.
 
 __User Stories__
 
@@ -67,7 +61,7 @@ User stories were developed to guide game play and desired functions.
 * As admin I should have full CRUD access access to all the assets.
 * As non-admin logged in user I should be able to create a new asset and have update and delete access to all of my owned assets.
 * As admin I should be able to backup up the current data to a json file stored in a local directory.
-* As admin I should be able to overwrite the current database with the data from the json backup.
+* As admin I should be able to fallback to previous backup database.
 
 
 Features and Process
@@ -115,22 +109,16 @@ Note: for the type section there is an option to select 'Other' and then enter t
 __Future Development__
 
 
-* __Change Log__ recording if, when and by who a document was updated.
-* __Node Capacity__ to indicate which nodes are reaching their maximium connected MEC limit.
-* __Glossary__ of abbrevieations and terminaology
-* Either get d3 data direct from mongo or write to json on every change
-                                                                                !* User stays signed in when moving around
-                                                                                !* Filter on enter and pass filter onto next load
-                                                                                !* Collapse script, run on first load
-                                                                                !* Collapse icons, make correct on first load
-* Include analysis section in about
-* combine assets, filtered assets and check_username into one render event
-                                                                                !* reload d3 charts on screen resize for correct formatting
-
-not pushed
-* For reading addresses, make it a loop, as some geopy addresses are >6 lines
-* Use crossfilter.js to filter table results using .top(Infinity)
-* Get admin to confirm edit or entry
+* __Change Log__ Record any changes made to the collection in a change log recording the change, timestamp, and who made the change.
+* __Glossary__ Include a glossary of terms and abbreievations.
+* __D3 Charts Read from MongoDB__ Currently the d3 charts read data from a .json file that is written to every time a change to the collection is made. The charts should read directly from MongoDB.
+* __Continued Filter Refining__ Currently the filter parameters set act out on the whole of the collections documents, past filters should be transfered on for further filter refining. This will most likely require AJAX or passing the filter parameters as a URL Query String.
+* __Collapse Icon__ Currently the collapse in or out icons only change once actived, they do not reflect the initial state on page load, and in the filter side-nav all icons are not independent. This will be solved with greater understanding of the DOM to be covered in the JavaScript module.
+* __Filter Asset List using crossfilter.js__ Filters across the d3 charts should be reflected in the assets list shown. To be used instead of refine filter side-nav. ".top(Infinity)" will probably be used to make this work.
+* __Combine Functions__ Combine assets, filtered assets and check_username into one render event                                              
+* __Admin Confirmation__ Any non-admin changes to the collection should require confirmation from the admin before being applied to the database.
+* __Data Analysis__ Include synopsis of data.
+                                                                         
 
 Testing
 -----------------------
@@ -183,6 +171,7 @@ The following test were performed manually.
 | __Delete Asset__      | Enter index.html, expand asset 'abc', click 'Update Asset', click 'Delete Asset'      | Returns index.html, 'abc' no longer included     | OK                | OK                  | OK              |    
 | __Database Fallback__ | Enter 'Admin', select most recent .json file, click 'Fallback'                        | Returns admin.html, asset 'abc' can be seen again in index.html, new .json file in local directory. Returns index.html, 'abc' no longer included     | OK                | OK                  | OK              |   
 
+__Known Bugs__
 
 
 Development
@@ -205,6 +194,39 @@ usable format. I have kept the code and data not used by the running application
 
 Deployment
 ------------------------
+
+__Hosting__
+
+The application is hosted on Heroku and can be accessed at:
+
+https://irish-energy-assets.herokuapp.com/
+
+A Procfile is required by Heroku to know what language to launch the application as. 
+In Heroku the config variables were set:
+
+IP: 0.0.0.0  
+Port: 5000
+
+__Requirements__
+
+The requirements for runninng the app can be found at:
+https://github.com/dcasey720/irish_energy_assets/blob/master/requirements.txt
+
+__Deployed vs Development__
+
+For the applied app, the 'dev_assets' has been removed. It has been left in the Github repository for proof of developement work. It can be found at:
+https://github.com/dcasey720/irish_energy_assets/tree/master/dev_assets
+
+For the running app.py code the following differences exist between development and deployed.
+
+|       Code       | Deployed | Development |
+| ---------------- | -------- | ----------- | 
+| app.run(debug= ) |  False   |   True      |       
+
+Running App
+------------------------
+
+https://irish-energy-assets.herokuapp.com/
 
 
 

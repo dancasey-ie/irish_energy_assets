@@ -44,7 +44,7 @@
                     <input type="search" name="flt_search" class="form-control search-input" id="flt_search" />
                 </div>
                 <div class="filter_group status">
-                    <div class="row filter_header">
+                    <div class="row filter_header status_filter_header">
                         <a data-toggle="collapse" href="#collapse_status" role="button" aria-expanded="false" aria-controls="#collapse_status">
                             <div class="pull-left">
                                 <h4>Status</h4>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="filter_group system_operator">
-                    <div class="row filter_header">
+                    <div class="row filter_header sys_op_filter_header">
                         <a data-toggle="collapse" href="#collapse_system_operator" role="button" aria-expanded="false" aria-controls="#collapse_system_operator">
                             <div class="pull-left">
                                 <h4>System Operator</h4>
@@ -88,7 +88,7 @@
                     </div>
                 </div>
                 <div class="filter_group types">
-                    <div class="row filter_header">
+                    <div class="row filter_header type_filter_header">
                         <a data-toggle="collapse" href="#collapse_types" role="button" aria-expanded="false" aria-controls="#collapse_types">
                             <div class="pull-left">
                                 <h4>Types</h4>
@@ -108,7 +108,7 @@
                     </div>
                 </div>
                 <div class="filter_group mec">
-                    <div class="row filter_header">
+                    <div class="row filter_header mec_filter_header">
                         <a data-toggle="collapse" href="#collapse_mec" role="button" aria-expanded="false" aria-controls="#collapse_mec">
                             <div class="pull-left">
                                 <h4>Max Export Capacity</h4>
@@ -130,8 +130,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="filter_group node">
-                    <div class="row filter_header">
+                <div class="filter_group node node_filter_group">
+                    <div class="row filter_header node_filter_header">
                         <a data-toggle="collapse" href="#collapse_node" role="button" aria-expanded="true" aria-controls="#collapse_node">
                             <div class="pull-left">
                                 <h4>Node</h4>
@@ -142,7 +142,7 @@
                             <div class="clearfix"></div>
                         </a>
                     </div>
-                    <div class="collapse filter_collapse" id="collapse_node">
+                    <div class="collapse node_filter_collapse filter_collapse" id="collapse_node">
                         {% for node in nodes %}
                         <div class="checkbox">
                             <label><input type="checkbox" name="flt_node" value={{node['Name']}}>{{node['Name']}}   ({{node['Count']}})  ({{node['Total']}}MW)</label>
@@ -151,7 +151,7 @@
                     </div>
                 </div>
                 <div class="filter_group county">
-                    <div class="row filter_header">
+                    <div class="row filter_header county_filter_header">
                         <a data-toggle="collapse" href="#collapse_county" role="button" aria-expanded="true" aria-controls="#collapse_county">
                             <div class="pull-left">
                                 <h4>County</h4>
@@ -173,7 +173,7 @@
                 </div>
 
                 <div class="filter_group company">
-                    <div class="row filter_header">
+                    <div class="row filter_header company_filter_header">
                         <a data-toggle="collapse" href="#collapse_company" role="button" aria-expanded="true" aria-controls="#collapse_company">
                             <div class="pull-left">
                                 <h4>Company</h4>

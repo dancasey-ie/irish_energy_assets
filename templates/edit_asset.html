@@ -1,6 +1,6 @@
 {% extends 'base.html'%} {% block content %}
 <div class="container col-xs-12 col-sm-10 col-sm-offset-1 edit_container">
-    <form class="" method="POST" action="{{ url_for('update_asset', asset_id=asset._id) }}">
+    <form class="" method="POST" action="{{ url_for('update_asset', asset_id = asset._id, username = username) }}">
         <div class="container edit_group edit_asset_details_container col-xs-12 col-md-6">
             <div class="row edit_header">
                 <a data-toggle="collapse" href="#collapse_edit_asset" role="button" aria-expanded="false" aria-controls="#collapse_edit_asset">
@@ -149,7 +149,7 @@
             <div class="collapse collapse_delete_asset" id="collapse_delete_asset">
                     <div>
                         <p> Perminently delete asset from database.</p>
-                        <div class="btn btn-warning delete_button my_btn"><a href="{{url_for('delete_asset', asset_id =asset._id)}}">Delete Asset</a></div>
+                        <div class="btn btn-warning delete_button my_btn"><a href="{{url_for('delete_asset', asset_id = asset._id, username = username)}}">Delete Asset</a></div>
                     </div>
             </div>
         </div>

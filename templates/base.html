@@ -24,7 +24,11 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <div>
-                    <a class="logo" href="{{ url_for('index') }}"> IRISH ENERGY ASSETS </a>
+                    {% if username == "" %}
+                    <a class="logo" href="{{ url_for('index')}}"> IRISH ENERGY ASSETS </a>
+                    {% else %}
+                    <a class="logo" href="{{ url_for('index', username=username)}}"> IRISH ENERGY ASSETS </a>
+                    {% endif %}
                 </div>
                 <div>
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsible-navbar" aria-expanded="false">
