@@ -30,6 +30,8 @@ var mecPerContracted = network_dim.group().reduceSum(function (d) {
         return 0;
     }
 });
+var width = document.getElementById('per-status-stacked').getBoundingClientRect().width;
+console.log(width)
 var stackedChart = dc.barChart("#per-status-stacked");
 stackedChart
     .dimension(network_dim)
@@ -38,6 +40,7 @@ stackedChart
     .x(d3.scale.ordinal())
     .xUnits(dc.units.ordinal)
     .yAxisLabel("MEC (MW)")
+    .width(280)
     .legend(dc.legend().x(50).y(188).itemHeight(15).gap(5).horizontal(true).itemWidth(100))
     .margins().left = 55;
 dc.renderAll();
