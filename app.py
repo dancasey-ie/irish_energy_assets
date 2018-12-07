@@ -216,6 +216,11 @@ def filter_attr_range(attr, lo, hi, collection):
             flt_collection.append(doc)
     return flt_collection
 
+
+def remove_id(assets_json):
+    for doc in assets_json:
+           doc.pop('_id')
+    return assets_json
 # TEMPLATE RENDERING FUNCTIONS ###############################################
 
 @app.route('/')
@@ -244,11 +249,11 @@ def assets(username):
     assets = sort_collection('Name', False, mongo.db.all_assets.find())
     mec_total = get_total('MEC_MW', assets)
     assets_json = []
-    for doc in assets:
+    collection = assets[:]
+    for doc in collection:
        assets_json.append(doc)
-    for doc in assets_json:
-       doc.pop('_id')
-
+    for doc_2 in assets_json:
+        doc_2.pop('_id')
     return render_template("index.html",
                            assets=assets,
                            attributes=attributes,
@@ -263,6 +268,7 @@ def assets(username):
                            companies=companies,
                            username=username,
                            assets_json=assets_json,
+
                            title="Irish Energy Assets | Assets")
 
 @app.route('/filtered_assets/', methods=['POST'])
@@ -274,7 +280,6 @@ def filtered_assets(username):
     """
     Renders index.html with filtered assets.
     """
-
     doc_sort = request.form['doc_sort']
     flt_search = (request.form['flt_search']).lower()
     flt_status = request.form.getlist('flt_status')
@@ -324,14 +329,14 @@ def filtered_assets(username):
     counties = list_attr_dict('County', "MEC_MW", assets)
     companies = list_attr_dict('Company', "MEC_MW", assets)
     mec_total = get_total('MEC_MW', assets)
+    filtered_assets = assets[:]
     assets_json = []
-    for doc in assets:
+    collection = assets[:]
+    for doc in collection:
        assets_json.append(doc)
-    for doc in assets_json:
-       doc.pop('_id')
-
+    assets_json = remove_id(assets_json)
     return render_template("index.html",
-                           assets=assets,
+                           assets=filtered_assets,
                            attributes=attributes,
                            doc_count=len(assets),
                            total_docs_count=total_docs_count,
