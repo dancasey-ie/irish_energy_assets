@@ -339,9 +339,14 @@ html, body {
     padding:0px
 }
 
-
-
 .backup_container {
     margin-bottom: 30px
 }
 /*------------------------------------------------------------------Media Querries*/
+
+@media only screen and (max-width: 365px) {
+    .navbar-collapse.collapse.in {
+        margin-top: 19px;
+    }
+
+}

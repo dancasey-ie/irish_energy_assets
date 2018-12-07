@@ -231,6 +231,7 @@ def assets(username):
     """
     Renders index.html with all assets.
     """
+
     attributes = read_json_data('static/data/json/relevent_attributes.json')
     all_assets = mongo.db.all_assets.find()
     statuses = list_attr_dict('Status', "MEC_MW", mongo.db.all_assets.find())
@@ -242,6 +243,13 @@ def assets(username):
     companies = list_attr_dict('Company', "MEC_MW", mongo.db.all_assets.find())
     assets = sort_collection('Name', False, mongo.db.all_assets.find())
     mec_total = get_total('MEC_MW', assets)
+    assets_json = []
+    for doc in mongo.db.all_assets.find():
+        assets_json.append(doc)
+    for doc in assets_json:
+        if '_id' in doc:
+            del doc['_id']
+    write_json_data(assets_json, 'static/data/json/assets.json')
 
     return render_template("index.html",
                            assets=assets,
@@ -267,6 +275,7 @@ def filtered_assets(username):
     """
     Renders index.html with filtered assets.
     """
+
     doc_sort = request.form['doc_sort']
     flt_search = (request.form['flt_search']).lower()
     flt_status = request.form.getlist('flt_status')
@@ -314,7 +323,7 @@ def filtered_assets(username):
     types = list_attr_dict('Type', "MEC_MW", assets)
     nodes = list_attr_dict('Node', "MEC_MW", assets)
     counties = list_attr_dict('County', "MEC_MW", assets)
-    companies = list_attr_dict('Company', "MEC_MW", mongo.db.all_assets.find())
+    companies = list_attr_dict('Company', "MEC_MW", assets)
     mec_total = get_total('MEC_MW', assets)
 
     return render_template("index.html",
@@ -385,31 +394,7 @@ def check_username():
             assets = filter_collection('Company', [username],
                                         mongo.db.all_assets.find())
 
-        statuses = list_attr_dict('Status', "MEC_MW", assets)
-        system_operators = list_attr_dict('SystemOperator', "MEC_MW", assets)
-        types = list_attr_dict('Type', "MEC_MW", assets)
-        nodes = list_attr_dict('Node', "MEC_MW", assets)
-        counties = list_attr_dict('County', "MEC_MW", assets)
-        companies = list_attr_dict('Company', "MEC_MW", assets)
-        jurisdictions = list_attr_dict('Jurisdiction', "MEC_MW", assets)
-        assets = sort_collection('Name', False, assets)
-        mec_total = get_total('MEC_MW', assets)
-        total_docs_count = mongo.db.all_assets.find().count()
-        return render_template("index.html",
-                                assets=assets,
-                                attributes=attributes,
-                                doc_count=len(assets),
-                                total_docs_count=total_docs_count,
-                                mec_total=mec_total,
-                                statuses=statuses,
-                                system_operators=system_operators,
-                                types=types,
-                                nodes=nodes,
-                                counties=counties,
-                                companies=companies,
-                                jurisdictions=jurisdictions,
-                                username=username,
-                                title="Irish Energy Assets | Assets")
+        return redirect(url_for('assets', username=username))
 
 
 @app.route('/admin/<username>')
@@ -494,18 +479,10 @@ def add_asset(username):
     types = list_attr_values('Type', mongo.db.all_assets.find())
     counties = read_json_data('static/data/json/Irish_Counties.json')
 
+    return admin(username)
 
-    return render_template('admin.html',
-                           username='admin',
-                           back_ups=back_ups,
-                           types=types,
-                           counties=counties,
-                           title="Irish Energy Assets | Admin")
-
-
-
-@app.route('/edit_asset/<asset_id>/<username>')
-def edit_asset(asset_id, username):
+@app.route('/edit_asset/<username>/<asset_id>')
+def edit_asset(username, asset_id):
     """
     Renders edit_asset.html for editing a defined asset.
     """
@@ -528,8 +505,8 @@ def edit_asset(asset_id, username):
                            title="Irish Energy Assets | Edit Asset")
 
 
-@app.route('/update_asset/<asset_id>/<username>', methods=['POST'])
-def update_asset(asset_id, username):
+@app.route('/update_asset/<username>/<asset_id>', methods=['POST'])
+def update_asset(username, asset_id):
     """
     Renders index.html after updating asset edited in edit_asset.html
     """
@@ -559,16 +536,16 @@ def update_asset(asset_id, username):
                  "NodeAddress":  node_address,
                  "LastUpdated": timestr}})
 
-    return assets(username)
+    return redirect(url_for('assets', username=username))
 
 
-@app.route('/delete_asset/<asset_id>/<username>')
+@app.route('/delete_asset/<username>/<asset_id>')
 def delete_asset(asset_id, username):
     """
     Renders index.html after deleting asset from database.
     """
     mongo.db.all_assets.remove({'_id': ObjectId(asset_id)})
-    return assets(username)
+    return redirect(url_for('assets', username=username))
 
 
 if __name__ == '__main__':

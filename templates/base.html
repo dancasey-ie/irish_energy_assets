@@ -27,7 +27,7 @@
                     {% if username == "" %}
                     <a class="logo" href="{{ url_for('index')}}"> IRISH ENERGY ASSETS </a>
                     {% else %}
-                    <a class="logo" href="{{ url_for('index', username=username)}}"> IRISH ENERGY ASSETS </a>
+                    <a class="logo" href="{{ url_for('assets', username=username)}}"> IRISH ENERGY ASSETS </a>
                     {% endif %}
                 </div>
                 <div>
@@ -48,15 +48,16 @@
             </div>
             <div class="collapse navbar-collapse" id="collapsible-navbar">
                 <ul class="nav navbar-nav nav-text">
-                    <li class="menu-item
-                        {% if request.path == '/' or request.path == '/filtered_assets/' or request.path == '/check_username' %}
-                        active_menu
-                        {% endif %}">
-                        <a href="{{ url_for('index') }}"><i class="fas fa-industry"></i> Assets</a>
+                    <li class="menu-item {% if title == 'Irish Energy Assets | Assets' %} active_menu {% endif %}">
+                        {% if username == "" %}
+                        <a href="{{ url_for('index')}}"><i class="fas fa-industry"></i> Assets </a>
+                        {% else %}
+                        <a href="{{ url_for('assets', username=username)}}"><i class="fas fa-industry"></i> Assets </a>
+                        {% endif %}
                     </li>
-                    <li class="menu-item {% if '/about' in request.path %} active_menu {% endif %}"><a href="{{ url_for('about') }}"><i class="fas fa-info"></i> About Site</a></li>
+                    <li class="menu-item {% if title == 'Irish Energy Assets | About' %} active_menu {% endif %}"><a href="{{ url_for('about') }}"><i class="fas fa-info"></i> About Site</a></li>
                     {% if username == "admin" %}
-                    <li class="menu-item {% if '/admin' in request.path %} active_menu {% endif %}"><a href="{{ url_for('admin', username=username) }}"><i class="fas fa-cog"></i> Admin</a></li>
+                    <li class="menu-item {% if title == 'Irish Energy Assets | Admin' %} active_menu {% endif %}"><a href="{{ url_for('admin', username=username) }}"><i class="fas fa-cog"></i> Admin</a></li>
                     {% endif %}
                 </ul>
             </div>

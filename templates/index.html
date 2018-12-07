@@ -24,7 +24,7 @@
         </div>
 
         <div class="collapse collapse_sm" id="collapse_refine">
-            <form method="POST" action="{{ url_for('filtered_assets', username=username)}}">
+            <form method="POST"  action = "{% if username == '' %}  {{ url_for('filtered_assets', username='')}} {% else %} {{ url_for('filtered_assets', username=username)}} {% endif %}">
                 <button type="submit" class="btn my_btn">Apply Filter</button>
                 <button type="reset" class="btn my_btn">Reset Filter</button>
                 <a class="btn my_btn" href="{{ url_for('index', username=username)}}">Clear Filter</a>

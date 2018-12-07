@@ -46,8 +46,9 @@ Technologies Used
 UX
 ----
 The application was developed as a tool to be managed by a system operator. 
-The public could visit the site to get information on the generator assets around them, asset developers could see where there is saturation in the market, asset owners could update anychanges they have made to let the system operator keep track.
-decidedd to have index show the assets and provide the info seperatly.
+The public could visit the site to get information on the generator assets around them, asset developers could see where there is saturation in the market,
+ asset owners could update anychanges they have made to let the system operator keep track.
+The application was desinged presuming it would be primarily accesesed using a desktop computer but mobile cabibilitiies would be valuable.
 
 __User Stories__
 
