@@ -244,12 +244,10 @@ def assets(username):
     assets = sort_collection('Name', False, mongo.db.all_assets.find())
     mec_total = get_total('MEC_MW', assets)
     assets_json = []
-    for doc in mongo.db.all_assets.find():
-        assets_json.append(doc)
+    for doc in assets:
+       assets_json.append(doc)
     for doc in assets_json:
-        if '_id' in doc:
-            del doc['_id']
-    write_json_data(assets_json, 'static/data/json/assets.json')
+       doc.pop('_id')
 
     return render_template("index.html",
                            assets=assets,
@@ -264,6 +262,7 @@ def assets(username):
                            counties=counties,
                            companies=companies,
                            username=username,
+                           assets_json=assets_json,
                            title="Irish Energy Assets | Assets")
 
 @app.route('/filtered_assets/', methods=['POST'])
@@ -325,6 +324,11 @@ def filtered_assets(username):
     counties = list_attr_dict('County', "MEC_MW", assets)
     companies = list_attr_dict('Company', "MEC_MW", assets)
     mec_total = get_total('MEC_MW', assets)
+    assets_json = []
+    for doc in assets:
+       assets_json.append(doc)
+    for doc in assets_json:
+       doc.pop('_id')
 
     return render_template("index.html",
                            assets=assets,
@@ -339,6 +343,7 @@ def filtered_assets(username):
                            counties=counties,
                            companies=companies,
                            username=username,
+                           assets_json=assets_json,
                            title="Irish Energy Assets | Assets")
 
 @app.route('/about')
