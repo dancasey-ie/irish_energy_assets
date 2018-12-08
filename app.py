@@ -147,8 +147,10 @@ def sort_collection(attr, reverse, collection):
     collection_ls = []
     attr_value_ls = []
     for doc in collection:
+        print(doc)
         attr_value_ls.append(doc[attr])
         collection_ls.append(doc)
+
     collection_sorted = [x for y, x in sorted(zip(attr_value_ls,
                                                   collection_ls),
                                               key=lambda pair: pair[0],
@@ -463,7 +465,7 @@ def add_asset(username):
                                                 request.form['NodeAddress4'],
                                                 request.form['NodeAddress5'])
 
-    asset_doc = {"Name": request.form['Name'],
+    asset_doc = {"Name": (request.form['Name']).title(),
                  "Type":  request.form['Type'],
                  "SubType":  request.form['SubType'],
                  "MEC_MW":  request.form['MEC_MW'],
@@ -552,6 +554,7 @@ def delete_asset(asset_id, username):
     """
     mongo.db.all_assets.remove({'_id': ObjectId(asset_id)})
     return redirect(url_for('assets', username=username))
+
 
 
 if __name__ == '__main__':

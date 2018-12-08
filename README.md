@@ -93,8 +93,7 @@ connected network, when the asset was first added to the database and when it wa
     - Type (Z - A)
     - MEC (Low - High)
     - MEC (High - Low)
-* __Interactive Charts__ display the database data. Three charts show the MEC distribution across Types, Counties and Status. An insightful example of the use of the interactive chart is by clicking on the connected bar on the MEC by Status chart, and Wind on the MEC by Type,
-you will see from the MEC by County chart that half the connected wind is built on the most exposed corners of the Irish coast Kerry, Cork and Donegal, and if you then include contracted you will see that Mayo will have the most development in the coming years.
+* __Interactive Charts__ display the database data. Three charts show the MEC distribution across Types, Counties and Status. Hovering the mouse over a segment displays the segements key, its percentage of the overall MEC and the value of its MEC.
 * __About Site__ page gives information on the purpose of the site, how to use the site, how the electrical grid is organised, where the data came from and a glossary of terms and abbreviations used.
 * __User Login__ for logging in as 'admin' or a company that owns one of the assetss. Accessed by entering the login page from login button on top right of the page. Loging as a company gives you edit and delete database access to their assets. Loggin in as 'admin' gives full CRUD access to the database.
 * __User Validation__ if user enters a name that is not on the list of company names, they are receive an erro message and asked to enter a valid company name.
@@ -106,11 +105,11 @@ Note: for the type section there is an option to select 'Other' and then enter t
 * __Database Fallback__ to a backup .json can be performed by selecting one of the backups in the directory and clicking 'Fallback' button. Before the collection is cleared, a backup is automatically created to avoid loss of data.
 * __Responsive Design__ collapses and rearranges sections based on importance as the screen changes sizes. Dropdown indicators change to indicate what state the relevent collapse is in.
 * __Data Analysis__ in the about page explains some of the insights that can be taken from the data.
+* __Glossary__ of technical terms and abbrieviations included in the about page.
 
 __Future Development__
 
 * __Change Log__ Record any changes made to the collection in a change log recording the change, timestamp, and who made the change.
-* __Glossary__ Include a glossary of terms and abbreievations.
 * __Continued Filter Refining__ Currently the filter parameters set act out on the whole of the collections documents, past filters should be transfered on for further filter refining. This will most likely require AJAX or passing the filter parameters as a URL Query String.
 * __Collapse Icon__ Currently the collapse in or out icons only change once actived, they do not reflect the initial state on page load, and in the filter side-nav all icons are not independent. This will be solved with greater understanding of the DOM to be covered in the JavaScript module.
 * __Filter Asset List using crossfilter.js__ Filters across the d3 charts should be reflected in the assets list shown. To be used instead of refine filter side-nav. ".top(Infinity)" will probably be used to make this work.                                            
@@ -150,27 +149,34 @@ __Manual Testing__
 
 The following test were performed manually.
 
-|    Feature            |   Test Action                                                                         |   Expected Result                                |  Chrome (Desktop) |  Firefox (Desktop)  | Chrome (Mobile) |
-| --------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------ | ----------------- | ------------------- | --------------- |
-| __Data Sorter__       | Select 'Sort by' option, 'Apply Filter', Repeat for all 'Sort by' options.            | Data is sorted appropritely                      | OK                | OK                  | OK              |
-| __Keyword Search__    | 'Clear Filter', enter 'an cnoc' into 'Search' box, 'Apply Filter'                     | Returns asset 'An Cnoc'                          | OK                | OK                  | OK              |
-| __Tick Box Filter__   | 'Clear Filter', select 'Connected' under Status and 'Wind' under Type, 'Apply Filter' | Returns list of all connected wind assets        | OK                | OK                  | OK              |
-| __MEC Range Filter__  | 'Clear Filter', enter range 'from' 250 'to' 350, 'Apply Filter'                       | Returns assets with 250 < MEC < 350              | OK                | OK                  | OK              |    
-| __MEC Range Filter__  | 'Clear Filter', enter range 'from' 250 'to' 350, 'Apply Filter'                       | Returns assets with 250 < MEC < 350              | OK                | OK                  | OK              |    
-| __Company Login__     | Click 'Login', enter 'esb', click 'Login'                                             | Returns index.html filtered for ESB owned assets, 'Welcome ESB' top right, 'Update Details' visible in assets dropdown | OK                | OK                  | OK              | 
-| __Update Asset__      | Expand  'Aghada 1', 'Update Details', change Ireland to IRE, 'Save Changes'           | Details in index now show IRE                    | OK                | OK                  | OK              |    
-| __Log Out__           | Click 'Log Out'                                                                       | Reloads index.html, logged out                   | OK                | OK                  | OK              |    
-| __Unknown Login__     | Click 'Login', enter 'abc', click 'Login'                                             | Error 'That is not a valid username.' displayed  | OK                | OK                  | OK              |    
-| __Admin Login__       | Enter 'admin', click 'Login'                                                          | Returns index.html, 'Admin' menu tab visible     | OK                | OK                  | OK              |    
-| __New Asset__         | Click 'Admin', enter asset name 'abc' details, 'Add Asset'                            | Returns admin.html, asset 'abc' included in index.html | OK                | OK                  | OK              |    
-| __Backup Database__   | Enter 'Admin', click 'Backup'                                                         | New .json file in local directory                | OK                | OK                  | OK              |    
-| __Delete Asset__      | Enter index.html, expand asset 'abc', click 'Update Asset', click 'Delete Asset'      | Returns index.html, 'abc' no longer included     | OK                | OK                  | OK              |    
-| __Database Fallback__ | Enter 'Admin', select most recent .json file, click 'Fallback'                        | Returns admin.html, asset 'abc' can be seen again in index.html, new .json file in local directory. Returns index.html, 'abc' no longer included     | OK                | OK                  | OK              |   
+|    Feature            |   Test Action                                                                             |   Expected Result                                |  Chrome (Desktop) |  Firefox (Desktop)  | Chrome (Mobile) |
+| --------------------- | ------------------------------------------------------------------------------------------| ------------------------------------------------ | ----------------- | ------------------- | --------------- |
+| __Data Sorter__       | Select 'Sort by' option -> 'Apply Filter' -> repeat for all 'Sort by' options.            | Data is sorted appropritely                      | OK                | OK                  | OK              |
+| __Keyword Search__    | 'Clear Filter' -> enter 'an cnoc' into 'Search' box -> 'Apply Filter'                     | Returns asset 'An Cnoc'                          | OK                | OK                  | OK              |
+| __Tick Box Filter__   | 'Clear Filter' -> select 'Connected' under Status and 'Wind' under Type -> 'Apply Filter' | Returns list of all connected wind assets        | OK                | OK                  | OK              |
+| __MEC Range Filter__  | 'Clear Filter' -> enter range 'from' 250 'to' 350 -> 'Apply Filter'                       | Returns 7 assets with 250 < MEC < 350            | OK                | OK                  | OK              |    
+| __Company Login__     | Click 'Login' -> enter 'esb' -> click 'Login'                                             | Returns index.html 'Welcome ESB' top right       | OK                | OK                  | OK              |                                                                          
+| __Only Access Your Assets__ | Expand 'AMETS'                                                                      | 'Update Details' button hidden                   | OK                | OK                  | OK              |
+| __Access Your Assets__ | Select 'ESB' in Company Filter -> 'Apply Filter' -> Expand  'Aghada 1'                   | 'Update Details' button visible                  | OK                | OK                  | OK              |
+| __Update Asset__      | Expand  'Aghada 1' -> 'Update Details' -> change Ireland to IRE -> 'Save Changes'         | Details in index now show IRE                    | OK                | OK                  | OK              |    
+| __Log Out__           | Click 'Log Out'                                                                           | Reloads index.html, logged out                   | OK                | OK                  | OK              |    
+| __Unknown Login__     | Click 'Login' -> enter 'abc' -> click 'Login'                                             | Error 'That is not a valid username.' displayed  | OK                | OK                  | OK              |    
+| __Admin Login__       | Enter 'admin', click 'Login'                                                              | Returns index.html, 'Admin' menu tab visible     | OK                | OK                  | OK              |    
+| __New Asset__         | Click 'Admin' -> enter asset Asset Name = 'abc', Max Export Capacity = 10  -> 'Add Asset' | Returns admin.html, asset 'abc' included in index.html | OK                | OK                  | OK              |    
+| __Backup Database__   | Enter 'Admin' -> click 'Backup'                                                           | New .json file in local directory                | OK                | OK                  | OK              |    
+| __Delete Asset__      | Enter index.html -> expand asset 'abc' -> click 'Update Asset' -> click 'Delete Asset'    | Returns index.html, 'abc' no longer included     | OK                | OK                  | OK              |    
+| __Database Fallback__ | Enter 'Admin' -> select most recent .json file -> click 'Fallback'                        | Returns admin.html, asset 'abc' can be seen again in index.html, new .json file in local directory. Returns index.html, 'abc' no longer included     | OK                | OK                  | OK              |   
+, 'Update Details' visible in assets dropdown of ESB owned assets, use 'Company' filter
+
+
+| __Remains Logged In__ | Click 'About Site' -> Click 'Assets'                                                      | Return about.html with 'Welcome ESB' -> Returns index.html 'Welcome ESB' top right | OK                | OK                  | OK              | 
 
 __Known Bugs__
 
 * When you enter https://irish-energy-assets.herokuapp.com/filtered_assets with out clicking on 'Apply Filter', you get Logged In as 'filtered_assets'.
 * Dropdown icons do not represent initial state of collapsed div. Dropdown icons are not independent of each other in Refine Filter side-nav.
+* Stacked Bar Chart 'MEC (MW) by Status' shading is off when isolating data.
+* Clicking 'About Site' when loged in will log user out 
 
 Development
 ------------------------

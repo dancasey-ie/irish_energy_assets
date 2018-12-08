@@ -130,8 +130,10 @@ html, body {
 }
 
 .about_charts_container {
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin: 20px;
+}
+
+.insights_text_container {
 }
 
 .glossary ul {
@@ -320,7 +322,7 @@ html, body {
 
 .about_collapse {
     padding: 10px;
-    background-color: #ffffffc4;
+    background-color: #c4c4c4;
     border: 1px solid #c4c4c4;
     border-radius: 10px;
     color: black;
