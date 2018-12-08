@@ -346,8 +346,13 @@ def about():
     """
     Renders about.html.
     """
+    assets = list(mongo.db.all_assets.find())
+    assets_json = copy.deepcopy(assets)
+    for doc in assets_json:
+        doc.pop('_id')
     return render_template('about.html',
                            username="",
+                           assets_json=assets_json,
                            title="Irish Energy Assets | About")
 
 @app.route('/log_in')

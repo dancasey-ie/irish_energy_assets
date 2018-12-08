@@ -48,6 +48,59 @@
         </div>
     </div>
 
+    <div class="about_group data_insights">
+        <div class="row about_header">
+            <a data-toggle="collapse" href="#collapse_data_insights" role="button" aria-expanded="false" aria-controls="#collapse_data_insights">
+                <h4><i class="fas fa-plus"></i> Data Analysis?</h4>
+            </a>
+        </div>
+        <div class="collapse about_collapse collapse_sm" id="collapse_data_insights">
+            <div class="about_charts_container container">
+                <div class="pie_chart col-xs-12 col-sm-6 col-lg-4">
+                    <h5 class="chart_title">MEC (MW) by Type</h5>
+                    <div id="per-type-chart"></div>
+                </div>
+                <div class="pie_chart col-xs-12 col-sm-6 col-lg-4">
+                    <h5 class="chart_title">MEC (MW) by County</h5>
+                    <div id="per-county-chart"></div>
+                </div>
+                <div class="bar_chart col-xs-12 col-sm-12 col-lg-4">
+                    <h5 class="chart_title">MEC (MW) by Status</h5>
+                    <div id="per-status-stacked"></div>
+                </div>
+            </div>
+            <div class="insights_text_container">
+                <p> By clicking on the different sections of the interactive charts, you can isolate their particular reference data to gain insight into the current grid and how it will evolve in the comming years.</p>
+                <ul>
+                    <li>
+                        <b>Wind and Gas Power the Nation</b> Looking at the Connected and Energised assets, that nearly 3/4 of our instailed electricity capacity is in Wind and Natural Gas generation.
+                        But don't get too excited, due to winds variable reliabilibilty we are running off gas much more often. (Click 'Connected' and 'Energised' on the 'MEC (MW) by Status' chart.)
+                    </li>
+                    <li>
+                        <b>Cork, Kerry & Dublin are the Powerhouses</b> Cork has nearly a quarter of the countries installed capacity, with Kerry and Dublin making up a second quarter.
+                        Claire for it small size, is next in line with its coal burning Moneypoint power station. (Click 'Connected' and 'Energised' on the 'MEC (MW) by Status' chart.)
+                    </li>
+                    <li>
+                        <b>Natural Gas Powers the Cities</b> Cork and Dublin are nearly equal in their gas generation capacity, with Galway and Limerick making up the rest.
+                        (Click 'Connected' and 'Energised' on the 'MEC (MW) by Status' chart and 'Nat.Gas' on 'MEC (MW) by Type' chart.)
+                    </li>
+                    <li>
+                        <b>The Wind Blows from the West</b> Half the countries installed wind capacity is based in Kerry, Cork and Donegal. Tipperary has up next with 305MW installed.
+                        (Click 'Connected' and 'Energised' on the 'MEC (MW) by Status' chart and 'Nat.Gas' on 'MEC (MW) by Type' chart.)
+                    </li>
+                    <li>
+                        <b>The Future is Green</b> Wind and Solar projects make up over 80% of contracted developments. (Click 'Contracted' on the 'MEC (MW) by Status' chart.)
+                    </li>
+                    <li>
+                        <b>The Future is Distributed</b> Distrubited assets make up only 12% of connected capacity, yet accounts for 47% of contracted.
+                        The distributed generation is set to double in the coming years. (Click 'Contracted' on the 'MEC (MW) by Status' chart.)
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <div class="about_group about_network">
         <div class="row about_header">
             <a data-toggle="collapse" href="#collapse_about_network" role="button" aria-expanded="false" aria-controls="#collapse_about_network">
@@ -93,5 +146,10 @@
     </div>
 
 </div>
+
+<script type="text/javascript" src="{{ url_for('static', filename="js/main.js")}}"></script>
+<script type="text/javascript"> var assets_json = '{{ assets_json | tojson | safe}}';</script>
+<script type="text/javascript" src="{{ url_for('static', filename="js/charts.js")}}"></script>
+
 
  {% endblock %}

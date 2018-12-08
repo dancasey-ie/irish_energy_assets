@@ -119,6 +119,16 @@ html, body {
     margin-bottom: 5px;
 }
 
+.about_charts_container .dc-chart {
+    fill: black;
+    margin: 0px;
+}
+
+.about_charts_container .chart_title {
+    color: black;
+    margin-left: 50px;
+}
+
 /* ------------------------------------------------------Index Styling*/
 .filter_container {
     padding-top: 20px;
