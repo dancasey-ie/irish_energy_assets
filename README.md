@@ -105,21 +105,16 @@ Note: for the type section there is an option to select 'Other' and then enter t
 * __Database Backup__ can be performed from the 'Admin' page by clicking the 'Backup' button. This writes the MongoDB collection, less the object _ID, to a .json file in the websites directory. The backups are timestamped.
 * __Database Fallback__ to a backup .json can be performed by selecting one of the backups in the directory and clicking 'Fallback' button. Before the collection is cleared, a backup is automatically created to avoid loss of data.
 * __Responsive Design__ collapses and rearranges sections based on importance as the screen changes sizes. Dropdown indicators change to indicate what state the relevent collapse is in.
-
+* __Data Analysis__ in the about page explains some of the insights that can be taken from the data.
 
 __Future Development__
 
-
 * __Change Log__ Record any changes made to the collection in a change log recording the change, timestamp, and who made the change.
 * __Glossary__ Include a glossary of terms and abbreievations.
-* __D3 Charts Read from MongoDB__ Currently the d3 charts read data from a .json file that is written to every time a change to the collection is made. The charts should read directly from MongoDB.
 * __Continued Filter Refining__ Currently the filter parameters set act out on the whole of the collections documents, past filters should be transfered on for further filter refining. This will most likely require AJAX or passing the filter parameters as a URL Query String.
 * __Collapse Icon__ Currently the collapse in or out icons only change once actived, they do not reflect the initial state on page load, and in the filter side-nav all icons are not independent. This will be solved with greater understanding of the DOM to be covered in the JavaScript module.
-* __Filter Asset List using crossfilter.js__ Filters across the d3 charts should be reflected in the assets list shown. To be used instead of refine filter side-nav. ".top(Infinity)" will probably be used to make this work.
-* __Combine Functions__ Combine assets, filtered assets and check_username into one render event                                              
+* __Filter Asset List using crossfilter.js__ Filters across the d3 charts should be reflected in the assets list shown. To be used instead of refine filter side-nav. ".top(Infinity)" will probably be used to make this work.                                            
 * __Admin Confirmation__ Any non-admin changes to the collection should require confirmation from the admin before being applied to the database.
-* __Data Analysis__ Include synopsis of data.
-                                                                         
 
 Testing
 -----------------------
@@ -174,6 +169,8 @@ The following test were performed manually.
 
 __Known Bugs__
 
+* When you enter https://irish-energy-assets.herokuapp.com/filtered_assets with out clicking on 'Apply Filter', you get Logged In as 'filtered_assets'.
+* Dropdown icons do not represent initial state of collapsed div. Dropdown icons are not independent of each other in Refine Filter side-nav.
 
 Development
 ------------------------

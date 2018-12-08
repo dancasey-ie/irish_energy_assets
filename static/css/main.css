@@ -129,6 +129,14 @@ html, body {
     margin-left: 50px;
 }
 
+.about_charts_container {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.glossary ul {
+    list-style-type: none;
+}
 /* ------------------------------------------------------Index Styling*/
 .filter_container {
     padding-top: 20px;
@@ -312,7 +320,7 @@ html, body {
 
 .about_collapse {
     padding: 10px;
-    background-color: #fff;
+    background-color: #ffffffc4;
     border: 1px solid #c4c4c4;
     border-radius: 10px;
     color: black;
@@ -336,6 +344,16 @@ html, body {
 }
 .edit_header {
     padding: 10px;
+}
+
+/* ------------------------------------------------------Login Styling*/
+.signup-form {
+    display: flex;
+    flex: 1 0 auto;
+}
+
+.name-input {
+    width: 300px;
 }
 
 /*------------------------------------------------------------------Admin Styling*/

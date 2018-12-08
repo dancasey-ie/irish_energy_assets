@@ -324,7 +324,8 @@ def filtered_assets(username):
     mec_total = get_total('MEC_MW', assets)
     assets_json = copy.deepcopy(assets)
     for doc in assets_json:
-        doc.pop('_id')
+        if '_id' in doc:
+            doc.pop('_id')
     return render_template("index.html",
                            assets=assets,
                            attributes=attributes,
