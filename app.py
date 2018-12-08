@@ -1,6 +1,7 @@
 import os
 import json
 import time
+import copy
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -216,11 +217,6 @@ def filter_attr_range(attr, lo, hi, collection):
             flt_collection.append(doc)
     return flt_collection
 
-
-def remove_id(assets_json):
-    for doc in assets_json:
-           doc.pop('_id')
-    return assets_json
 # TEMPLATE RENDERING FUNCTIONS ###############################################
 
 @app.route('/')
@@ -248,12 +244,9 @@ def assets(username):
     companies = list_attr_dict('Company', "MEC_MW", mongo.db.all_assets.find())
     assets = sort_collection('Name', False, mongo.db.all_assets.find())
     mec_total = get_total('MEC_MW', assets)
-    assets_json = []
-    collection = assets[:]
-    for doc in collection:
-       assets_json.append(doc)
-    for doc_2 in assets_json:
-        doc_2.pop('_id')
+    assets_json = copy.deepcopy(assets)
+    for doc in assets_json:
+        doc.pop('_id')
     return render_template("index.html",
                            assets=assets,
                            attributes=attributes,
@@ -329,14 +322,11 @@ def filtered_assets(username):
     counties = list_attr_dict('County', "MEC_MW", assets)
     companies = list_attr_dict('Company', "MEC_MW", assets)
     mec_total = get_total('MEC_MW', assets)
-    filtered_assets = assets[:]
-    assets_json = []
-    collection = assets[:]
-    for doc in collection:
-       assets_json.append(doc)
-    assets_json = remove_id(assets_json)
+    assets_json = copy.deepcopy(assets)
+    for doc in assets_json:
+        doc.pop('_id')
     return render_template("index.html",
-                           assets=filtered_assets,
+                           assets=assets,
                            attributes=attributes,
                            doc_count=len(assets),
                            total_docs_count=total_docs_count,
@@ -478,7 +468,7 @@ def add_asset(username):
                  "NetworkType":  request.form['NetworkType'],
                  "SystemOperator":  request.form['SystemOperator'],
                  "Node":  request.form['Node'],
-                 "NodeVoltage":  request.form['NodeVoltage'],
+                 "NodeVoltage_kV":  request.form['NodeVoltage_kV'],
                  "NodeAddress":  node_address,
                  "FirstAdded": timestr}
 
@@ -542,7 +532,7 @@ def update_asset(username, asset_id):
                  "NetworkType":  request.form['NetworkType'],
                  "SystemOperator":  request.form['SystemOperator'],
                  "Node":  request.form['Node'],
-                 "NodeVoltage":  request.form['NodeVoltage'],
+                 "NodeVoltage_kV":  request.form['NodeVoltage_kV'],
                  "NodeAddress":  node_address,
                  "LastUpdated": timestr}})
 
