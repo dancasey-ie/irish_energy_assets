@@ -1,0 +1,40 @@
+Wind Farm Name,Phase,Ref,Installed (MW),MEC (MW),Gate,Associated Node    Voltage,Connection Date
+Athea (1)a,1,TG22a,34.350,34.350,Gate 1,"Athea110kV",Oct 2013
+Ballywater (1),1,TG13,31.500,31.500,Pre-Gate,"Ballywater110kV",May 2005
+Ballywater (2),2,TG35,10.500,10.500,Gate 2,"Ballywater110kV",Aug 2007
+Boggeragh (1),1,TG29,57.000,57.000,Gate 2,"Boggeragh110kV",Dec 2009
+Boggeragh 2,1,TG102,25.000,47.700,Gate 3,"Boggeragh110kV",Nov 2015
+Boggeragh 2 (Killavoy (1)),1,DG200,,18.000,Gate 2,"Boggeragh110kV",Nov 2015
+Booltiagh (1),1,TG07,19.500,19.450,Pre-Gate,"Booltiagh110kV",Aug 2005
+Booltiagh (2),2,TG38,4.600,3.000,Gate 2,"Booltiagh110kV",Aug 2013
+Booltiagh (3),3,TG39,9.200,9.000,Gate 2,"Booltiagh110kV",Aug 2013
+Castledockrell (1),1,DG88,20.700,20.000,Gate 2,"Castledockrell110kV",Jan 2011
+Castledockrell (2),2,DG172,2.300,2.000,Gate 2,"Castledockrell110kV",Jan 2011
+Castledockrell (3),3,DG189,2.300,3.300,Gate 2,"Castledockrell110kV",Jan 2011
+Castledockrell (4),4,DG201,16.100,16.100,Gate 2,"Castledockrell110kV",Jan 2011
+Clahane (1),1,TG12,40.000,37.800,Gate 1,"Clahane110kV",Jun 2008
+Cloghboola (1),1,DG50,48.000,46.000,Gate 2,"Cloghboola110kV",Apr 2015
+Coomacheo (1),1,TG18,41.400,41.225,Gate 1,"Garrow110kV",Jun 2008
+Coomacheo (2),2,DG187,18.400,18.000,Gate 2,"Garrow110kV",Jul 2009
+Coomagearlahy (1),1,TG11,45.000,42.500,Pre-Gate,"Coomagearlahy110kV",Mar 2006
+Coomagearlahy (2),2,TG50,8.500,8.500,Gate 2,"Coomagearlahy110kV",Mar 2009
+Coomagearlahy (3),3,TG54,32.500,30.000,Gate 2,"Coomagearlahy110kV",Jun 2009
+Derrybrien (1),1,P33,59.500,59.500,Pre-Gate,"Derrybrien110kV",Oct 2005
+Dromada (1),1,DG141,28.500,28.500,Gate 2,"Dromada110kV",Dec 2009
+Garvagh - Glebe (1a),1,TG23a,26.000,26.000,Gate 2,"Garvagh110kV",Jun 2010
+Garvagh - Tullynahaw (1c),1c,TG23c,22.000,22.000,Gate 2,"Garvagh110kV",Jun 2010
+Glanlee (1),1,TG47,32.450,29.800,Gate 1,"Glanlee110kV",Jul 2007
+Golagh (1),1,P25,15.000,15.000,Pre-Gate,"Golagh110kV",Jul 1997
+Kill Hill (1) - phase 1,1,TG69 ph1,36.000,36.000,Gate 3,"Kill Hill110kV",Oct 2014
+Kingsmountain (1),1,P38A,25.000,23.750,Pre-Gate,"Cunghill110kV",May 2003
+Kingsmountain (2),2,TG40,11.050,11.050,Gate 2,"Cunghill110kV",Jun 2010
+Lisheen (1),1,TG55,36.000,36.000,Gate 2,"Lisheen110kV",Jul 2009
+Lisheen (1a),1a,TG55a,24.000,23.000,Gate 2,"Lisheen110kV",Apr 2013
+Meentycat (1),1,P38BDF,72.400,70.960,Pre-Gate,"Meentycat110kV",Oct 2004
+Meentycat (2),2,TG65,16.100,14.000,Gate 1,"Meentycat110kV",Oct 2009
+Mountain Lodge (1),1,TG06,25.500,24.800,Pre-Gate,"Ratrussan110kV",Apr 2008
+Mountain Lodge (3),3,TG52,6.000,5.820,Gate 2,"Ratrussan110kV",Mar 2009
+Mountlucas (1),1,TG66,84.000,79.200,Gate 3,"Mountlucas110kV",May 2014
+Ratrussan (1a),1a,P38-1,48.000,48.000,Pre-Gate,"Ratrussan110kV",Oct 2009
+Woodhouse (1),1,DG135,20.000,20.000,Gate 3,"Woodhouse110kV",Apr 2015
+Wind Farm Name,Phase,Ref,Installed (MW),MEC (MW),Gate,Associated Node    Voltage,Connection Date
