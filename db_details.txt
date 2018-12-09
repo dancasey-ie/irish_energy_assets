@@ -1,0 +1,2 @@
+irish_energy_assets
+mongodb://admin:adminPW1@ds145923.mlab.com:45923/irish_energy_assets

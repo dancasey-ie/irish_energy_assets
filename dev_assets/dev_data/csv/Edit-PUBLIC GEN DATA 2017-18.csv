@@ -1,76 +1,0 @@
-Company	Jurisdiction	SEM-ID	PLEXOS-ID	Name	Node 	Voltage(kV)	"YearOfConnection"	StartFuel1	Percent1	StartFuel2	Percent2	Type	MinStableCapacity(MW)	MEC(MW)	SummerMEC(MW)	NoLoadHeatRequirement(GJ/hr)	CapacityPoint1(MW)	Capacitypoint2(MW)	Capacitypoint3(MW)	Capacitypoint4(MW)	Capacitypoint5(MW)	HeatRateInc1(GJ/MWh)	HeatRateInc2(GJ/MWh)	HeatRateInc3(GJ/MWh)	HeatRateInc4(GJ/MWh)	HeatRateInc5(GJ/MWh)	ForcedOutageRate(%)	MeanTimetoRepair(hrs)	RampRateUp(MW/min)	RampRateDown(MW/min)	MinUpTime(hrs)	MinDownTime(hrs)	StartupEnergy(GJ)Hot	StartupEnergy(GJ)Warm	StartupEnergy(GJ)Cold	HottoWarmboundary(hrs)	WarmtoColdboundary(hrs)	Notes
-ESB	ROI	GU_400180	AD1	Aghada 1	"Aghada"	220	2000	 Gas 	100%			 Gas 	36	258		187.43	120	190	258			8.01	8.67	8.75			6.20%	480	3.87	3.86	4	3.5	"1,273.00"	"2,185.00"	"4,302.00"	5	67	
-ESB	ROI	GU_400850	ADC	Aghada CCGT	"Longpoint"	220	2010	 Gas 	100%			 Gas 	216	444	449	589.4	220	430	440	444		4.24	5.36	5.53	5.53		6.20%	192	8.83	12.38	4	1	"1,200.00"	"1,800.00"	"2,400.00"	12	60	
-ESB	ROI	GU_400181	AT1	Aghada CT 1	"Aghada"	220	2000	 Gas 	100%			 Gas 	15	90		281	40	90				7.71	9.57				6.20%	174	5	5	4	1	63					
-ESB	ROI	GU_400182	AT2	Aghada CT 2	"Aghada"	220	2000	 Gas 	100%			 Gas 	15	90		281	40	90				7.71	9.57				6.20%	174	5	5	4	1	63					
-ESB	ROI	GU_400183	AT4	Aghada CT 4	"Aghada"	220	2000	 Gas 	100%			 Gas 	15	90		281	40	90				7.71	9.57				6.20%	174	5	5	4	1	63					
-ESB	ROI	GU_400200	AA1	Ardnacrusha 1	"Ardnacrusha"	110	2000	 Water 	100%			 Water 		21													4.50%	86	0.42	0.42								
-ESB	ROI	GU_400201	AA2	Ardnacrusha 2	"Ardnacrusha"	110	2000	 Water 	100%			 Water 		22													4.50%	86	0.47	0.47								
-ESB	ROI	GU_400202	AA3	Ardnacrusha 3	"Ardnacrusha"	110	2000	 Water 	100%			 Water 		19													4.50%	86	0.33	0.33								
-ESB	ROI	GU_400203	AA4	Ardnacrusha 4	"Ardnacrusha"	110	2000	 Water 	100%			 Water 		24													4.50%	82	0.55	0.55								
-BnM	ROI	GU_401010	ED3	Cushaling	"Cushaling"	110	2010	 Gasoil 	100%			 Gasoil 	20	58		85	58					9.5					2.40%	24	5	5		0.5	22					
-BnM	ROI	GU_401011	ED5	Cushaling	"Cushaling"	110	2010	 Gasoil 	100%			 Gasoil 	20	58		85	58					9.5					2.40%	24	5	5		0.5	22					
-ESB	ROI	GU_400500	DB1	Dublin Bay CCGT	"Irishtown"	220	2002	 Gas 	100%			 Gas 	203	423	415	594.7	203	405	415	416		4.02	5.68	5.68	5.68		6.20%	176	10	9	4	1	"2,600.00"	"2,604.00"	"7,700.00"	12	60	
-Covanta	ROI		Dublin	Dublin Waste to Energy	Poolbeg	220	2017	 Gasoil 	100%			 Waste 	21.35	68.2	67.56												6.70%	36	0.92	0.92			"1,323.70"	"1,558.55"		24	 >24 	
-BnM	ROI	GU_401860	ED1	Edenderry	"Cushaling"	110	2000	 Gasoil 	100%			 Peat 	41	117.6		497.6	88	112	118			3.93	8.95	8.95			7.90%	72	1.76	1.76	4	0.5	436	"1,084.00"	"2,308.00"	12	48	
-ESB	ROI	GU_400210	ER1	Erne 1	"Cathaleen's Fall"	110	2000	 Water 	100%			 Water 		10													4.50%	86	5	10								
-ESB	ROI	GU_400211	ER2	Erne 2	"Cathaleen's Fall"	110	2000	 Water 	100%			 Water 		10													4.50%	86	5	10								
-ESB	ROI	GU_400220	ER3	Erne 3	"Cliff"	110	2000	 Water 	100%			 Water 		22.5													4.50%	83	10	22.5								
-ESB	ROI	GU_400221	ER4	Erne 4	"Cliff"	110	2000	 Water 	100%			 Water 		22.5													4.50%	86	10	22.5								
-SSE	ROI	GU_400762	GI CCGT	Great Island CCGT	"Great Island"	220	2014	 Gas 	100%			 Gas 	165	464	458.5	605	203	320	464			4.09	5.41	5.62			6.20%	55	17.17	18.5	4	4	"1,100.00"	"1,700.00"	"3,300.00"	12	60	
-Viridian	ROI	GU_400480	HNC	Huntstown	"Huntstown"	220	2002	 Gas 	100%			 Gas 	120	343	332.71	541.2	120	171	230	250	352	4.53	4.53	5.24	5.25	6.04	6.20%	55	7	7	4	4	834.69	"2,803.20"	"4,771.68"	12	60	
-Viridian	ROI	GU_400540	HN2	Huntstown Phase II	"Corduff"	220	2007	 Gas 	100%			 Gas 	121	404	391.88	603.6	121	150	170	230	412	4.13	4.13	4.75	5.43	5.72	6.20%	55	20	20	4	4	318.45	531.13	644.17	12	60	
-ESB	ROI	GU_400280	LE1	Lee 1	"Inniscarra"	110	2000	 Water 	100%			 Water 		15													4.50%	123	0.2	15								
-ESB	ROI	GU_400281	LE2	Lee 2	"Inniscarra"	110	2000	 Water 	100%			 Water 		4													4.50%	123	0.2	4								
-ESB	ROI	GU_400290	LE3	Lee 3	"Carrigadrohid"	110	2000	 Water 	100%			 Water 		8													4.50%	83	1.5	8								
-ESB	ROI	GU_400250	LI1	Liffey 1	"Pollaphuca"	110	2000	 Water 	100%			 Water 		15													4.50%	130	5	10								
-ESB	ROI	GU_400251	LI2	Liffey 2	"Pollaphuca"	110	2000	 Water 	100%			 Water 		15													4.50%	130	5	10								
-ESB	ROI	GU_400252	LI4	Liffey 4	"Pollaphuca"	110	2000	 Water 	100%			 Water 		4													4.50%	90	2	2								
-ESB	ROI	GU_400260	LI5	Liffey 5	"Pollaphuca"	110	2000	 Water 	100%			 Water 		4													4.50%	130	0.03	2								
-ESB	ROI	GU_400240	LR4	Lough Ree	"Lanesboro"	110	2000	 Peat 	100%			 Peat 	91	93		86.8	91	93				8.81	8.81				7.90%	339	0.5	0.5	4	4	300	400	500	12	48	
-ESB	ROI	GU_400300	MRC	Marina	"Marina"	110	2000	 Gas 	100%			 Gas 	45	95		258.4	47	81	95			8.64	9.46	11.39			6.20%	72	5	5	1	0.5	50					
-Indaver	ROI	GU_401230	IW1	Meath waste to energy	Drybridge	110	2011					 Waste 	1	17													6.70%	2.3	0.36	0.65								Substation presumed from https://www.esbnetworks.ie/docs/default-source/publications/distribution-hv-substation-transformer-capacity-and-load-information-r0-(3).pdf?sfvrsn=2
-ESB	ROI	GU_400270	MP1	Moneypoint 1	"Moneypoint"	380	2000	 Coal 	68%	 Gasoil 	32%	 Coal 	99	285		189	195	280	285			9.15	9.24	13.7			9.10%	284	1.63	4.54	6	5	"4,360.00"	"6,920.00"	"14,620.00"	12	60	
-ESB	ROI	GU_400271	MP2	Moneypoint 2	"Moneypoint"	380	2000	 Coal 	68%	 Gasoil 	32%	 Coal 	99	285		189	195	280	285			9.15	9.24	13.7			9.10%	283	1.63	4.49	6	5	"4,360.00"	"6,920.00"	"14,620.00"	12	60	
-ESB	ROI	GU_400272	MP3	Moneypoint 3	"Moneypoint"	380	2000	 Coal 	68%	 Gasoil 	32%	 Coal 	99	285		189	195	280	285			9.15	9.24	13.7			9.10%	284	1.63	4.54	6	5	"4,360.00"	"6,920.00"	"14,620.00"	12	60	
-ESB	ROI	GU_400311	NW5	North Wall 5	"North Wall"	220	2000	 Gas 	100%			 Gas 	4.01	109		323.3	50	109				8.89	8.89				6.20%	328	8	8	4	0.5	50					
-ESB	ROI	GU_400324	PBA	Poolbeg C_A	"Shellybanks"	220	2000	 Gas 	100%			 Gas 	120	256		352.9	145	240	255			5.44	6.06	7.01			6.20%	154	11	11	4	4	750	900	"1,400.00"	8	52	
-ESB	ROI	GU_400325	PBB	Poolbeg C_B	"Shellybanks"	220	2000	 Gas 	100%			 Gas 	120	256		352.9	145	240	255			5.44	6.06	7.01			6.20%	154	11	11	4	4	750	900	"1,400.00"	8	52	
-SSE	ROI	GU_400330	RH1	Rhode 1	"Derryiron"	110	2004	 Gasoil 	100%			 Gasoil 	5	52		85.01	12	52				9.82	9.82				2.40%	50	10	10		0.75	24					
-SSE	ROI	GU_400331	RH2	Rhode 2	"Derryiron"	110	2004	 Gasoil 	100%			 Gasoil 	5	52		85.01	12	52				9.82	9.82				2.40%	50	10	10		0.75	24					
-Aughinish	ROI	GU_400120	SK3	Sealrock 3 (Aughinish CHP)	"Aughinish"	110	2005	 Gas 	100%			 Gas 	40	83		100	40	83				5	5				6.20%	44	6	6	4	4	800	"1,000.00"	"1,200.00"	12	48	
-Aughinish	ROI	GU_400121	SK4	Sealrock 4 (Aughinish CHP)	"Aughinish"	110	2005	 Gas 	100%			 Gas 	40	83		100	40	83				5	5				6.20%	44	6	6	4	4	800	"1,000.00"	"1,200.00"	12	48	
-SSE	ROI	GU_400340	TB1	Tarbert Unit 1	"Tarbert"	110	2000	 Oil 	61%	 Gasoil 	39%	 Oil 	18	54		44.66	20	46	54			11.63	11.63	11.75			2.00%	50	1	1	2	2	217.5	449	562	12	48	
-SSE	ROI	GU_400341	TB2	Tarbert Unit 2	"Tarbert"	110	2000	 Oil 	61%	 Gasoil 	39%	 Oil 	18	54		44.66	20	46	54			11.63	11.63	11.75			2.00%	50	1	1	2	2	217.5	449	562	12	48	
-SSE	ROI	GU_400342	TB3	Tarbert Unit 3	"Tarbert"	220	2000	 Oil 	70%	 Gasoil 	30%	 Oil 	34.85	243		247.61	34.85	100	180	240		8.07	8.07	9.06	9.15		2.00%	50	2	2.2	4	4	"1,072.00"	"1,934.00"	"3,180.00"	14	106	
-SSE	ROI	GU_400343	TB4	Tarbert Unit 4	"Tarbert"	220	2000	 Oil 	70%	 Gasoil 	30%	 Oil 	34.85	243		247.61	34.85	100	180	240		8.4	8.4	9.43	9.64		2.00%	50	2	2.2	4	4	"1,072.00"	"1,934.00"	"3,180.00"	14	106	
-SSE	ROI	GU_400350	TP1	Tawnaghmore 1	Tawnaghmore	110	2006	 Gasoil 	100%			 Gasoil 	5	52		86.62	12	52				9.59	9.59				2.40%	50	10	10		0.75	24					"http://www.eirgridnortheastprojects.ie/site-files/library/EirGrid/Connected%20(Non-Wind%20Generators)%20-%2031%20March%202011.pdf
-http://globalenergyobservatory.org/geoid/43937"
-SSE	ROI	GU_400351	TP3	Tawnaghmore 3	Tawnaghmore	110	2008	 Gasoil 	100%			 Gasoil 	5	52		86.62	12	52				9.59	9.59				2.40%	50	10	10		0.75	24					"http://www.eirgridnortheastprojects.ie/site-files/library/EirGrid/Connected%20(Non-Wind%20Generators)%20-%2031%20March%202011.pdf
-http://globalenergyobservatory.org/geoid/43937"
-ESB	ROI	GU_400360	TH1	Turlough Hill 1	"Turlough Hill"	220	2000	 Water 	100%			 Water 		73													6.00%	123										
-ESB	ROI	GU_400361	TH2	Turlough Hill 2	"Turlough Hill"	220	2000	 Water 	100%			 Water 		73													6.00%	123										
-ESB	ROI	GU_400362	TH3	Turlough Hill 3	"Turlough Hill"	220	2000	 Water 	100%			 Water 		73													6.00%	123										
-ESB	ROI	GU_400363	TH4	Turlough Hill 4	"Turlough Hill"	220	2000	 Water 	100%			 Water 		73													6.00%	123										
-Tynagh	ROI	GU_400530	TY	Tynagh	"Tynagh"	220	2006	 Gas 	100%			 Gas 	194	404	377.7	594	200	250	330	404	405	4.77	4.96	5.35	6.21	26.86	6.20%	32.1	15	12.5	4	4	"1,200.00"	"2,000.00"	"3,000.00"	12	48	
-ESB	ROI	GU_400370	WO4	West Offaly	"Shannonbridge"	110	2005	 Peat 	100%			 Peat 	137	140		120.5	137	140				8.66	8.66				7.90%	339	0.7	0.7	4	4	450	600	750	12	60	
-BGE	ROI	GU_400930	WG	Whitegate	"Glanagow"	220	2010	 Gas 	100%			 Gas 	180	445	432	666.68	185	399	460			3.91	5.27	5.27			6.20%	32.1	20.6	26.8	4	4	222.6	329.87	437.13	12	60	
-POWERNI	NI	GU_500140	B10	Ballylumford CCGT Unit 10				 Gas 	100%			 Gas 	63	101	98.9	98.15	88	101				6	6				6.20%	72	1.09	4	0.02	0.25	135	225	405	8	40	
-POWERNI	NI	GU_500130	B31	Ballylumford CCGT Unit 31				 Gas 	100%			 Gas 	113	247	244.1	390	113	247				5.72	5.72				6.20%	72	11	11	0.02	0.25	639	"1,134.00"	"2,025.00"	8	40	
-POWERNI	NI	GU_500131	B32	Ballylumford CCGT Unit 32				 Gas 	100%			 Gas 	113	247	244.1	390	113	247				5.72	5.72				6.20%	72	11	11	0.02	0.25	639	"1,134.00"	"2,025.00"	8	40	
-AES	NI	GU_500100	B4	Ballylumford Unit 4				 Gas 	100%			 Gas 	54	144		212.99	54	143.5				11.45	11.45				6.20%	36	1.98	9.67	2	1	764.58	"1,378.41"	"1,917.31"	10	26	
-AES	NI	GU_500110	B5	Ballylumford Unit 5				 Gas 	100%			 Gas 	54	147		210.01	54	146.5				11.11	11.11				6.20%	36	1.98	9.67	2	1	764.58	"1,378.41"	"1,917.31"	10	26	
-Full Circle Generation	NI		Belfast Waste	Belfast Waste to Energy				 Oil 	100%			 Waste 	10	14.8													6.70%	24	0.04	0.04	4	0.5	"2,000.00"	"4,000.00"	"6,000.00"	2	4	
-AES	NI	GU_500150	BGT1	Ballylumford  GT1				 Gasoil 	100%			 Gasoil 	8	58		180	8	53	58			11.05	11.05	11.05			2.40%	72	5	6.43	0.02	0.25	8					
-AES	NI	GU_500160	BGT2	Ballylumford  GT2				 Gasoil 	100%			 Gasoil 	8	58		180	8	53	58			11.05	11.05	11.05			2.40%	72	5	6.43	0.02	0.25	8					
-ESB	NI	GU_500041	CGT8	Coolkeeragh OCGT				 Gasoil 	100%			 Gasoil 	8	53		180	53					11.05					2.40%	469	50	50	0.02	0.25	8					
-Contour	NI	GU_500904	Contour AGU	Contour Global Agg Unit				 Gas 	100%			 Gas 	6	12.08		15.41	9	12				7.63	8.32				6.20%	48	4.03	4.03	0.5	0.5	0.62					
-ESB	NI	GU_500040	CPS CCGT	Coolkeeragh CCGT				 Gas 	100%			 Gas 	260	412		633.76	260	328	372	404	412	4.38	5.34	5.57	5.6	5.6	6.20%	176	15	8.35	4	4	"1,088.00"	"3,046.00"	"5,257.00"	12	38	
-iPower	NI	GU_501130	iPower AGU	iPower AGU				 Gasoil 	100%			 Gasoil 		72		27		72				12.8	12.8				2.40%	24	8	8	0.5	0.5	70					
-AES	NI	GU_500060	K1 Coal 220	Kilroot Unit 1 FGD				 Oil 	80%	 Coal 	20%	 Coal 	93	255		393.61	93	174.8	199	237.6		8.97	8.97	8.97	51.28		9.10%	24	5.79	5.79	4	0.5	"2,947.00"	"5,134.00"	"6,827.00"	10	55	
-AES	NI	GU_500070	K2 Coal 220	Kilroot Unit 2 FGD				 Oil 	80%	 Coal 	20%	 Coal 	93	258		393.61	93	174.8	199	237.6		8.97	8.97	8.97	51.28		9.10%	24	5.79	5.79	4	0.5	"2,947.00"	"5,134.00"	"6,827.00"	10	55	
-AES	NI	GU_500080	KGT1	Kilroot GT1				 Gasoil 	100%			 Gasoil 	5	29		103	5	23.6	29.2			11.05	11.05	11.05			2.40%	24	2.67	2.67	0.02	0.25	8					
-AES	NI	GU_500090	KGT2	Kilroot GT2				 Gasoil 	100%			 Gasoil 	5	29		103	5	23.6	29.2			11.05	11.05	11.05			2.40%	24	2.67	2.67	0.02	0.25	8					
-AES	NI	GU_500820	KGT3	Kilroot GT3				 Gasoil 	100%			 Gasoil 	12.82	42		115.39	12.82	41.61				9.24	9.24				2.40%	24	10	10	0.62	0.38	10					
-AES	NI	GU_500821	KGT4	Kilroot GT4				 Gasoil 	100%			 Gasoil 	12.82	42		115.39	12.82	41.61				9.24	9.24				2.40%	24	10	10	0.62	0.38	10					
-Maydown	NI	GU_501350	Lisahally	Maydown				 Oil 	100%			 Waste wood 	12.74	17.6		40	17.6					9					6.70%	24	0.04	0.04	4	0.5	"2,000.00"	"4,000.00"	"6,000.00"	2	4	

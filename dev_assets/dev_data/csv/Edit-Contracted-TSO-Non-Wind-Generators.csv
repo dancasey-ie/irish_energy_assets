@@ -1,6 +1,0 @@
-Node,Voltage(kV),GenRef,Name,Type,"MEC(MW)","SignedDate",SystemOperator,Status
-"Blundlestown",110,TG263,Blundlestown,Solar,80,Aug-17,TSO,Contracted
-Cahernagh,110,TG166,Cahernagh Mid Merit,OCGT,101,Oct-13,TSO,Contracted
-"Kilpaddoge",110,TG256,Kelwin Power Plant,Hybrid,41.6,Jun-16,TSO,Contracted
-"Rosspile",110,TG272,Rosspile Solar Farm,Solar,95,May-18,TSO,Contracted
-"Timahoe North",110,TG278,Timahoe North,Solar,70,May-18,TSO,Contracted

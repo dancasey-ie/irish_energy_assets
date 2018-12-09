@@ -1,79 +1,0 @@
-GenRef,Name,Type,MEC(MW),Node ,Offer Type,Status,EstimatedConnectionDate,Voltage(kV),SystemOperator
-DG96,Upperchurch Wind Farm (Curreeny),Wind,94,Killonan,Gate 3,Contracted,01-01-20,110,DSO
-DG91,Bunkimalta Wind Farm,Wind,46.5,Killonan,Gate 3,Contracted,NA,110,DSO
-TG93A,Dooray WF,Wind,45.001,PORTLAOISE 110KV,Gate 3,Contracted,31-12-25,110,DSO
-DG291,Magheramore and Cloontooa Wind Farm,Wind,40.8,Dalton,Gate 3,Contracted,30-10-18,110,DSO
-TG30,Boolynagleragh (1),Wind,36.98,Booltiagh,Gate 3,Contracted,15-07-19,110,DSO
-DG420,"Derrysallagh Wind Farm (Formerly Kilronan2)",Wind,34,GARVAGH,Gate 3,Contracted,30-04-19,110,DSO
-DG264,Knockathea Upper Wind Farm,Wind,33.9,Athea,Gate 3,Contracted,NA,110,DSO
-DG247,Gortnahurra Wind Farm,Wind,33.9,Bellacorick,Gate 3,Contracted,NA,110,DSO
-DG144,"Coolberrin Wind Farm (formerly BraganWind Farm)",Wind,33.1,Lisdrum,Gate 3,Contracted,NA,110,DSO
-DG290,"Cleanrath Wind Farm (merger of Cleanrathand Carrignadoura)",Wind,30.64,Coomataggart,Gate 3,Contracted,01-05-19,110,DSO
-TG59,Killala Wind Farm,Wind,30,TAWNAGHMORE,Gate 3,Contracted,30-05-19,110,DSO
-DG160,Bunnyconnellan Wind Farm,Wind,28,Glenree,Gate 2,Contracted,30-05-19,110,DSO
-TG62,Ahalia Windfarm (formerly Doolick),Wind,27,Screeb,Gate 3,Contracted,NA,110,DSO
-DG262,"Stacks Mountain Wind Farm (merger ofMuingatlaunlush)",Wind,25.3,Reamore,Gate 3,Contracted,NA,110,DSO
-TG73,Sorrell Island (Prev Glenmore),Wind,24,BOOLTIAGH,Gate 3,Contracted,31-07-19,110,DSO
-DG1049,Carrickallen Wind Farm,Wind,22,Shankill,Pre-Gate,Contracted,10-09-18,110,DSO
-DG153,"Derrincullig (formerly Coomagearlahy Phase4 & Lettercannon)",Wind,21.6,Coomataggart,Gate 3,Contracted,30-07-19,110,DSO
-DG204,Lettergull Wind Farm,Wind,20,Letterkenny,Gate 3,Contracted,NA,110,DSO
-DG269,Clogheravaddy Wind Farm,Wind,20,Binbane,Gate 3,Contracted,30-10-19,110,DSO
-DG209,Ballycumber Wind Farm,Wind,18,Arklow,Gate 3,Contracted,30-11-18,110,DSO
-DG260,Cronalaght Wind Farm 2,Wind,17.96,Ardnagappary,Gate 3,Contracted,30-06-19,110,DSO
-TG33,"Sheskin Windfarm (formerly EderglenWindfarm)",Wind,16.8,Bellacorick,Gate 3,Contracted,31-12-19,110,DSO
-DG186,"Tawnaghmore 1, 2 & 3",Wind,16.1,Bellacorick,Gate 3,Contracted,NA,110,DSO
-DG232,Slievenaglogh Wind Farm,Wind,15,Dundalk,Gate 3,Contracted,NA,110,DSO
-DG196,Newtownfore Wind Farm,Wind,14.4,Letterkenny,Gate 3,Contracted,NA,110,DSO
-DG234a,Mauricetown (Glenduff)  Wind Farm,Wind,13.8,Glenlara,Gate 2,Contracted,01-09-19,110,DSO
-DG271,Muingnaminnane 2 Wind Farm,Wind,13.5,Reamore,Gate 3,Contracted,NA,110,DSO
-DG120,Lissycasey Wind Farm,Wind,13.399,BOOLTIAGH,Gate 3,Contracted,31-07-19,110,DSO
-DG312,Black Lough Wind farm,Wind,12.5,Glenree,Gate 3,Contracted,30-06-19,110,DSO
-DG418,Derragh Wind Farm,Wind,12,Coomataggart,Gate 3,Contracted,30-07-19,110,DSO
-DG400,"Lisbeg Windfarm (formerly Sonnagh Old 2 &3)",Wind,11.89,Somerset,Gate 3,Contracted,NA,110,DSO
-DG294,Raragh 2 Wind Farm,Wind,11.5,Meath Hill,Gate 3,Contracted,30-12-19,110,DSO
-DG217,Glantaunyalkeen Windfarm,Wind,9.999,Cloghboola,Gate 3,Contracted,08-09-18,110,DSO
-DG407,Corkermore Wind Farm Extension,Wind,9.4,Binbane,Gate 3,Contracted,31-10-19,110,DSO
-DG268,Maas Wind Farm (Loughderryduff 2),Wind,9.35,Binbane,Gate 3,Contracted,NA,110,DSO
-DG202,Bunaveala/Keenagh Wind Farm,Wind,9.2,Bellacorick,Gate 3,Contracted,NA,110,DSO
-DG163,Raheen barr Extension,Wind,6.8,Castlebar,Gate 2,Contracted,31-12-19,110,DSO
-DG35a,"Knockawarriga Extension (Knockawummer& Caherlevoy) Wind Farm",Wind,6.6,Trien,Gate 2,Contracted,30-12-20,110,DSO
-DG148,Cahermurphy Wind Farm,Wind,6,BOOLTIAGH,Gate 3,Contracted,31-07-19,110,DSO
-DG249,Coomleagh Wind Farm,Wind,5.95,Dunmanway,Gate 3,Contracted,NA,110,DSO
-DG282,"Dreenacreenig West (prev Kilvinane 2) WindFarm",Wind,5.82,Ballylickey,Gate 3,Contracted,01-09-19,110,DSO
-DG149,Esk Wind Farm (Esk & Gneeves 2 Merge),Wind,5.4,BOGGERAGH,Gate 3,Contracted,30-12-20,110,DSO
-DG149a,"Esk Wind Farm (sub metered Gneeves 2Merge)",Wind,5.4,BOGGERAGH,Gate 3,Contracted,30-12-20,110,DSO
-DG182,Ballyshonog Wind Farm,Wind,5,Carlow,Gate 3,Contracted,NA,110,DSO
-DG267,Kiltumper Wind Farm,Wind,4.99,BOOLTIAGH,Gate 3,Contracted,31-07-19,110,DSO
-DG154,Ballincurry Wind Farm Ltd (Glengoole),Wind,4.6,Thurles,Gate 3,Contracted,30-01-19,110,DSO
-DG119,Boolard Wind Farm,Wind,4.45,Charleville,Gate 3,Contracted,01-09-19,110,DSO
-DG286a,Garrymore WF,Wind,4.4,Letterkenny,Gate 3,Contracted,20-06-18,110,DSO
-DG1214,Carrick Wind Farm (Garrymore),Wind,4.3,Letterkenny,Gate 3,Contracted,20-10-19,110,DSO
-DG98,Three Trees,Wind,4.25,SORNE HILL,Gate 2,Contracted,30-06-19,110,DSO
-DG238,Derryknockeran,Wind,4.25,Carrick on Shannon,Gate 3,Contracted,NA,110,DSO
-DG1009,Ring Hill Wind Farm,Wind,4,Cauteen,Gate 3,Contracted,NA,110,DSO
-DG114,Coomatallin (2) Wind Farm,Wind,3.05,Dunmanway,Gate 2,Contracted,NA,110,DSO
-DG257,Rossaveel Wind Farm,Wind,3,Screeb,Gate 3,Contracted,30-12-18,110,DSO
-DG254,Carrowleagh Wind Farm (2),Wind,2.65,Glenree,Gate 3,Contracted,31-03-19,110,DSO
-DG240,Tullynamalra Wind Farm,Wind,2.638,Meath Hill,Gate 3,Contracted,31-12-18,110,DSO
-DG143,Bunnahowen Wind Farm (Temp),Wind,2.55,Bellacorick,Gate 3,Contracted,31-12-19,110,DSO
-DG183,Kilbranish Wind Farm,Wind,2.5,Crane,Gate 2,Contracted,28-09-18,110,DSO
-DG124,Enros - Sorne Hill Single Turbine,Wind,2.3,SORNE HILL,Gate 2,Contracted,30-06-19,110,DSO
-DG1063,Glenalla (Garrymore),Wind,2.1,Letterkenny,Gate 3,Contracted,20-10-19,110,DSO
-DG235,Corvin Wind Turbine,Wind,2.1,SORNE HILL,Gate 3,Contracted,30-11-18,110,DSO
-DG249,Coomleagh Wind Farm (extension),Wind,2,Dunmanway,Gate 3,Contracted,NA,110,DSO
-DG244,Meenachullalan Wind Farm (2),Wind,1.9,Binbane,Gate 3,Contracted,NA,110,DSO
-DG1029,Monaughrim Wind Farm,Wind,0.5,Crane,Non GPA,Contracted,NA,110,DSO
-DG1017,Mossedge Wind Farm,Wind,0.5,SORNE HILL,Non GPA,Contracted,31-12-18,110,DSO
-DG887,Gortnahalla,Wind,0.499,Thurles,Non GPA,Contracted,31-12-18,110,DSO
-DG840,Meenbane Wind Farm,Wind,0.499,Letterkenny,Non GPA,Contracted,NA,110,DSO
-DG851,Meenbane Wind Power,Wind,0.499,Letterkenny,Non GPA,Contracted,NA,110,DSO
-DG855,Finn Renewables,Wind,0.499,Letterkenny,Non GPA,Contracted,NA,110,DSO
-DG1014,Moneygorm Single Wind Turbine,Wind,0.499,Kilbarry,Non GPA,Contracted,NA,110,DSO
-DG1047,Kilpatrick Wind,Wind,0.499,Bandon,Non GPA,Contracted,NA,110,DSO
-DG1067,Cranemore Single Wind Turbine,Wind,0.499,Crane,Non GPA,Contracted,NA,110,DSO
-DG1045,Moyvane Wind,Wind,0.499,Trien,Non GPA,Contracted,NA,110,DSO
-DG813,Liskeran WT,Wind,0.499,Letterkenny,Non GPA,Contracted,NA,110,DSO
-DG994,Altilow Single Wind Turbine,Wind,0.499,Cathaleens Fall,Non GPA,Contracted,NA,110,DSO
-DG1089,Ballynultagh Wind Farm,Wind,0.499,Carlow,Non GPA,Contracted,NA,110,DSO
-DG1070,Knocklead Wind Farm,Wind,0.499,PORTLAOISE 110KV,Non GPA,Contracted,NA,110,DSO
-DG1050,Patrick Costello Wind Turbine,Wind,0.495,Cahir,Non GPA,Contracted,28-09-18,110,DSO

@@ -1,18 +1,0 @@
-Name,Phase,GenRef,"MEC(MW)",Gate,Node,Voltage(kV),SignedDate,SystemOperator,Status
-Barnadivane (1),,TG44,60,Gate 3,"Barnadivine",110,Aug-14,TSO,Contracted
-"Boolinrudda(formerly Boolynagleragh &Glenmore)",,DG73.,17.64,Gate 3,"Slievecallan",110,Aug-16,TSO,Contracted
-"Boolinrudda (formerlyLoughaun North)",,DG73,26.87,Gate 2,"Slievecallan",110,Aug-16,TSO,Contracted
-Buffy Wind Farm,,DG1012,64.2,Gate 3,"Knockranny",110,Jan-17,TSO,Contracted
-Carrickaduff Wind Farm (1),,TG261,33,Gate 3,"Carrickaduff",110,Feb-17,TSO,Contracted
-Carrickaduff Wind Farm (2),,TG301,33.1,Gate 3,"Carrickaduff",110,Feb-17,TSO,Contracted
-Carrickalangan Wind Farm,,TG262,72,Gate 3,"Clogher",110,Feb-17,TSO,Contracted
-Castletownmoor,,P230,120,Gate 3,"Castletownmoor",110,Mar-15,TSO,Contracted
-Cordal (3)**,2,DG273,11,Gate 3,"Cordal",110,Jul-15,TSO,Contracted
-Grousemount WF,,TG34,114.2,Gate 3,"Coomataggart",110,Aug-13,TSO,Contracted
-"Knockalassa (formerlyKeelderry)",1,TG49,26.88,Gate 2,"Slievecallan",110,Dec-14,TSO,Contracted
-Knockalough (1),,DG191,33.6,Gate 3,Knockranny,220,Jan-17,TSO,Contracted
-Oriel (1),,TG86,210,Gate 3,"Oriel",220,Mar-15,TSO,Contracted
-Oweninney (5)**,,TG71,198.9,Gate 3,Bellacorick,400,Sep-13,TSO,Contracted
-Oweninney Power (1),,TG25,89,Gate 3,"Oweninney",110,Aug-14,TSO,Contracted
-Oweninney Power (2),,TG26,83,Gate 3,"Oweninney",110,Aug-14,TSO,Contracted
-Tobertooreen Wind Farm,,TG319,34.15,Gate 1 & 2,"Athea",110,Apr-18,TSO,Contracted
