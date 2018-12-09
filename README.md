@@ -205,6 +205,8 @@ Mock ups can be found at https://github.com/dcasey720/irish_energy_assets/tree/m
 
 Most of this project was completed before looking at the Interactive Frontend Modules. JavaScript was only looked into briefly to get the interactive charts working.
 
+The login details for the database are stored in a seperate text file not included in the github for security puroses. If you require these details please contact me at dcasey720@gmail.com.
+
 Deployment
 ------------------------
 
