@@ -1,39 +1,0 @@
-Wind Farm Name,Phase,Ref,Installed (MW),MEC (MW),Gate,Associated Node ,voltage,Connection Date
-Athea (1)a,1,TG22a,34.35,34.35,Gate 1,"Athea",110,Oct-13
-Ballywater (1),1,TG13,31.5,31.5,Pre-Gate,"Ballywater",110,May-05
-Ballywater (2),2,TG35,10.5,10.5,Gate 2,"Ballywater",110,Aug-07
-Boggeragh (1),1,TG29,57,57,Gate 2,"Boggeragh",110,Dec-09
-Boggeragh 2,1,TG102,25,47.7,Gate 3,"Boggeragh",110,Nov-15
-Boggeragh 2 (Killavoy (1)),1,DG200,,18,Gate 2,"Boggeragh",110,Nov-15
-Booltiagh (1),1,TG07,19.5,19.45,Pre-Gate,"Booltiagh",110,Aug-05
-Booltiagh (2),2,TG38,4.6,3,Gate 2,"Booltiagh",110,Aug-13
-Booltiagh (3),3,TG39,9.2,9,Gate 2,"Booltiagh",110,Aug-13
-Castledockrell (1),1,DG88,20.7,20,Gate 2,"Castledockrell",110,Jan-11
-Castledockrell (2),2,DG172,2.3,2,Gate 2,"Castledockrell",110,Jan-11
-Castledockrell (3),3,DG189,2.3,3.3,Gate 2,"Castledockrell",110,Jan-11
-Castledockrell (4),4,DG201,16.1,16.1,Gate 2,"Castledockrell",110,Jan-11
-Clahane (1),1,TG12,40,37.8,Gate 1,"Clahane",110,Jun-08
-Cloghboola (1),1,DG50,48,46,Gate 2,"Cloghboola",110,Apr-15
-Coomacheo (1),1,TG18,41.4,41.225,Gate 1,"Garrow",110,Jun-08
-Coomacheo (2),2,DG187,18.4,18,Gate 2,"Garrow",110,Jul-09
-Coomagearlahy (1),1,TG11,45,42.5,Pre-Gate,"Coomagearlahy",110,Mar-06
-Coomagearlahy (2),2,TG50,8.5,8.5,Gate 2,"Coomagearlahy",110,Mar-09
-Coomagearlahy (3),3,TG54,32.5,30,Gate 2,"Coomagearlahy",110,Jun-09
-Derrybrien (1),1,P33,59.5,59.5,Pre-Gate,"Derrybrien",110,Oct-05
-Dromada (1),1,DG141,28.5,28.5,Gate 2,"Dromada",110,Dec-09
-Garvagh - Glebe (1a),1,TG23a,26,26,Gate 2,"Garvagh",110,Jun-10
-Garvagh - Tullynahaw (1c),1c,TG23c,22,22,Gate 2,"Garvagh",110,Jun-10
-Glanlee (1),1,TG47,32.45,29.8,Gate 1,"Glanlee",110,Jul-07
-Golagh (1),1,P25,15,15,Pre-Gate,"Golagh",110,Jul-97
-Kill Hill (1) - phase 1,1,TG69 ph1,36,36,Gate 3,"Kill Hill",110,Oct-14
-Kingsmountain (1),1,P38A,25,23.75,Pre-Gate,"Cunghill",110,May-03
-Kingsmountain (2),2,TG40,11.05,11.05,Gate 2,"Cunghill",110,Jun-10
-Lisheen (1),1,TG55,36,36,Gate 2,"Lisheen",110,Jul-09
-Lisheen (1a),1a,TG55a,24,23,Gate 2,"Lisheen",110,Apr-13
-Meentycat (1),1,P38BDF,72.4,70.96,Pre-Gate,"Meentycat",110,Oct-04
-Meentycat (2),2,TG65,16.1,14,Gate 1,"Meentycat",110,Oct-09
-Mountain Lodge (1),1,TG06,25.5,24.8,Pre-Gate,"Ratrussan",110,Apr-08
-Mountain Lodge (3),3,TG52,6,5.82,Gate 2,"Ratrussan",110,Mar-09
-Mountlucas (1),1,TG66,84,79.2,Gate 3,"Mountlucas",110,May-14
-Ratrussan (1a),1a,P38-1,48,48,Pre-Gate,"Ratrussan",110,Oct-09
-Woodhouse (1),1,DG135,20,20,Gate 3,"Woodhouse",110,Apr-15

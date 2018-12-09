@@ -1,61 +1,0 @@
-Type,Category,Gate,GenRef,Name,Phase,Connection,"MEC(MW)","InstalledCapacity(MW)","ConnectionDate",Notes,County,N.Turbines,Controllable
-Wind,Onshore,PG,P25,Golagh,1,Full,15,15,Jul-97,,Donegal,25,No
-Wind,Onshore,PG,P38A,Kingsmountain,1,Full,23.75,25,May-03,,Sligo,10,No
-Wind,Onshore,PG,P38BDF,Meentycat,1,Full,70.96,72.4,Oct-04,,Donegal,38,Yes
-Wind,Onshore,PG,TG13,Ballywater,1,Full,31.5,31.5,May-05,,Wexford,16,Yes
-Wind,Onshore,PG,TG07,Booltiagh,1,Full,19.45,19.5,Aug-05,,Clare,13,Yes
-Wind,Onshore,PG,P33,Derrybrien,1,Full,59.5,59.5,Oct-05,Gort,Galway,70,Yes
-Wind,Onshore,PG,TG11,Coomagearlahy,1,Full,42.5,45,Mar-06,,Kerry,15,Yes
-Wind,Onshore,1,TG47,Midas,1,Full,29.8,32.45,Jul-07,Glanlee 1,Kerry,23,Yes
-Wind,Onshore,2,TG35,Ballywater,2,Full,10.5,10.5,Aug-07,,Wexford,5,Yes
-Wind,Onshore,PG,TG06,Mountain Lodge,1,Full,24.8,25.5,Apr-08,,Cavan,17,Yes
-Wind,Onshore,1,TG12,Pallas,1,Full,37.8,40,Jun-08,Clahane 1,Kerry,20,Yes
-Wind,Onshore,1,TG18,Coomacheo,1,Full,41.225,41.4,Jun-08,,Cork,18,Yes
-Wind,Onshore,2,TG50,Coomagearlahy,2,Full,8.5,8.5,Mar-09,,Kerry,10,Yes
-Wind,Onshore,2,TG52,Mountain Lodge,3,Full,5.82,6,Mar-09,,Cavan,4,Yes
-Wind,Onshore,2,TG54,Coomagearlahy,3,Full,30,32.5,Jun-09,,Kerry,13,Yes
-Wind,Onshore,2,DG187,Coomacheo,2,Full,18,18.4,Jul-09,,Cork,8,Yes
-Wind,Onshore,2,TG55,Lisheen,1,Full,36,36,Jul-09,,Tipperary,18,Yes
-Wind,Onshore,1,TG65,Meentycat,2,Full,14,16.1,Oct-09,,Donegal,7,Yes
-Wind,Onshore,PG,P38-1,Bindoo,1a,Full,48,48,Oct-09,Ratrussan,Cavan,32,Yes
-Wind,Onshore,2,TG29,Boggeragh,1,Full,57,57,Dec-09,,Cork,19,Yes
-Wind,Onshore,2,DG141,Dromada,1,Full,28.5,28.5,Dec-09,,Limerick,19,Yes
-Wind,Onshore,2,TG23a,Garvagh,1a,Full,26,26,Jun-10,Glebe,Leitrim,13,Yes
-Wind,Onshore,2,TG23c,Garvagh,1c,Full,22,22,Jun-10,Tullynahaw,Roscommon,11,Yes
-Wind,Onshore,2,TG40,Kingsmountain,2,Full,11.05,11.05,Jun-10,,Sligo,13,Yes
-Wind,Onshore,2,DG88,Castledockrell,1,Full,20,20.7,Jan-11,,Wexford,9,Yes
-Wind,Onshore,2,DG172,Castledockrell,2,Full,2,2.3,Jan-11,,Wexford,1,Yes
-Wind,Onshore,2,DG189,Castledockrell,3,Full,3.3,2.3,Jan-11,,Wexford,1,Yes
-Wind,Onshore,2,DG201,Castledockrell,4,Full,16.1,16.1,Jan-11,,Wexford,7,Yes
-Wind,Onshore,2,TG55a,Lisheen,2,Full,23,24,May-13,,Tipperary,12,Yes
-Wind,Onshore,2,TG38,Booltiagh,2,Full,12,12,Sep-13,Booltiagh 2 & 3 (TG38 & TG39),Clare,6,Yes
-Wind,Onshore,1,TG22a,Athea,1a,Full,34.35,34.35,Feb-14,,Limerick,16,Yes
-Wind,Onshore,3,TG66,Mountlucas,1,Full,79.2,84,Nov-14,,Offaly,28,Yes
-Wind,Onshore,3,TG69,Kill Hill,1,Full,36,36,Dec-14,,Tipperary,16,Yes
-Wind,Onshore,3,DG135,Woodhouse,1,Full,20,20,Jun-15,,Waterford,8,Yes
-Wind,Onshore,2,DG50,Cloghboola,1,Full,46,48,Oct-15,Knocknagashel,Kerry,16,Yes
-Wind,Onshore,3,TG102,Boggeragh,2,Full,65.7,65.7,Jun-16,Knockduff + Killavoy 1 (DG200),Cork,26,Yes
-Wind,Onshore,3,DG308,Mulreavy,2,Full,5.4,5,Oct-16,Meenadreen South 2,Donegal,2,Yes
-Wind,Onshore,3,TG94,Sliabh Bawn,1,Full,58,64,Dec-16,,Roscommon,20,Yes
-Wind,Onshore,3,DG92,Uggool,1,Full,64,64,Feb-17,,Galway,22,Yes
-Wind,Onshore,1,TG15,Moneypoint,1,Full,17.25,17.25,Jun-17,,Clare,5,Yes
-Wind,Onshore,3,TG58,Seecon,1,Full,105,108,Aug-17,,Galway,36,Yes
-Wind,Onshore,2,DG49,Cordal,1,Full,35.85,35.2,Mar-18,,Kerry,11,Yes
-Wind,Onshore,3,DG272,Cordal,2,Full,54,54.4,Mar-18,Merged with Cordal 3,Kerry,17,Yes
-Wind,Onshore,3,TG83,Clahane,2,Partial,13.8,5,Jun-18,,Kerry,6,Yes
-Wind,Onshore,N/A,TG256,Kelwin,1,Partial,37.05,5,Jul-18,"Hybrid: 37.05 MW Wind+ 2 MW Diesel + 7.8 MW Battery",Kerry,13,Yes
-Hydro,,PG,,Ardnacrusha,1,Full,22,22,1929,,Clare,,
-Hydro,,PG,,Ardnacrusha,2,Full,22,22,1929,,Clare,,
-Hydro,,PG,,Ardnacrusha,3,Full,21,21,1929,,Clare,,
-Hydro,,PG,,Ardnacrusha,4,Full,21,21,1934,,Clare,,
-Hydro,,PG,,Erne,1,Full,10,10,1950,Cliff,Donegal,,
-Hydro,,PG,,Erne,2,Full,10,10,1955,Cliff,Donegal,,
-Hydro,,PG,,Erne,3,Full,22.5,22.5,1951,Cathleen's Fall,Donegal,,
-Hydro,,PG,,Erne,4,Full,22.5,22.5,1952,Cathleen's Fall,Donegal,,
-Hydro,,PG,,Lee,1,Full,15,15,1952,Inniscarra,Cork,,
-Hydro,,PG,,Lee,2,Full,4,4,1952,Inniscarra,Cork,,
-Hydro,,PG,,Lee,3,Full,8,8,1952,Carrigadrohid,Cork,,
-Hydro,,PG,,Liffey,1,Full,15,15,1944,Pollaphuca,Wicklow,,
-Hydro,,PG,,Liffey,2,Full,15,15,1944,Pollaphuca,Wicklow,,
-Hydro,,PG,,Liffey,3,Full,0.18,0.18,1944,Pollaphuca,Wicklow,,
-Hydro,,PG,,Liffey,4,Full,4,4,1944,Pollaphuca,Wicklow,,
