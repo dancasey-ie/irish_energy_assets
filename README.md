@@ -59,7 +59,6 @@ User stories were developed to plan out the features for the application.
 * As non-admin logged in user I should be able to create a new asset and have update and delete access to all of my owned assets.
 * As admin I should be able to backup up the current data to a json file stored in a local directory.
 * As admin I should be able to fallback to previous backup database.
-Certain elements such as deleting of assets from the database require additional expanding of sections so that a user is less likely to activate the function by accident.
 
 Features and Process
 -----------------
@@ -194,7 +193,8 @@ The data from the different operators was not standardized and so there was much
 
 As the data came from a number of different sources, mostly in PDF, and in different layouts there was considerable manipulation required to combine and format the data in a
 usable format. GeoPy was used to get the address of the node based off the Node name, so that a per county association could be established. 
-I have kept the code and data not used by the running application but used in the development process in a separate folder, Dev Folder.
+I have kept the code and data not used by the running application but used in the development process in a separate folder, Dev Folder. 
+Certain elements such as deleting of assets from the database require additional expanding of sections so that a user is less likely to activate the function by accident.
 
 Mock ups can be found at https://github.com/dcasey720/irish_energy_assets/tree/master/dev_assets/mockups
 

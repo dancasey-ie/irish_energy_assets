@@ -148,8 +148,12 @@ def sort_collection(attr, reverse, collection):
     """
     collection_ls = []
     attr_value_ls = []
+
     for doc in collection:
-        attr_value_ls.append(doc[attr])
+        if attr == 'MEC_MW':
+            attr_value_ls.append(float(doc[attr]))
+        else:
+            attr_value_ls.append(doc[attr])
         collection_ls.append(doc)
 
     collection_sorted = [x for y, x in sorted(zip(attr_value_ls,
