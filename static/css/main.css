@@ -69,9 +69,6 @@ html, body {
     border-bottom: 2px solid #f702ce;
 }
 
-.menu-item {
-}
-
 .footer {
     height: 30px;
     position: fixed;
@@ -220,7 +217,7 @@ html, body {
     display: inline-block;
     margin: auto;
     padding: 0px;
-    padding-left:20px;
+    padding-left:10px;
     margin-bottom: 20px;
     width: auto;
 }
@@ -228,13 +225,13 @@ html, body {
 #per-type-chart {
     margin: 0px;
     padding: 0px;
-    padding-left: 20px;
+    padding-left: 10px;
     margin-bottom: 20px;
     width: auto;
 }
 
 #per-status-stacked {
-    margin: 0px;
+    margin: -5px;
     padding: 0px;
     text-align: center;
 }
@@ -246,8 +243,6 @@ html, body {
     border-radius: 10px;
     background-color: #303130;
     margin-bottom: 10px;
-}
-.assets_collapse {
 }
 
 .table_wrapper {
@@ -384,7 +379,12 @@ html, body {
 
 @media only screen and (max-width: 365px) {
     .navbar-collapse.collapse.in {
-        margin-top: 19px;
+        margin-top: 39px !important;
     }
 
+    .about_charts_container {
+        margin: 0px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
 }

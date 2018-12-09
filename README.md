@@ -168,10 +168,14 @@ The following test were performed manually.
 
 __Known Bugs__
 
-* When you enter https://irish-energy-assets.herokuapp.com/filtered_assets with out clicking on 'Apply Filter', you get Logged In as 'filtered_assets'.
+* Can log in as any name if entering url directly i.e. http://irish-energy-assets.herokuapp.com/somename/ will return index.html logged in as 'somename'. This is outside of normal operation of the site. Deeper understanding of String Querries should resolve this.
 * Dropdown icons do not represent initial state of collapsed div. Dropdown icons are not independent of each other in Refine Filter side-nav.
 * Stacked Bar Chart 'MEC (MW) by Status' shading is off when isolating data.
-* Clicking 'About Site' when logged in will log user out 
+* Charts do not align to the centre of the the divs.
+* Navbar collapse in, renders slightly below header border before jumping to it desired position.
+* Can not refine filter, this will probably require passing the filters as String Querries.
+* Application is slow at loading data, this is probably due to the number of loops and querries to the MongoDB. 
+
 
 Development
 ------------------------
@@ -195,6 +199,7 @@ As the data came from a number of different sources, mostly in PDF, and in diffe
 usable format. GeoPy was used to get the address of the node based off the Node name, so that a per county association could be established. 
 I have kept the code and data not used by the running application but used in the development process in a separate folder, Dev Folder. 
 Certain elements such as deleting of assets from the database require additional expanding of sections so that a user is less likely to activate the function by accident.
+The login and database editing functions were purposely not obvious to the user, with the principle that a user that should be editing the database should have working knowledge of the application.
 
 Mock ups can be found at https://github.com/dcasey720/irish_energy_assets/tree/master/dev_assets/mockups
 
