@@ -55,7 +55,13 @@
                         <a href="{{ url_for('assets', username=username)}}"><i class="fas fa-industry"></i> Assets </a>
                         {% endif %}
                     </li>
-                    <li class="menu-item {% if title == 'Irish Energy Assets | About' %} active_menu {% endif %}"><a href="{{ url_for('about') }}"><i class="fas fa-info"></i> About Site</a></li>
+                    <li class="menu-item {% if title == 'Irish Energy Assets | About' %} active_menu {% endif %}">
+                        {% if username == "" %}
+                        <a href="{{ url_for('about')}}"><i class="fas fa-info"></i> About Site</a>
+                        {% else %}
+                        <a href="{{ url_for('about1', username=username)}}"><i class="fas fa-info"></i> About Site</a>
+                        {% endif %}
+                    </li>
                     {% if username == "admin" %}
                     <li class="menu-item {% if title == 'Irish Energy Assets | Admin' %} active_menu {% endif %}"><a href="{{ url_for('admin', username=username) }}"><i class="fas fa-cog"></i> Admin</a></li>
                     {% endif %}

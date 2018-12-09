@@ -123,11 +123,11 @@
                         <div class="collapse filter_collapse in" id="collapse_mec">
                             <div class="row">
                                 <label for="flt_mec_lo" class="mec-range-field">from</label>
-                                <input class="pull-right mec_range_input" autocomplete="off" id="flt_mec_lo" name="flt_mec_lo" data-pattern="range" data-role="to" type="number" pattern="[0-9]+(\.[0-9]{0,2})" maxlength="7" value="0">
+                                <input class="pull-right mec_range_input" autocomplete="off" id="flt_mec_lo" name="flt_mec_lo" data-pattern="range" data-role="to" type="number" value="0">
                             </div>
                             <div class="row">
                                 <label for="flt_mec_hi" class="mec-range-field last-child">to</label>
-                                <input class="pull-right mec_range_input" autocomplete="off" id="flt_mec_hi" name="flt_mec_hi" data-pattern="range" data-role="to" type="number" pattern="[0-9]+(\.[0-9]{0,2})" maxlength="7" value="1000">
+                                <input class="pull-right mec_range_input" autocomplete="off" id="flt_mec_hi" name="flt_mec_hi" data-pattern="range" data-role="to" type="number" value="1000">
                             </div>
                         </div>
                     </div>
@@ -316,9 +316,9 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="{{ url_for('static', filename="js/main.js")}}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename = "js/main.js")}}"></script>
 <script type="text/javascript"> var assets_json = '{{ assets_json | tojson | safe}}';</script>
-<script type="text/javascript" src="{{ url_for('static', filename="js/charts.js")}}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename = "js/charts.js")}}"></script>
 
 
 

@@ -10,6 +10,7 @@ var setDivsState = function () {
             $('.collapse_sm').removeClass('in');
         });
     }
+
     else
         $(function () {
 

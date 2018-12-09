@@ -50,15 +50,17 @@ def backup_mongo_collection(collection):
                         % timestr)
     write_json_data(backup_json, backup_file_name)
 
+
 def overwrite_with_backup(local_collection, mongo_collection):
     """
     Backs up collection locally, deletes entire mongo_collection and
     then fills it with a defined local_collection.
     """
     backup_mongo_collection(mongo_collection.find())
-    result = mongo_collection.delete_many({ })
+    result = mongo_collection.delete_many({})
     for doc in local_collection:
         mongo_collection.insert_one(doc)
+
 
 def list_attr_values(attr, collection):
     """
@@ -68,7 +70,7 @@ def list_attr_values(attr, collection):
     values = []
     for doc in collection:
         if attr in doc and doc[attr] != "" and isinstance(doc[attr], str) \
-            and doc[attr].lower() not in values:
+                and doc[attr].lower() not in values:
                     values.append(doc[attr].lower())
         elif attr in doc and doc[attr] != "" and doc[attr] not in values:
                     values.append(doc[attr])
@@ -147,7 +149,6 @@ def sort_collection(attr, reverse, collection):
     collection_ls = []
     attr_value_ls = []
     for doc in collection:
-        print(doc)
         attr_value_ls.append(doc[attr])
         collection_ls.append(doc)
 
@@ -221,6 +222,7 @@ def filter_attr_range(attr, lo, hi, collection):
 
 # TEMPLATE RENDERING FUNCTIONS ###############################################
 
+
 @app.route('/')
 def index():
     """
@@ -266,9 +268,11 @@ def assets(username):
 
                            title="Irish Energy Assets | Assets")
 
+
 @app.route('/filtered_assets/', methods=['POST'])
 def filter_nologin():
     return filtered_assets('')
+
 
 @app.route('/filtered_assets/<username>', methods=['POST'])
 def filtered_assets(username):
@@ -344,8 +348,14 @@ def filtered_assets(username):
                            assets_json=assets_json,
                            title="Irish Energy Assets | Assets")
 
+
 @app.route('/about')
 def about():
+    return about1('')
+
+
+@app.route('/about1/<username>')
+def about1(username):
     """
     Renders about.html.
     """
@@ -354,9 +364,10 @@ def about():
     for doc in assets_json:
         doc.pop('_id')
     return render_template('about.html',
-                           username="",
+                           username=username,
                            assets_json=assets_json,
                            title="Irish Energy Assets | About")
+
 
 @app.route('/log_in')
 def log_in():
@@ -386,23 +397,18 @@ def check_username():
 
     if request.method == "POST":
         username = request.form["username"]
-        users = read_json_data("data/users.json")
-        attributes = read_json_data('static/data/json/' +
-                                    'relevent_attributes.json')
-
-        if username.lower() not in users:
+        users = list_attr_values('Company', mongo.db.all_assets.find())
+        users_lower = []
+        for user in users:
+            users_lower.append(user.lower())
+        users_lower.append('admin')
+        if username.lower() not in users_lower:
             message = "That is not a valid username."
             return render_template("log_in.html",
-                                    message=message,
-                                    username="")
-        elif username == 'admin':
-            assets = sort_collection('Name', False,
-                                        mongo.db.all_assets.find())
-        else:
-            assets = filter_collection('Company', [username],
-                                        mongo.db.all_assets.find())
+                                   message=message,
+                                   username="")
 
-        return redirect(url_for('assets', username=username))
+        return assets(username.lower())
 
 
 @app.route('/admin/<username>')
@@ -421,6 +427,7 @@ def admin(username):
                            counties=counties,
                            title="Irish Energy Assets | Admin")
 
+
 @app.route('/json_backup/<username>')
 def json_backup(username):
     """
@@ -433,6 +440,7 @@ def json_backup(username):
     counties = read_json_data('static/data/json/Irish_Counties.json')
     return admin(username)
 
+
 @app.route('/over_write_db/<username>', methods=['POST'])
 def over_write_db(username):
     """
@@ -442,8 +450,8 @@ def over_write_db(username):
     """
     if request.method == "POST":
         json_file = request.form["backup_select"]
-        local_collection =  read_json_data('static/data/json/backups/%s'
-                                           % json_file)
+        local_collection = read_json_data('static/data/json/backups/%s'
+                                          % json_file)
         overwrite_with_backup(local_collection, mongo.db.all_assets)
 
     back_ups = os.listdir('static/data/json/backups')
@@ -452,18 +460,19 @@ def over_write_db(username):
     counties = read_json_data('static/data/json/Irish_Counties.json')
     return admin(username)
 
+
 @app.route('/add_asset/<username>', methods=['POST'])
 def add_asset(username):
     """
     Renders admin.html after adding new asset to database.
     """
     timestr = time.strftime("%Y%m%d-%H%M%S")
-    node_address =  "%s, %s, %s, %s, %s, %s" % (request.form['NodeAddress0'],
-                                                request.form['NodeAddress1'],
-                                                request.form['NodeAddress2'],
-                                                request.form['NodeAddress3'],
-                                                request.form['NodeAddress4'],
-                                                request.form['NodeAddress5'])
+    node_address = "%s, %s, %s, %s, %s, %s" % (request.form['NodeAddress0'],
+                                               request.form['NodeAddress1'],
+                                               request.form['NodeAddress2'],
+                                               request.form['NodeAddress3'],
+                                               request.form['NodeAddress4'],
+                                               request.form['NodeAddress5'])
 
     asset_doc = {"Name": (request.form['Name']).title(),
                  "Type":  request.form['Type'],
@@ -489,13 +498,12 @@ def add_asset(username):
 
     return admin(username)
 
+
 @app.route('/edit_asset/<username>/<asset_id>')
 def edit_asset(username, asset_id):
     """
     Renders edit_asset.html for editing a defined asset.
     """
-    print(asset_id)
-    print(username)
     assets = mongo.db.all_assets.find()
     attributes = list_attr_collection(assets)
     types = list_attr_values('Type', mongo.db.all_assets.find())
@@ -519,12 +527,12 @@ def update_asset(username, asset_id):
     Renders index.html after updating asset edited in edit_asset.html
     """
     timestr = time.strftime("%Y%m%d-%H%M%S")
-    node_address =  "%s, %s, %s, %s, %s, %s" % (request.form['NodeAddress0'],
-                                                request.form['NodeAddress1'],
-                                                request.form['NodeAddress2'],
-                                                request.form['NodeAddress3'],
-                                                request.form['NodeAddress4'],
-                                                request.form['NodeAddress5'])
+    node_address = "%s, %s, %s, %s, %s, %s" % (request.form['NodeAddress0'],
+                                               request.form['NodeAddress1'],
+                                               request.form['NodeAddress2'],
+                                               request.form['NodeAddress3'],
+                                               request.form['NodeAddress4'],
+                                               request.form['NodeAddress5'])
 
     mongo.db.all_assets.update(
                 {'_id': ObjectId(asset_id)},
@@ -556,8 +564,7 @@ def delete_asset(asset_id, username):
     return redirect(url_for('assets', username=username))
 
 
-
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=os.environ.get('PORT'),
-            debug=True)
+            debug=False)
