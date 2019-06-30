@@ -4,14 +4,15 @@
     <div class="sign-in">
         <ul>
             <li>Log in as company name i.e. 'esb', to be able to delete or edit your companies assets details, from the assets dropdown.</li>
+
             <li>
                 Log in as 'admin' to be able to delete or edit any asset from the assets dropdown, and backup the database,
                 load in backed up database or create new assets from the admin page.
             </li>
         </ul>
         <form class="form-inline col-sm-offset-3" method="POST" action="{{ url_for('check_username')}}">
-                <div class="form-group signup-form"> <input type="text" class="form-control name-input" name="username" placeholder="Username" pattern="^[a-zA-Z0-9]+$" autofocus required> </div>
-                <div class="form-group"> <button type="submit" class="btn btn-default">Log In!</button> </div>
+            <div class="form-group signup-form"> <input type="text" class="form-control name-input" name="username" placeholder="Username" pattern="^[a-zA-Z0-9]+$" autofocus required> </div>
+            <div class="form-group"> <button type="submit" class="btn btn-default">Log In!</button> </div>
         </form>
     </div>
     <div>

@@ -1,0 +1,123 @@
+CHP:,Combined Heat and Power
+AD Biogas:,Anaerobic digestion (AD) biogas (excludes biogas from landfill sites)
+CCGT:,Combined Cycle Gas Turbine
+OCGT:,Open Cycle Gas Turbine
+DO:,Distillate Oil
+HFO:,Heavy Fuel Oil
+LFG:,Land Fill Gas
+MEC:,Maximum Export Capacity
+On Hold:,"Project has been placed on hold, typically at the customers request"
+Connected:,Generators with electrical connection to the network which are permitted to export
+Energised:,Generators with electrical connection to the network which are NOT permitted to export
+Contracted:,"Generators that have signed a connection agreement with the System Operator and are committed toexporting MW's to the distribution and/or transmission system at a future date."
+"",
+Generator Reference,Project,Type,MEC (MW),Feeding 110kV Station,Offer Type,Status,Estimated Connection Date
+DG825,"Mayo Renewable Power Biomass CHP(Temp)",Biomass,49,TAWNAGHMORE,Non GPA,Contracted,30/12/2020
+DG1051,GP Wood CHP,Biomass,16.3,Bandon,Non GPA,Contracted,20/12/2020
+DG1315,Threecastles Solar Farm,Solar,15,Kilteel,Non GPA,Contracted,Date unavailable at this time
+DG793,Rhode Biomass CHP,Biomass,14.56,Derryiron,Non GPA,Contracted,30/03/2019
+DG554,Shamrock Renewable Fuels Ltd.,Biomass,13,Navan,Non GPA,Contracted,30/12/2019
+DG1687,Carrigyknaveen Solar Park,Solar,10,Coolroe,Non GPA,Contracted,Date unavailable at this time
+DG822,AMETS,Wave,10,Bellacorick,Non GPA,Contracted,31/12/2019
+DG1517,Painestown Hill Solar Farm,Solar,9.99,BALTRASNA,Non GPA,Contracted,Date unavailable at this time
+DG797,Derryclure,Biomass,9.9,Thornsberry,Non GPA,Contracted,Date unavailable at this time
+DG104,"Knockadosan Solar (formerly SpringfarmWind Farm)",Solar,6,Arklow,Gate 3,Contracted,Date unavailable at this time
+DG862,WestWave Killard,Wave,5.4,Tullabrack,Non GPA,Contracted,Date unavailable at this time
+DG105,"Martinstown Solar (formerly CrowinstownGreat Wind Farm)",Solar,4.999,Navan,Gate 2,Contracted,Date unavailable at this time
+DG1385,Woodstock North Solar Farm,Solar,4.99,ATHY,Non GPA,Contracted,Date unavailable at this time
+DG1081,Ballycullane Solar Park (Coolroe),Solar,4.99,Great Island,Non GPA,Contracted,Date unavailable at this time
+DG1142,Drumgarriff South,Solar,4.95,Kilbarry,Non GPA,Contracted,Date unavailable at this time
+DG1104,Coolyduff,Solar,4.95,Kilbarry,Non GPA,Contracted,Date unavailable at this time
+DG1119,Crossfield Solar,Solar,4.95,Mallow,Non GPA,Contracted,31/12/2025
+DG1101,Dromalour,Solar,4.95,Glenlara,Non GPA,Contracted,Date unavailable at this time
+DG1141,Shanagraigue Solar,Solar,4.95,Trabeg,Non GPA,Contracted,Date unavailable at this time
+DG1475,Leacht Cross Solar,Solar,4.95,Barnahealy,Non GPA,Contracted,Date unavailable at this time
+DG1491,Matt Solar Farm,Solar,4.95,Stephenstown,Non GPA,Contracted,Date unavailable at this time
+DG1447,Featherbed Lane Solar,Solar,4,Glasmore,Non GPA,Contracted,Date unavailable at this time
+DG1161,Millvale PV,Solar,4,Ballybeg,Non GPA,Contracted,Date unavailable at this time
+DG1224,Clooncarhy Solar Farm,Solar,4,Ardnacrusha,Non GPA,Contracted,Date unavailable at this time
+DG1310,Spancil Hill Solar Farm,Solar,4,Ennis,Non GPA,Contracted,Date unavailable at this time
+DG1538,Ovidstown Solar,Solar,4,Dunfirth,Non GPA,Contracted,Date unavailable at this time
+DG1171,"Farranlahassery (formerly Clonmel Road)Solar",Solar,4,Cahir,Non GPA,Contracted,Date unavailable at this time
+DG1159,Carrick Solar,Solar,4,Ballydine,Non GPA,Contracted,Date unavailable at this time
+DG1508,Clyduff Solar Park,Solar,4,Ahane,Non GPA,Contracted,Date unavailable at this time
+DG1147,Coolnastudd Solar PV Farm,Solar,4,BANOGE,Non GPA,Contracted,Date unavailable at this time
+DG1243,Ballinalard Solar Farm,Solar,4,Tipperary,Non GPA,Contracted,Date unavailable at this time
+DG1454,Moatstown Solar Park,Solar,4,ATHY,Non GPA,Contracted,Date unavailable at this time
+DG1322,Madam's Hill Solar Park,Solar,4,Knockearagh,Non GPA,Contracted,Date unavailable at this time
+DG1311,Kilcolman Solar Farm,Solar,4,Limerick,Non GPA,Contracted,Date unavailable at this time
+DG1317,Clonloghan Solar Park,Solar,4,Drumline,Non GPA,Contracted,Date unavailable at this time
+DG1123,Marlinstown Solar Farm (prev Russellstown),Solar,4,Mullingar,Non GPA,Contracted,31/12/2025
+DG1136,"Knockglass Solar Farm (Bawnmoreextension)",Solar,4,Macroom,Non GPA,Contracted,Date unavailable at this time
+DG1127,Liss Solar Farm (prev Lands at Liss),Solar,4,Mullingar,Non GPA,Contracted,Date unavailable at this time
+DG1253,Hortland PV,Solar,4,Dunfirth,Non GPA,Contracted,Date unavailable at this time
+DG1281,Lehinch Solar Farm,Solar,4,Thornsberry,Non GPA,Contracted,Date unavailable at this time
+DG1403,Creevy Solar,Solar,4,Lanesborough,Non GPA,Contracted,Date unavailable at this time
+DG1036,Huntstown Renewable Bioenergy Plant,Biogas,4,POPPINTREE,Non GPA,Contracted,14/02/2019
+DG1288,Ballycrissane Solar Farm,Solar,4,Somerset,Non GPA,Contracted,Date unavailable at this time
+DG1003,Data Electronics Services Ltd,Diesel,4,College Park,Non GPA,Contracted,31/12/2018
+DG1164,Ballytobin Solar PV (formerly Callan Solar),Solar,4,Kilkenny,Non GPA,Contracted,Date unavailable at this time
+DG1168,Lisnageeragh Solar Farm,Solar,4,Richmond,Non GPA,Contracted,Date unavailable at this time
+DG1165,Rathleg Solar Farm,Solar,4,Carrick on Shannon,Non GPA,Contracted,Date unavailable at this time
+DG1220,Maine Solar,Solar,4,Oughtragh,Non GPA,Contracted,Date unavailable at this time
+DG1146,Castlekelly Solar PV Farm,Solar,4,Kilkenny,Non GPA,Contracted,Date unavailable at this time
+DG1278,Barnderg Solar Farm,Solar,4,Cloon,Non GPA,Contracted,Date unavailable at this time
+DG1241,Shannagh Beg Solar Farm,Solar,4,Athlone,Non GPA,Contracted,Date unavailable at this time
+DG1280,Bawnboy Solar Park,Solar,4,Tralee,Non GPA,Contracted,Date unavailable at this time
+DG1162,Kerdiffstown PV,Solar,4,Monread,Non GPA,Contracted,Date unavailable at this time
+DG1335,Dollanstown Stud Solar Farm,Solar,4,Griffinrath,Non GPA,Contracted,Date unavailable at this time
+DG1293,Hoffman Renewable Bioenergy Plant,"Biogas /AD",4,Castleview,Non GPA,Contracted,Date unavailable at this time
+DG1156,Muiniagh Solar Farm,Solar,4,Thornsberry,Non GPA,Contracted,Date unavailable at this time
+DG1186,Carrickabane Solar Farm,Solar,4,Shankill,Non GPA,Contracted,Date unavailable at this time
+DG1180,Ballymerrigan PV,Solar,4,Ballybeg,Non GPA,Contracted,Date unavailable at this time
+DG1152,Ballinamudda Solar Farm,Solar,4,Athlone,Non GPA,Contracted,Date unavailable at this time
+DG1151,Newtownsaunders Solar Farm,Solar,4,Stratford,Non GPA,Contracted,Date unavailable at this time
+DG1169,Lisdadnan Solar Farm,Solar,4,Carrick on Shannon,Non GPA,Contracted,Date unavailable at this time
+DG1150,Shanderry Solar Farm,Solar,4,PORTLAOISE 110KV,Non GPA,Contracted,Date unavailable at this time
+DG1373,Grangegeeth Solar,Solar,4,Drybridge,Non GPA,Contracted,Date unavailable at this time
+DG1218,Carrigoon Solar Farm,Solar,4,Mallow,Non GPA,Contracted,Date unavailable at this time
+DG1200,Kilkeelan Solar Farm,Solar,4,Navan,Non GPA,Contracted,Date unavailable at this time
+DG1424,Bodenstown Solar Farm,Solar,4,Monread,Non GPA,Contracted,Date unavailable at this time
+DG1110,Blusheens 2 Solar Park,Solar,3.99,Wexford,Non GPA,Contracted,Date unavailable at this time
+DG1359,Newtown PV,Solar,3.99,Drybridge,Non GPA,Contracted,Date unavailable at this time
+DG1090,Blusheens Solar Park,Solar,3.99,Wexford,Non GPA,Contracted,Date unavailable at this time
+DG1091,Gortacrue Solar Park,Solar,3.99,Midleton,Non GPA,Contracted,Date unavailable at this time
+DG1187,Ballymacsimon Solar Farm,Solar,3.99,Crory,Non GPA,Contracted,Date unavailable at this time
+DG1377,Pollardstown PV,Solar,3.99,Newbridge,Non GPA,Contracted,Date unavailable at this time
+DG1087,Curraghmartin Solar Park,Solar,3.99,Waterford,Non GPA,Contracted,Date unavailable at this time
+DG1275,Bullstown Solar Farm,Solar,3.96,Finglas,Non GPA,Contracted,Date unavailable at this time
+DG1483,Bullstown Solar Extension,Solar,3.96,Finglas,Non GPA,Contracted,Date unavailable at this time
+DG692,Rathdrinagh,Biogas,3,Drybridge,Non GPA,Contracted,Date unavailable at this time
+DG1002,"Rhode Biomass Extension (1st Ext ofDG793)",Biomass,1.74,DERRYIRON,Non GPA,Contracted,30/03/2019
+DG1252,Biocore Environmental AD,"Biogas /AD",1.5,Tonroe,Non GPA,Contracted,30/12/2018
+DG890,Cork Green Energy Biomass CHP Plant,Biomass,1.2,Macroom,Non GPA,Contracted,28/11/2018
+DG1064,Rhode Biomass Plant (2nd Ext of DG793),Biomass,1.2,DERRYIRON,Non GPA,Contracted,30/03/2019
+DG1015,Timoleague Agri Gen,Biomass,1.1,Bandon,Non GPA,Contracted,31/12/2018
+DG882,"Bioenergy Facility, The Downs, Mullingar","Biogas /AD",0.998,Mullingar,Non GPA,Contracted,31/12/2018
+DG1006,Kyletalesha Land Fill Gas 1,LFG,0.998,PORTLAOISE 110KV,Non GPA,Contracted,Date unavailable at this time
+DG875,Glasha Hydro,Hydro,0.865,Doon,Non GPA,Contracted,Date unavailable at this time
+DG1121,Rathroeen Landfill Gas Generation,LFG,0.5,Moy,Non GPA,Contracted,Date unavailable at this time
+DG1026,Ballinrobe Biogas,Biogas,0.5,Dalton,Non GPA,Contracted,Date unavailable at this time
+DG886,Sandford Energy,Biomass,0.5,Tralee,Non GPA,Contracted,Date unavailable at this time
+DG1274,Donaghmore Solar Farm,Solar,0.5,Finglas,Non GPA,Contracted,Date unavailable at this time
+DG807,Greenfield,"Biogas /AD",0.499,Navan,Non GPA,Contracted,Date unavailable at this time
+DG892,Ballydonagh Landfill Gas Utilisation,LFG,0.499,Athlone,Non GPA,Contracted,Date unavailable at this time
+DG894,Natural Release Ltd,Biogas,0.499,Dundalk,Non GPA,Contracted,Date unavailable at this time
+DG805,Rockbrook Anaerobic Digestion,"Biogas /AD",0.499,PORTLAOISE 110KV,Non GPA,Contracted,01/09/2018
+DG1004,Country Crest AD,Biomass,0.499,Glasmore,Non GPA,Contracted,Date unavailable at this time
+DG863,James McNally Biogas Generator,Biogas,0.49,Glasmore,Non GPA,Contracted,Date unavailable at this time
+DG1028,Shanbally Biogas Plant,Biogas,0.49,Barnahealy,Non GPA,Contracted,Date unavailable at this time
+DG669,Brandon Hydro,Hydro,0.45,Oughtragh,Non GPA,Contracted,Date unavailable at this time
+DG546,R & L Dowley Biogas,Biogas,0.44,Ballydine,Non GPA,Contracted,Date unavailable at this time
+DG671,Cavanaweery Biogas,Biogas,0.44,Letterkenny,Non GPA,Contracted,30/11/2018
+DG662,Ballinphuill Biogas CHP (1),Biogas,0.36,Tonroe,Non GPA,Contracted,Date unavailable at this time
+DG1222,Derryclure Landfill Gas,LFG,0.33,Thornsberry,Non GPA,Contracted,Date unavailable at this time
+DG1100,Scotch Corner,LFG,0.33,Lisdrum,Non GPA,Contracted,Date unavailable at this time
+DG1092,Kilaclug Hydro Scheme,Hydro,0.33,Macroom,Non GPA,Contracted,Date unavailable at this time
+DG722,Grange,Biogas,0.28,Griffinrath,Non GPA,Contracted,Date unavailable at this time
+DG902,BETE Ltd.,Biogas,0.15,Thurles,Non GPA,Contracted,Date unavailable at this time
+DG836,Ballinphuill Biogas CHP (2),Biogas,0.139,Tonroe,Non GPA,Contracted,Date unavailable at this time
+DG824,Avonmore House Hydro,Hydro,0.086,Arklow,Non GPA,Contracted,Date unavailable at this time
+DG777,The Mill,Hydro,0.04,PORTLAOISE 110KV,Non GPA,Contracted,Date unavailable at this time
+DG826,Honey Park,Nat. Gas,0.022,Blackrock,Non GPA,Contracted,Date unavailable at this time
+Total,446.1,,,,,,

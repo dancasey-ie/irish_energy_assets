@@ -1,0 +1,109 @@
+GenRef,Name,Type,MEC(MW),Node ,Offer Type,Status,EstimatedConnectionDate,Voltage(kV),SystemOperator
+DG825,"Mayo Renewable Power Biomass CHP(Temp)",Biomass,49,TAWNAGHMORE,Non GPA,Contracted,30-12-20,110,DSO
+DG1051,GP Wood CHP,Biomass,16.3,Bandon,Non GPA,Contracted,20-12-20,110,DSO
+DG1315,Threecastles Solar Farm,Solar,15,Kilteel,Non GPA,Contracted,NA,110,DSO
+DG793,Rhode Biomass CHP,Biomass,14.56,Derryiron,Non GPA,Contracted,30-03-19,110,DSO
+DG554,Shamrock Renewable Fuels Ltd.,Biomass,13,Navan,Non GPA,Contracted,30-12-19,110,DSO
+DG1687,Carrigyknaveen Solar Park,Solar,10,Coolroe,Non GPA,Contracted,NA,110,DSO
+DG822,AMETS,Wave,10,Bellacorick,Non GPA,Contracted,31-12-19,110,DSO
+DG1517,Painestown Hill Solar Farm,Solar,9.99,BALTRASNA,Non GPA,Contracted,NA,110,DSO
+DG797,Derryclure,Biomass,9.9,Thornsberry,Non GPA,Contracted,NA,110,DSO
+DG104,"Knockadosan Solar (formerly SpringfarmWind Farm)",Solar,6,Arklow,Gate 3,Contracted,NA,110,DSO
+DG862,WestWave Killard,Wave,5.4,Tullabrack,Non GPA,Contracted,NA,110,DSO
+DG105,"Martinstown Solar (formerly CrowinstownGreat Wind Farm)",Solar,4.999,Navan,Gate 2,Contracted,NA,110,DSO
+DG1385,Woodstock North Solar Farm,Solar,4.99,ATHY,Non GPA,Contracted,NA,110,DSO
+DG1081,Ballycullane Solar Park (Coolroe),Solar,4.99,Great Island,Non GPA,Contracted,NA,110,DSO
+DG1142,Drumgarriff South,Solar,4.95,Kilbarry,Non GPA,Contracted,NA,110,DSO
+DG1104,Coolyduff,Solar,4.95,Kilbarry,Non GPA,Contracted,NA,110,DSO
+DG1119,Crossfield Solar,Solar,4.95,Mallow,Non GPA,Contracted,31-12-25,110,DSO
+DG1101,Dromalour,Solar,4.95,Glenlara,Non GPA,Contracted,NA,110,DSO
+DG1141,Shanagraigue Solar,Solar,4.95,Trabeg,Non GPA,Contracted,NA,110,DSO
+DG1475,Leacht Cross Solar,Solar,4.95,Barnahealy,Non GPA,Contracted,NA,110,DSO
+DG1491,Matt Solar Farm,Solar,4.95,Stephenstown,Non GPA,Contracted,NA,110,DSO
+DG1447,Featherbed Lane Solar,Solar,4,Glasmore,Non GPA,Contracted,NA,110,DSO
+DG1161,Millvale PV,Solar,4,Ballybeg,Non GPA,Contracted,NA,110,DSO
+DG1224,Clooncarhy Solar Farm,Solar,4,Ardnacrusha,Non GPA,Contracted,NA,110,DSO
+DG1310,Spancil Hill Solar Farm,Solar,4,Ennis,Non GPA,Contracted,NA,110,DSO
+DG1538,Ovidstown Solar,Solar,4,Dunfirth,Non GPA,Contracted,NA,110,DSO
+DG1171,"Farranlahassery (formerly Clonmel Road)Solar",Solar,4,Cahir,Non GPA,Contracted,NA,110,DSO
+DG1159,Carrick Solar,Solar,4,Ballydine,Non GPA,Contracted,NA,110,DSO
+DG1508,Clyduff Solar Park,Solar,4,Ahane,Non GPA,Contracted,NA,110,DSO
+DG1147,Coolnastudd Solar PV Farm,Solar,4,BANOGE,Non GPA,Contracted,NA,110,DSO
+DG1243,Ballinalard Solar Farm,Solar,4,Tipperary,Non GPA,Contracted,NA,110,DSO
+DG1454,Moatstown Solar Park,Solar,4,ATHY,Non GPA,Contracted,NA,110,DSO
+DG1322,Madam's Hill Solar Park,Solar,4,Knockearagh,Non GPA,Contracted,NA,110,DSO
+DG1311,Kilcolman Solar Farm,Solar,4,Limerick,Non GPA,Contracted,NA,110,DSO
+DG1317,Clonloghan Solar Park,Solar,4,Drumline,Non GPA,Contracted,NA,110,DSO
+DG1123,Marlinstown Solar Farm (prev Russellstown),Solar,4,Mullingar,Non GPA,Contracted,31-12-25,110,DSO
+DG1136,"Knockglass Solar Farm (Bawnmoreextension)",Solar,4,Macroom,Non GPA,Contracted,NA,110,DSO
+DG1127,Liss Solar Farm (prev Lands at Liss),Solar,4,Mullingar,Non GPA,Contracted,NA,110,DSO
+DG1253,Hortland PV,Solar,4,Dunfirth,Non GPA,Contracted,NA,110,DSO
+DG1281,Lehinch Solar Farm,Solar,4,Thornsberry,Non GPA,Contracted,NA,110,DSO
+DG1403,Creevy Solar,Solar,4,Lanesborough,Non GPA,Contracted,NA,110,DSO
+DG1036,Huntstown Renewable Bioenergy Plant,Biogas,4,POPPINTREE,Non GPA,Contracted,14-02-19,110,DSO
+DG1288,Ballycrissane Solar Farm,Solar,4,Somerset,Non GPA,Contracted,NA,110,DSO
+DG1003,Data Electronics Services Ltd,Diesel,4,College Park,Non GPA,Contracted,31-12-18,110,DSO
+DG1164,Ballytobin Solar PV (formerly Callan Solar),Solar,4,Kilkenny,Non GPA,Contracted,NA,110,DSO
+DG1168,Lisnageeragh Solar Farm,Solar,4,Richmond,Non GPA,Contracted,NA,110,DSO
+DG1165,Rathleg Solar Farm,Solar,4,Carrick on Shannon,Non GPA,Contracted,NA,110,DSO
+DG1220,Maine Solar,Solar,4,Oughtragh,Non GPA,Contracted,NA,110,DSO
+DG1146,Castlekelly Solar PV Farm,Solar,4,Kilkenny,Non GPA,Contracted,NA,110,DSO
+DG1278,Barnderg Solar Farm,Solar,4,Cloon,Non GPA,Contracted,NA,110,DSO
+DG1241,Shannagh Beg Solar Farm,Solar,4,Athlone,Non GPA,Contracted,NA,110,DSO
+DG1280,Bawnboy Solar Park,Solar,4,Tralee,Non GPA,Contracted,NA,110,DSO
+DG1162,Kerdiffstown PV,Solar,4,Monread,Non GPA,Contracted,NA,110,DSO
+DG1335,Dollanstown Stud Solar Farm,Solar,4,Griffinrath,Non GPA,Contracted,NA,110,DSO
+DG1293,Hoffman Renewable Bioenergy Plant,"Biogas /AD",4,Castleview,Non GPA,Contracted,NA,110,DSO
+DG1156,Muiniagh Solar Farm,Solar,4,Thornsberry,Non GPA,Contracted,NA,110,DSO
+DG1186,Carrickabane Solar Farm,Solar,4,Shankill,Non GPA,Contracted,NA,110,DSO
+DG1180,Ballymerrigan PV,Solar,4,Ballybeg,Non GPA,Contracted,NA,110,DSO
+DG1152,Ballinamudda Solar Farm,Solar,4,Athlone,Non GPA,Contracted,NA,110,DSO
+DG1151,Newtownsaunders Solar Farm,Solar,4,Stratford,Non GPA,Contracted,NA,110,DSO
+DG1169,Lisdadnan Solar Farm,Solar,4,Carrick on Shannon,Non GPA,Contracted,NA,110,DSO
+DG1150,Shanderry Solar Farm,Solar,4,PORTLAOISE 110KV,Non GPA,Contracted,NA,110,DSO
+DG1373,Grangegeeth Solar,Solar,4,Drybridge,Non GPA,Contracted,NA,110,DSO
+DG1218,Carrigoon Solar Farm,Solar,4,Mallow,Non GPA,Contracted,NA,110,DSO
+DG1200,Kilkeelan Solar Farm,Solar,4,Navan,Non GPA,Contracted,NA,110,DSO
+DG1424,Bodenstown Solar Farm,Solar,4,Monread,Non GPA,Contracted,NA,110,DSO
+DG1110,Blusheens 2 Solar Park,Solar,3.99,Wexford,Non GPA,Contracted,NA,110,DSO
+DG1359,Newtown PV,Solar,3.99,Drybridge,Non GPA,Contracted,NA,110,DSO
+DG1090,Blusheens Solar Park,Solar,3.99,Wexford,Non GPA,Contracted,NA,110,DSO
+DG1091,Gortacrue Solar Park,Solar,3.99,Midleton,Non GPA,Contracted,NA,110,DSO
+DG1187,Ballymacsimon Solar Farm,Solar,3.99,Crory,Non GPA,Contracted,NA,110,DSO
+DG1377,Pollardstown PV,Solar,3.99,Newbridge,Non GPA,Contracted,NA,110,DSO
+DG1087,Curraghmartin Solar Park,Solar,3.99,Waterford,Non GPA,Contracted,NA,110,DSO
+DG1275,Bullstown Solar Farm,Solar,3.96,Finglas,Non GPA,Contracted,NA,110,DSO
+DG1483,Bullstown Solar Extension,Solar,3.96,Finglas,Non GPA,Contracted,NA,110,DSO
+DG692,Rathdrinagh,Biogas,3,Drybridge,Non GPA,Contracted,NA,110,DSO
+DG1002,"Rhode Biomass Extension (1st Ext ofDG793)",Biomass,1.74,DERRYIRON,Non GPA,Contracted,30-03-19,110,DSO
+DG1252,Biocore Environmental AD,"Biogas /AD",1.5,Tonroe,Non GPA,Contracted,30-12-18,110,DSO
+DG890,Cork Green Energy Biomass CHP Plant,Biomass,1.2,Macroom,Non GPA,Contracted,28-11-18,110,DSO
+DG1064,Rhode Biomass Plant (2nd Ext of DG793),Biomass,1.2,DERRYIRON,Non GPA,Contracted,30-03-19,110,DSO
+DG1015,Timoleague Agri Gen,Biomass,1.1,Bandon,Non GPA,Contracted,31-12-18,110,DSO
+DG882,"Bioenergy Facility, The Downs, Mullingar","Biogas /AD",0.998,Mullingar,Non GPA,Contracted,31-12-18,110,DSO
+DG1006,Kyletalesha Land Fill Gas 1,LFG,0.998,PORTLAOISE 110KV,Non GPA,Contracted,NA,110,DSO
+DG875,Glasha Hydro,Hydro,0.865,Doon,Non GPA,Contracted,NA,110,DSO
+DG1121,Rathroeen Landfill Gas Generation,LFG,0.5,Moy,Non GPA,Contracted,NA,110,DSO
+DG1026,Ballinrobe Biogas,Biogas,0.5,Dalton,Non GPA,Contracted,NA,110,DSO
+DG886,Sandford Energy,Biomass,0.5,Tralee,Non GPA,Contracted,NA,110,DSO
+DG1274,Donaghmore Solar Farm,Solar,0.5,Finglas,Non GPA,Contracted,NA,110,DSO
+DG807,Greenfield,"Biogas /AD",0.499,Navan,Non GPA,Contracted,NA,110,DSO
+DG892,Ballydonagh Landfill Gas Utilisation,LFG,0.499,Athlone,Non GPA,Contracted,NA,110,DSO
+DG894,Natural Release Ltd,Biogas,0.499,Dundalk,Non GPA,Contracted,NA,110,DSO
+DG805,Rockbrook Anaerobic Digestion,"Biogas /AD",0.499,PORTLAOISE 110KV,Non GPA,Contracted,01-09-18,110,DSO
+DG1004,Country Crest AD,Biomass,0.499,Glasmore,Non GPA,Contracted,NA,110,DSO
+DG863,James McNally Biogas Generator,Biogas,0.49,Glasmore,Non GPA,Contracted,NA,110,DSO
+DG1028,Shanbally Biogas Plant,Biogas,0.49,Barnahealy,Non GPA,Contracted,NA,110,DSO
+DG669,Brandon Hydro,Hydro,0.45,Oughtragh,Non GPA,Contracted,NA,110,DSO
+DG546,R & L Dowley Biogas,Biogas,0.44,Ballydine,Non GPA,Contracted,NA,110,DSO
+DG671,Cavanaweery Biogas,Biogas,0.44,Letterkenny,Non GPA,Contracted,30-11-18,110,DSO
+DG662,Ballinphuill Biogas CHP (1),Biogas,0.36,Tonroe,Non GPA,Contracted,NA,110,DSO
+DG1222,Derryclure Landfill Gas,LFG,0.33,Thornsberry,Non GPA,Contracted,NA,110,DSO
+DG1100,Scotch Corner,LFG,0.33,Lisdrum,Non GPA,Contracted,NA,110,DSO
+DG1092,Kilaclug Hydro Scheme,Hydro,0.33,Macroom,Non GPA,Contracted,NA,110,DSO
+DG722,Grange,Biogas,0.28,Griffinrath,Non GPA,Contracted,NA,110,DSO
+DG902,BETE Ltd.,Biogas,0.15,Thurles,Non GPA,Contracted,NA,110,DSO
+DG836,Ballinphuill Biogas CHP (2),Biogas,0.139,Tonroe,Non GPA,Contracted,NA,110,DSO
+DG824,Avonmore House Hydro,Hydro,0.086,Arklow,Non GPA,Contracted,NA,110,DSO
+DG777,The Mill,Hydro,0.04,PORTLAOISE 110KV,Non GPA,Contracted,NA,110,DSO
+DG826,Honey Park,Nat. Gas,0.022,Blackrock,Non GPA,Contracted,NA,110,DSO

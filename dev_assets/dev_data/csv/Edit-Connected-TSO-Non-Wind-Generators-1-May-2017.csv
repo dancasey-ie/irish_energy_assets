@@ -1,0 +1,55 @@
+Node ,Voltage(kV),Name,Type,MEC(MW),"YearOfConnection",PlexisName,Notes,SystemOperator,Status
+"Aghada",220,Aghada (1),Gas,258,2000,Aghada 1,,TSO,Connected
+"Longpoint",220,Aghada CCGT,CCGT,444,2010,Aghada CCGT,,TSO,Connected
+"Aghada",220,Aghada (11),Gas/DO,90,2000,Aghada CT 1,,TSO,Connected
+"Aghada",220,Aghada (12),Gas/DO,90,2000,Aghada CT 2,,TSO,Connected
+"Aghada",220,Aghada (14),Gas/DO,90,2000,Aghada CT 4,,TSO,Connected
+"Ardnacrusha",110,Ardnacrusha Hydro (1),Hydro,21,2000,Ardnacrusha 1,,TSO,Connected
+"Ardnacrusha",110,Ardnacrusha Hydro (2),Hydro,22,2000,Ardnacrusha 2,,TSO,Connected
+"Ardnacrusha",110,Ardnacrusha Hydro (3),Hydro,19,2000,Ardnacrusha 3,,TSO,Connected
+"Ardnacrusha",110,Ardnacrusha Hydro (4),Hydro,24,2000,Ardnacrusha 4,,TSO,Connected
+"Cushaling",110,Edenderry Peaking,OCGT,58,2010,Cushaling,,TSO,Connected
+"Cushaling",110,Edenderry Peaking,OCGT,58,2010,Cushaling,,TSO,Connected
+"Irishtown",220,Dublin Bay Power,Gas,423,2002,Dublin Bay CCGT,,TSO,Connected
+"Cushaling",110,Edenderry Power,Peat,117.6,2000,Edenderry,,TSO,Connected
+"Cathaleen's Fall",110,Erne Cathleens Fall Hydro (3),Hydro,10,2000,Erne 1,,TSO,Connected
+"Cathaleen's Fall",110,Erne Cathleens Fall Hydro (4),Hydro,10,2000,Erne 2,,TSO,Connected
+"Cliff",110,Erne Cliff Hydro (1),Hydro,22.5,2000,Erne 3,,TSO,Connected
+"Cliff",110,Erne Cliff Hydro (2),Hydro,22.5,2000,Erne 4,,TSO,Connected
+"Great Island",220,Great Island CCGT,CCGT,464,2014,Great Island CCGT,,TSO,Connected
+"Huntstown",220,Huntstown (1),Gas,343,2002,Huntstown,,TSO,Connected
+"Corduff",220,Huntstown (2),Gas,404,2007,Huntstown Phase II,,TSO,Connected
+"Inniscarra",110,Lee Inniscarra Hydro (1),Hydro,15,2000,Lee 1,,TSO,Connected
+"Inniscarra",110,Lee Inniscarra Hydro (2),Hydro,4,2000,Lee 2,,TSO,Connected
+"Carrigadrohid",110,Lee Carrigadrohid Hydro (3),Hydro,8,2000,Lee 3,,TSO,Connected
+"Pollaphuca",110,Liffey Hydro (1),Hydro,15,2000,Liffey 1,,TSO,Connected
+"Pollaphuca",110,Liffey Hydro (2),Hydro,15,2000,Liffey 2,,TSO,Connected
+"Pollaphuca",110,Liffey Hydro (3),Hydro,4,2000,Liffey 4,,TSO,Connected
+"Pollaphuca",110,Liffey Hydro (4),Hydro,4,2000,Liffey 5,,TSO,Connected
+"Lanesboro",110,Lough Ree Power,Peat,93,2000,Lough Ree,,TSO,Connected
+"Marina",110,Marina,Gas/DO,95,2000,Marina,,TSO,Connected
+"Moneypoint",380,Moneypoint (1),Coal,285,2000,Moneypoint 1,,TSO,Connected
+"Moneypoint",380,Moneypoint (2),Coal,285,2000,Moneypoint 2,,TSO,Connected
+"Moneypoint",380,Moneypoint (3),Coal,285,2000,Moneypoint 3,,TSO,Connected
+"North Wall",220,North Wall (5),Gas/DO,109,2000,North Wall 5,,TSO,Connected
+"Shellybanks",220,Shellybanks Combined Cycle,Gas/DO,256,2000,Poolbeg C_A,,TSO,Connected
+"Shellybanks",220,Shellybanks Combined Cycle,Gas/DO,256,2000,Poolbeg C_B,,TSO,Connected
+"Derryiron",110,Rhode PCP (1),Distillate,52,2004,Rhode 1,,TSO,Connected
+"Derryiron",110,Rhode PCP (2),Distillate,52,2004,Rhode 2,,TSO,Connected
+"Aughinish",110,Alumina CHP (1),CHP,83,2005,Sealrock 3 (Aughinish CHP),,TSO,Connected
+"Aughinish",110,Alumina CHP (1),CHP,83,2005,Sealrock 4 (Aughinish CHP),,TSO,Connected
+"Tarbert",110,Tarbert (1),HFO,54,2000,Tarbert Unit 1,,TSO,Connected
+"Tarbert",110,Tarbert (2),HFO,54,2000,Tarbert Unit 2,,TSO,Connected
+"Tarbert",220,Tarbert (3),HFO,243,2000,Tarbert Unit 3,,TSO,Connected
+"Tarbert",220,Tarbert (4),HFO,243,2000,Tarbert Unit 4,,TSO,Connected
+Tawnaghmore,110,Tawnaghmore 1, Gasoil ,52,2006,Tawnaghmore 1,"http://www.eirgridnortheastprojects.ie/site-files/library/EirGrid/Connected%20(Non-Wind%20Generators)%20-%2031%20March%202011.pdf
+http://globalenergyobservatory.org/geoid/43937",TSO,Connected
+Tawnaghmore,110,Tawnaghmore 3, Gasoil ,52,2008,Tawnaghmore 3,"http://www.eirgridnortheastprojects.ie/site-files/library/EirGrid/Connected%20(Non-Wind%20Generators)%20-%2031%20March%202011.pdf
+http://globalenergyobservatory.org/geoid/43937",TSO,Connected
+"Turlough Hill",220,Turlough Hill (1),Pumped Storage Hydro,73,2000,Turlough Hill 1,,TSO,Connected
+"Turlough Hill",220,Turlough Hill (2),Pumped Storage Hydro,73,2000,Turlough Hill 2,,TSO,Connected
+"Turlough Hill",220,Turlough Hill (3),Pumped Storage Hydro,73,2000,Turlough Hill 3,,TSO,Connected
+"Turlough Hill",220,Turlough Hill (4),Pumped Storage Hydro,73,2000,Turlough Hill 4,,TSO,Connected
+"Tynagh",220,Tynagh,Gas,404,2006,Tynagh,,TSO,Connected
+"Shannonbridge",110,West Offaly Power,Peat,140,2005,West Offaly,,TSO,Connected
+"Glanagow",220,Whitegen,CCGT,445,2010,Whitegate,,TSO,Connected

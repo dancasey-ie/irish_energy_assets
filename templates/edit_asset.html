@@ -147,10 +147,11 @@
             </div>
 
             <div class="collapse collapse_delete_asset" id="collapse_delete_asset">
-                    <div>
-                        <p> Perminently delete asset from database.</p>
-                        <div class="btn btn-warning delete_button my_btn"><a href="{{url_for('delete_asset', asset_id = asset._id, username = username)}}">Delete Asset</a></div>
-                    </div>
+                <div>
+                    <p> Perminently delete asset from database.</p>
+                    <div class="btn btn-warning delete_button my_btn"><a href="{{url_for('delete_asset', asset_id = asset._id, username = username)}}">Delete Asset</a></div>
+
+                </div>
             </div>
         </div>
     </form>

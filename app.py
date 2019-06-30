@@ -6,14 +6,23 @@ from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
+
 app = Flask(__name__)
 
-with open('db_details.txt', 'r') as f:
-    db_details = f.readlines()
-    app.config["MONGO_DBNAME"] = db_details[0]
-    app.config["MONGO_URI"] = db_details[1]
+if os.path.isfile('env.py'):
+    import env
+
+app.config["MONGO_DBNAME"] = os.environ.get('MONGO_DBNAME')
+app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
+
+# below replaced by above
+#with open('db_details.txt', 'r') as f:
+#    db_details = f.readlines()
+ #   app.config["MONGO_DBNAME"] = db_details[0]
+  #  app.config["MONGO_URI"] = db_details[1]
 
 mongo = PyMongo(app)
+
 
 # CALLABLE FUNCTIONS #########################################################
 
